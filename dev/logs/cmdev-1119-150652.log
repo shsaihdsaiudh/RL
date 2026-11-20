@@ -1,0 +1,1274 @@
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+WARNING:root:logger.py:2043: Cannot detect container startup time: NRL_JOB_START_EPOCH not set. Ensure the launch script exports this variable for init timing.
+2026-11-19 15:07:40,790	WARNING utils.py:473 -- Detecting docker specified CPUs. In previous versions of Ray, CPU detection in containers was incorrect. Please ensure that Ray has enough CPUs allocated. As a temporary workaround to revert to the prior behavior, set `RAY_USE_MULTIPROCESSING_CPU_COUNT=1` as an env var before starting Ray. Set the env var: `RAY_DISABLE_DOCKER_CPU_WARNING=1` to mute this warning.
+2026-11-19 15:07:42,067	INFO worker.py:2015 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+INFO:nemo_rl.distributed.virtual_cluster:virtual_cluster.py:544: Started local cluster with tag 'nrl_tag_ALL': {'accelerator_type:H20': 1.0, 'CPU': 20.0, 'GPU': 1.0, 'node:<ip>': 1.0, 'nrl_tag_ALL': 1.0, 'node:__internal_head__': 1.0, 'object_store_memory': 200000000000.0, 'memory': 1861824954368.0}
+/planning-users/yangyeyuan/nemo-rl-3976/RL/nemo_rl/data/utils.py:222: UserWarning: Dataset config key seed=42 is not supported by GSM8KDataset and will be ignored. Remove the key, or use a dataset class that supports it.
+  data = load_response_dataset(cfg)
+/planning-users/yangyeyuan/nemo-rl-3976/RL/nemo_rl/data/utils.py:222: UserWarning: Dataset config key split_validation_size=0.05 is not supported by GSM8KDataset and will be ignored. Remove the key, or use a dataset class that supports it.
+  data = load_response_dataset(cfg)
+[36m(pid=100498)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/environments-v2/nemo-rl-cp3.13.14-ec414780f8fd8c50/lib/python3.13/site-packages/torchdata/stateful_dataloader/stateful_dataloader.py:379: UserWarning: 'set_vital' is deprecated, please do not call
+  torch.set_vital("Dataloader", "enabled", "True")  # type: ignore[attr-defined]
+Loaded configuration from: examples/configs/grpo_math_1B_megatron.yaml
+Overrides: ['policy.model_name=Qwen/Qwen2.5-0.5B', 'data.train.dataset_name=gsm8k', 'grpo.max_num_steps=3', 'grpo.num_prompts_per_step=8', 'grpo.num_generations_per_prompt=4', 'grpo.val_period=-1', 'policy.train_global_batch_size=32', 'policy.max_total_sequence_length=512', 'checkpointing.enabled=false', 'logger.log_dir=/planning-users/yangyeyuan/nemo-rl-3976/logs/smoke_grpo_megatron', 'grpo.max_num_steps=5', 'logger.log_dir=/planning-users/yangyeyuan/nemo-rl-3976/logs/offload_3976_pinned']
+Applied CLI overrides
+Final config:
+MasterConfig(policy={'model_name': 'Qwen/Qwen2.5-0.5B', 'tokenizer': {'name': 'Qwen/Qwen2.5-0.5B', 'chat_template_kwargs': None, 'tokenizer_kwargs': None, 'use_fastokens': False}, 'train_global_batch_size': 32, 'train_micro_batch_size': 4, 'offload_optimizer_for_logprob': False, 'logprob_batch_size': 4, 'logprob_chunk_size': None, 'generation': {'backend': 'vllm', 'max_new_tokens': 512, 'temperature': 1.0, 'top_p': 1.0, 'top_k': None, 'sampler_replay': SamplerReplayConfig(enabled=False), 'top_logprobs': 0, 'val_temperature': 1.0, 'val_top_p': 1.0, 'val_top_k': None, 'stop_token_ids': None, 'stop_strings': None, 'colocated': {'enabled': True, 'resources': {'gpus_per_node': None, 'num_nodes': None}}, 'port_range_low': 3000, 'port_range_high': 4999, 'disaggregation': DisaggConfig(enabled=False, num_prefill_engines=1, num_decode_engines=1, num_frontend_workers=1, frontend_tokenize=False, frontend_base_port=8300), 'refit_transport': None, 'lora_refit_mode': 'native', 'worker_extension_cls_fqn': None, 'real_quant_export_cpu_offload': True, 'refit_cfg': {'nixl': {'update_weights_bucket_memory_ratio': 0.05, 'device': 'cuda', 'backend_name': 'UCX', 'backend_init_params': None, 'release_after_refit': False, 'shard_expert_weights': False}}, 'mcore_generation_config': {'max_model_len': 512, 'cuda_graph_impl': 'local', 'cuda_graph_sizing_distribution': 'hybrid', 'cuda_graph_max_tokens': 512, 'inference_cuda_graph_scope': 'block', 'buffer_size_gb': 10, 'num_cuda_graphs': -1, 'block_size_tokens': 256, 'use_cuda_graphs_for_non_decode_steps': True, 'enable_chunked_prefill': True, 'enable_prefix_caching': True, 'prefix_caching_mamba_gb': None, 'prefix_caching_eviction_policy': 'lru', 'prefix_caching_coordinator_policy': 'longest_prefix', 'prefix_cache_ttl_seconds': 300.0, 'prefix_caching_routing_alpha': 1.0, 'max_tokens': 16384, 'kv_cache_management_mode': 'recompute', 'async_sched_mode': 'async', 'materialize_only_last_token_logits': True, 'num_speculative_tokens': 0, 'mamba_inference_ssm_states_dtype': None, 'mamba_inference_conv_states_dtype': None, 'refit_backend': None, 'refit_execution_batch_bytes': None, 'logprobs_mode': 'processed_logprobs', 'parsers': [], 'expose_http_server': False, 'http_server_num_replicas': 8}, 'vllm_cfg': {'http_api_server_count': 1, 'http_server_api_key_required': False, 'async_engine': False, 'precision': 'bfloat16', 'refit_prequantize': False, 'kv_cache_dtype': 'auto', 'logprobs_mode': 'processed_logprobs', 'fp32_lm_head': False, 'refit_with_reload_api': False, 'tensor_parallel_size': 1, 'pipeline_parallel_size': 1, 'expert_parallel_size': 1, 'gpu_memory_utilization': 0.6, 'max_model_len': 512, 'enforce_eager': False, 'use_tqdm': True, 'use_deep_gemm': False, 'num_last_layers_in_bf16': 0, 'num_first_layers_in_bf16': 0, 'enable_vllm_metrics_logger': True, 'flat_logprobs': False, 'output_loop_yield_budget_ms': None, 'vllm_metrics_logger_interval': 0.5, 'http_refit_api_key_env_var': None, 'reset_encoder_cache_after_weight_update': False, 'http_refit_server_port': None, 'zmq_refit_server_port': None}, 'vllm_kwargs': {}}, 'generation_batch_size': 64, 'precision': 'bfloat16', 'automodel_cfg': {'enabled': False, 'checkpoint': {'model_save_format': 'safetensors', 'save_consolidated': 'false', 'single_rank_consolidation': False, 'consolidation_timeout_minutes': 30}, 'cpu_offload': False, 'sequence_parallel': False, 'activation_checkpointing': False, 'deterministic': False, 'tensor_parallel_size': 1, 'context_parallel_size': 1, 'custom_parallel_plan': None, 'automodel_kwargs': {}, 'lora_cfg': {'enabled': False, 'target_modules': [], 'exclude_modules': [], 'match_all_linear': True, 'dim': 8, 'alpha': 32, 'dropout': 0.0, 'dropout_position': 'post', 'lora_A_init': 'xavier', 'use_triton': True, 'restore_from': None}}, 'megatron_cfg': {'enabled': True, 'env_vars': None, 'model_overrides': {}, 'empty_unused_memory_level': 1, 'optimizer_offload_pinned_buffer_gb': None, 'manual_gc': False, 'manual_gc_interval': 10, 'activation_checkpointing': False, 'recompute_granularity': 'full', 'recompute_modules': None, 'tensor_model_parallel_size': 1, 'pipeline_model_parallel_size': 1, 'num_layers_in_first_pipeline_stage': None, 'num_layers_in_last_pipeline_stage': None, 'context_parallel_size': 1, 'pipeline_dtype': 'bfloat16', 'sequence_parallel': False, 'freeze_moe_router': True, 'moe_router_dtype': 'fp64', 'moe_router_load_balancing_type': 'none', 'moe_router_bias_update_rate': 0.0, 'moe_permute_fusion': True, 'expert_tensor_parallel_size': 1, 'expert_model_parallel_size': 1, 'defer_fp32_logits': False, 'apply_rope_fusion': True, 'bias_activation_fusion': True, 'force_reconvert_from_hf': False, 'moe_per_layer_logging': False, 'moe_enable_deepep': False, 'moe_token_dispatcher_type': 'alltoall', 'cuda_graph_impl': 'none', 'cuda_graph_modules': [], 'cuda_graph_warmup_steps': 3, 'moe_shared_expert_overlap': False, 'fine_grained_activation_offloading': False, 'offload_modules': None, 'use_gloo_process_groups': False, 'distributed_timeout_minutes': None, 'moe_hybridep_prepad_packed_inputs': False, 'peft': {'enabled': False, 'target_modules': [], 'exclude_modules': [], 'dim': 8, 'alpha': 32, 'dropout': 0.0, 'dropout_position': 'post', 'lora_A_init_method': 'xavier', 'lora_B_init_method': 'zero', 'a2a_experimental': False, 'lora_dtype': None, 'restore_from': None}, 'optimizer': {'optimizer': 'adam', 'lr': 5e-06, 'min_lr': 5e-07, 'weight_decay': 0.01, 'bf16': True, 'fp16': False, 'params_dtype': 'float32', 'adam_beta1': 0.9, 'adam_beta2': 0.999, 'adam_eps': 1e-08, 'sgd_momentum': 0.9, 'use_distributed_optimizer': True, 'use_precision_aware_optimizer': True, 'clip_grad': 1.0, 'optimizer_cpu_offload': False, 'optimizer_offload_fraction': 0.0, 'overlap_cpu_optimizer_d2h_h2d': False}, 'scheduler': {'start_weight_decay': 0.01, 'end_weight_decay': 0.01, 'weight_decay_incr_style': 'constant', 'lr_decay_style': 'constant', 'lr_decay_iters': 1000, 'lr_warmup_iters': 13, 'lr_warmup_init': 5e-07}, 'distributed_data_parallel_config': {'grad_reduce_in_fp32': False, 'overlap_grad_reduce': True, 'overlap_param_gather': True, 'use_custom_fsdp': False, 'data_parallel_sharding_strategy': 'optim_grads_params'}, 'checkpoint': {'async_save': True, 'ckpt_assume_constant_structure': True, 'parallel_read_threads': 4}, 'gradient_accumulation_fusion': False, 'use_fused_weighted_squared_relu': False, 'use_fused_linear_logprobs': False, 'fused_linear_logprobs_chunk_size': 256, 'fp32_lm_head': False, 'mtp_num_layers': 0, 'mtp_loss_scaling_factor': 0.0, 'mtp_use_repeated_layer': False, 'mtp_detach_heads': False, 'clear_memory_caches_before_refit': False, 'reuse_logits_storage': False, 'fp8_cfg': {'enabled': False, 'fp8': 'e4m3', 'fp8_recipe': 'blockwise', 'fp8_param': False}, 'fp4_cfg': Fp4Config(enabled=False, fp4='e2m1', fp4_recipe='nvfp4', fp4_param=False), 'first_last_layers_bf16': False, 'num_layers_at_start_in_bf16': 1, 'num_layers_at_end_in_bf16': 1, 'flash_attention_version': 2}, 'draft': Eagle3DraftConfig(speculator_type='eagle3', enabled=False, model_name=None, loss_weight=0.1, num_layers=None, aux_layer_indices=None, optimizer=None, learning_rate=0.0001, ttt_steps=3, ttt_step_loss_decay=1.0, train_embed_and_head=True, token_chunk_size=4096), 'hf_config_overrides': {}, 'dynamic_batching': {'enabled': False, 'train_mb_tokens': 2048, 'logprob_mb_tokens': 2048, 'sequence_length_round': 64}, 'sequence_packing': {'enabled': True, 'train_mb_tokens': 2048, 'logprob_mb_tokens': 2048, 'algorithm': 'modified_first_fit_decreasing', 'microbatch_order': 'packer', 'sequence_length_round': 64}, 'make_sequence_length_divisible_by': 1, 'max_total_sequence_length': 512, 'max_grad_norm': 1.0, 'offload_policy_before_refit': False, 'offload_optimizer_for_refit': True, 'optimizer': None, 'scheduler': [{'name': 'torch.optim.lr_scheduler.LinearLR', 'kwargs': {'start_factor': 0.1, 'end_factor': 1.0, 'total_iters': 50}}, {'name': 'torch.optim.lr_scheduler.ConstantLR', 'kwargs': {'factor': 1.0, 'total_iters': 10000000000}}, {'milestones': [50]}], 'worker_extension_cls_fqn': None}, loss_fn=ClippedPGLossConfig(disable_ppo_ratio=False, token_level_loss=True, sequence_level_importance_ratios=False, ratio_clip_min=0.2, ratio_clip_max=0.2, ratio_clip_c=None, reference_policy_kl_penalty=0.01, reference_policy_kl_type='k3', kl_input_clamp_value=20.0, kl_output_clamp_value=10.0, use_kl_in_reward=False, use_importance_sampling_correction=False, truncated_importance_sampling_type=None, truncated_importance_sampling_ratio=None, truncated_importance_sampling_ratio_min=None, truncated_importance_sampling_adaptive_target_entropy=0.3, truncated_importance_sampling_adaptive_k_step=0.25, truncated_importance_sampling_adaptive_k_max=1.0, truncated_importance_sampling_adaptive_outer_bound=50.0, use_on_policy_kl_approximation=False, force_on_policy_ratio=False, seq_logprob_error_in_loss=False, use_cispo=False, positive_example_nll_weight=0.0, metrics_level='full', enable_torch_compile=False, score_centering=False), env={'math': {'num_workers': 8, 'math_verify_impl': 'hf_math_verify'}}, data={'max_input_seq_length': 512, 'shuffle': True, 'num_workers': 1, 'use_multiple_dataloader': False, 'train': {'dataset_name': 'gsm8k', 'split_validation_size': 0.05, 'seed': 42}, 'validation': None, 'default': {'prompt_file': 'examples/prompts/cot.txt', 'system_prompt_file': None, 'env_name': 'math', 'processor': 'math_hf_data_processor'}}, grpo=GRPOConfig(num_prompts_per_step=8, num_generations_per_prompt=4, max_num_epochs=1, max_num_steps=5, max_rollout_turns=1, normalize_rewards=True, masked_reward_policy='include', advantage_clip_low=None, advantage_clip_high=None, use_leave_one_out_baseline=True, val_period=-1, val_start_at=-1, val_batch_size=256, val_at_start=False, val_at_end=False, max_val_samples=256, val_num_generations_per_prompt=1, stop_at_validation_metric=None, stop_at_validation_threshold=None, skip_reference_policy_logprobs_calculation=False, seed=42, async_grpo=AsyncGRPOConfig(enabled=False, max_trajectory_age_steps=1, max_generation_failures=0, in_flight_weight_updates=False, recompute_kv_cache_after_weight_updates=True), overlong_filtering=False, use_dynamic_sampling=False, dynamic_sampling_max_gen_batches=10, batch_multiplier=1.0, reward_shaping=RewardShapingConfig(enabled=False, overlong_buffer_length=128, overlong_buffer_penalty=1.0, max_response_length=512, stop_properly_penalty_coef=None), reward_scaling=RewardScalingConfig(enabled=False, source_min=0.0, source_max=1.0, target_min=0.0, target_max=1.0), calculate_advantages_on_gpu=False, seq_logprob_error_threshold=None, invalid_tool_call_advantage=None, malformed_thinking_advantage=None, adv_estimator=AdvEstimatorConfig(name='grpo', normalize_rewards=True, use_leave_one_out_baseline=True, reward_weights=None, minus_baseline=True, proximal_teacher_alpha=1.0, subtract_global_baseline=False), deduplicate_multimodal_data=False, debug_payload_metrics=False, length_penalty=None), logger=LoggerConfig(log_dir='/planning-users/yangyeyuan/nemo-rl-3976/logs/offload_3976_pinned', wandb_enabled=False, swanlab_enabled=False, tensorboard_enabled=False, mlflow_enabled=False, wandb=WandbConfig(project='grpo-dev', name='sj_megatron_1B', entity=None, id=None, resume=None, log_nemo_gym_full_result_tables=False), tensorboard=TensorboardConfig(log_dir=None), swanlab=SwanlabConfig(project='grpo-dev', name='sj_megatron_1B'), mlflow=MLflowConfig(experiment_name='grpo-dev', run_id=None, run_name='sj_megatron_1B', tracking_uri='http://localhost:5000', artifact_location=None), monitor_gpus=False, gpu_monitoring=GPUMonitoringConfig(collection_interval=10.0, flush_interval=10.0), num_val_samples_to_print=0, extra_backends=[]), cluster=ClusterConfig(gpus_per_node=1, num_nodes=1, master_port_range_low=1400, master_port_range_high=1999, segment_size=None), checkpointing=CheckpointingConfig(enabled=False, checkpoint_dir='results/grpo_megatron', metric_name='val:accuracy', higher_is_better=True, save_period=10, keep_top_k=3, ft_keep_latest_k=None, ft_save_period=None, checkpoint_must_save_by=None, pretrained_checkpoint=None, save_optimizer=True, save_data_plane=False, load_replay_buffer=True), reward_penalties=RewardPenaltyConfig(penalize_duplicated_reasoning=False, penalize_empty_final_answer=False, penalize_unwanted_tokens=False, penalize_malformed_think_tag=False, token_ids=None), data_plane={'enabled': False, 'impl': 'transfer_queue', 'backend': 'simple', 'claim_meta_poll_interval_s': 0.5, 'simple': SimpleStorageConfig(storage_capacity=1000000, num_storage_units=2, storage_unit_placement=None, ssd_offload=SsdOffloadConfig(enabled=False, path=None, threshold_bytes=1048576), async_checkpoint=False, checkpoint_io_timeout_s=600.0), 'mooncake_cpu': MooncakeCpuConfig(global_segment_size=68719476736, local_buffer_size=2147483648, reuse_registered_buffers=True, staging_buffer_size=536870912, use_gdr=False, gdr_staging_buffer_mb=1024, gdr_keep_teacher_payload_on_gpu=True, storage_unit_segment_size=0, num_storage_units=None, storage_unit_placement='all', ssd_offload=MooncakeSsdOffloadConfig(enabled=False, path=None, offload_threshold=0.5)), 'nixl': NixlStoreConfig(num_storage_units=None, storage_units_per_node=None, storage_unit_placement='all', node_ids=None, unit_slab_bytes=17179869184, max_blob_bytes=None, numa='auto', client_staging_bytes=1073741824, client_staging_buffers=2, client_pool_max_bytes=4294967296, zero_copy_min_bytes=1048576, zero_copy_max_bytes=33554432, parallel_copy_min_bytes=16777216, read_pin_s=None, transfer_timeout_s=120.0, lease_margin_s=30.0, op_timeout_s=None, graveyard_max_bytes=4294967296, debug_check_finite=False, ssd=NixlSsdConfig(enabled=False, path=None, staging_bytes=None, pickup_s=10.0), nixl=NixlAgentConfig(backend_name='UCX', backend_init_params={})), 'observability': {'enabled': True, 'verify_tensor_hash': False}}, on_policy_distillation=None, telemetry=None)
+📊 Using log directory: /planning-users/yangyeyuan/nemo-rl-3976/logs/offload_3976_pinned/exp_001
+No chat template provided, using tokenizer's default
+
+▶ Setting up envs...
+
+▶ Setting up data...
+  - Loaded training dataset gsm8k with 7473 samples.
+  ✓ Training dataset loaded with 7473 samples.
+No loggers initialized
+  ✓ Training dataloader loaded with 934 samples
+
+▶ Setting up compute cluster...
+  ✓ Ray cluster for policy initialized with 1 nodes
+
+▶ Setting up model and training...
+  ⚙️  Using sequential worker initialization (colocated mode)
+[36m(pid=100969)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+[36m(pid=101041)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+[36m(pid=102397)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code[32m [repeated 7x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+Initializing vllm_policy workers:   0%|          | 0/1 [00:00<?, ?worker/s][36m(_env_builder pid=102397)[0m INFO:nemo_rl.utils.venvs:venvs.py:161: Using existing venv at /planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker
+[36m(pid=102571)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+Initializing vllm_policy workers: 100%|██████████| 1/1 [00:36<00:00, 36.12s/worker]Initializing vllm_policy workers: 100%|██████████| 1/1 [00:36<00:00, 36.12s/worker]
+  ✓ 1 workers initialized in 36.12s
+[36m(pid=102789)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+[36m(VllmGenerationWorker pid=102789)[0m INFO:nemo_rl.utils.nvml:nvml.py:219: [GPU_DIAG] [VllmGenerationWorker] [load_model_start] host=<host> rank=0 logical_dev=0 physical_dev=0 CUDA_VISIBLE_DEVICES=0 uuid=GPU-91792f8e-5623-d928-47fb-c3dd418e7d2d | NVML: total=97871MB used=515MB free=97356MB | PyTorch: allocated=N/A reserved=N/A | GPU procs: [none detected]
+[36m(VllmGenerationWorker pid=102789)[0m W1119 15:09:37.345000 102789 venvs/nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker/lib/python3.13/site-packages/torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+[36m(VllmGenerationWorker pid=102789)[0m W1119 15:09:37.345000 102789 venvs/nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker/lib/python3.13/site-packages/torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+[36m(VllmGenerationWorker pid=102789)[0m W1119 15:09:37.346000 102789 venvs/nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker/lib/python3.13/site-packages/torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+[36m(VllmGenerationWorker pid=102789)[0m Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 2026.13it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):   4%|▍         | 2/51 [00:00<00:02, 17.53it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  10%|▉         | 5/51 [00:00<00:02, 20.06it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  16%|█▌        | 8/51 [00:00<00:02, 20.82it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  22%|██▏       | 11/51 [00:00<00:01, 21.37it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  27%|██▋       | 14/51 [00:00<00:01, 19.53it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  33%|███▎      | 17/51 [00:00<00:01, 19.94it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  39%|███▉      | 20/51 [00:00<00:01, 20.60it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  45%|████▌     | 23/51 [00:01<00:01, 21.20it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  51%|█████     | 26/51 [00:01<00:01, 20.43it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  57%|█████▋    | 29/51 [00:01<00:01, 20.96it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  63%|██████▎   | 32/51 [00:01<00:00, 21.57it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  69%|██████▊   | 35/51 [00:01<00:00, 21.73it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  75%|███████▍  | 38/51 [00:01<00:00, 21.01it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  80%|████████  | 41/51 [00:01<00:00, 21.03it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  86%|████████▋ | 44/51 [00:02<00:00, 21.07it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  92%|█████████▏| 47/51 [00:02<00:00, 21.08it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:02<00:00, 23.89it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:02<00:00, 21.39it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (FULL):   0%|          | 0/2 [00:00<?, ?it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (FULL): 100%|██████████| 2/2 [00:00<00:00, 47.54it/s]
+[36m(VllmGenerationWorker pid=102789)[0m 2026-11-19 15:10:06,867 - INFO - autotuner.py:1048 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+[36m(VllmGenerationWorker pid=102789)[0m 2026-11-19 15:10:07,286 - INFO - autotune_cache.py:495 - flashinfer.jit: [Autotuner]: Managed autotune cache attached for this process: ManagedAutotuneCache(env_dir='/root/.cache/flashinfer/autotune/v2/f49b73a872004cfe', hits=0, misses=0)
+[36m(VllmGenerationWorker pid=102789)[0m 2026-11-19 15:10:07,305 - INFO - autotuner.py:1071 - flashinfer.jit: [Autotuner]: Autotuning process ends
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):   4%|▍         | 2/51 [00:00<00:02, 19.97it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  10%|▉         | 5/51 [00:00<00:01, 24.29it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  16%|█▌        | 8/51 [00:00<00:01, 25.60it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  22%|██▏       | 11/51 [00:00<00:01, 26.11it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  27%|██▋       | 14/51 [00:00<00:01, 26.47it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  33%|███▎      | 17/51 [00:00<00:01, 26.53it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  39%|███▉      | 20/51 [00:00<00:01, 26.73it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  45%|████▌     | 23/51 [00:00<00:01, 25.73it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  51%|█████     | 26/51 [00:01<00:00, 26.19it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  57%|█████▋    | 29/51 [00:01<00:00, 26.43it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  63%|██████▎   | 32/51 [00:01<00:00, 26.59it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  69%|██████▊   | 35/51 [00:01<00:00, 26.24it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  75%|███████▍  | 38/51 [00:01<00:00, 26.24it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  80%|████████  | 41/51 [00:01<00:00, 26.15it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  86%|████████▋ | 44/51 [00:01<00:00, 26.10it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE):  92%|█████████▏| 47/51 [00:01<00:00, 25.57it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:01<00:00, 28.59it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:01<00:00, 26.52it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (FULL):   0%|          | 0/51 [00:00<?, ?it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (FULL):  12%|█▏        | 6/51 [00:00<00:00, 50.79it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (FULL):  24%|██▎       | 12/51 [00:00<00:00, 51.03it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (FULL):  35%|███▌      | 18/51 [00:00<00:00, 51.71it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (FULL):  47%|████▋     | 24/51 [00:00<00:00, 52.25it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (FULL):  59%|█████▉    | 30/51 [00:00<00:00, 53.13it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (FULL):  71%|███████   | 36/51 [00:00<00:00, 53.27it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (FULL):  82%|████████▏ | 42/51 [00:00<00:00, 52.46it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (FULL):  94%|█████████▍| 48/51 [00:00<00:00, 52.61it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Capturing CUDA graphs (FULL): 100%|██████████| 51/51 [00:00<00:00, 52.55it/s]
+[36m(VllmGenerationWorker pid=102789)[0m INFO:nemo_rl.utils.nvml:nvml.py:219: [GPU_DIAG] [VllmGenerationWorker] [after_engine_create] host=<host> rank=0 logical_dev=0 physical_dev=0 CUDA_VISIBLE_DEVICES=0 uuid=GPU-91792f8e-5623-d928-47fb-c3dd418e7d2d | NVML: total=97871MB used=58400MB free=39471MB | PyTorch: allocated=56992.1MB reserved=57396.0MB | GPU procs: [PID=102789 (self): 57876.0 MB]
+[36m(VllmGenerationWorker pid=102789)[0m INFO:nemo_rl.utils.nvml:nvml.py:219: [GPU_DIAG] [VllmGenerationWorker] [load_model_complete] host=<host> rank=0 logical_dev=0 physical_dev=0 CUDA_VISIBLE_DEVICES=0 uuid=GPU-91792f8e-5623-d928-47fb-c3dd418e7d2d | NVML: total=97871MB used=58400MB free=39471MB | PyTorch: allocated=56992.1MB reserved=57396.0MB | GPU procs: [PID=102789 (self): 57876.0 MB]
+[36m(_env_builder pid=102397)[0m INFO:nemo_rl.utils.venvs:venvs.py:161: Using existing venv at /planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker
+[36m(VllmGenerationWorker pid=102789)[0m [GPU_DIAG] [VllmGenerationWorker] [load_model_start] host=<host> rank=0 logical_dev=0 physical_dev=0 CUDA_VISIBLE_DEVICES=0 uuid=GPU-91792f8e-5623-d928-47fb-c3dd418e7d2d | NVML: total=97871MB used=515MB free=97356MB | PyTorch: allocated=N/A reserved=N/A | GPU procs: [none detected]
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:09:45 [startup.py:96] non-default args: {'served_model_name': 'Qwen/Qwen2.5-0.5B', 'skip_tokenizer_init': True, 'trust_remote_code': True, 'load_format': 'dummy', 'dtype': 'bfloat16', 'max_model_len': 512, 'enable_prefix_caching': True, 'gpu_memory_utilization': 0.6, 'logprobs_mode': 'processed_logprobs', 'mm_device_do_normalize': False, 'worker_extension_cls': 'nemo_rl.models.generation.vllm.vllm_backend.VllmInternalWorkerExtension', 'generation_config': 'vllm', 'enable_sleep_mode': True, 'model': 'Qwen/Qwen2.5-0.5B'}
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:45 [interface.py:1469] Unknown vLLM environment variable detected: VLLM_USE_V1
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:45 [arg_utils.py:1984] The global random seed is set to 0. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:09:45 [model.py:670] Enabling cumem allocator because sleep mode requires it.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:09:45 [model.py:744] Resolved architecture: Qwen2ForCausalLM
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:09:45 [model.py:2170] Using max model len 512
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:09:45 [arg_utils.py:2367] Using ray runtime env (env vars redacted): {'py_executable': '/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker/bin/python', 'env_vars': {'AVAILABLE_ADDR_LIST': '***', 'AVAILABLE_PORT_LIST': '***', 'CPATH': '***', 'CPLUS_INCLUDE_PATH': '***', 'CUDA_HOME': '***', 'CUDA_PATH': '***', 'CUDNN_HOME': '***', 'CUDNN_PATH': '***', 'FLASH_ATTN_CUDA_ARCHS': '***', 'HF_ENDPOINT': '***', 'HF_HOME': '***', 'HF_HUB_DISABLE_XET': '***', 'HF_HUB_DOWNLOAD_TIMEOUT': '***', 'HF_MODULES_CACHE': '***', 'HOME': '***', 'KMP_DUPLICATE_LIB_OK': '***', 'KMP_INIT_AT_FORK': '***', 'LC_CTYPE': '***', 'LD_LIBRARY_PATH': '***', 'LIBRARY_PATH': '***', 'LOCAL_RANK': '***', 'LOGNAME': '***', 'MAIL': '***', 'MASTER_ADDR': '***', 'MASTER_PORT': '***', 'MAX_JOBS': '***', 'NEMO_RL_OTEL_CAMPAIGN_STAGE': '***', 'NODE_RANK': '***', 'NO_PROXY': '***', 'NRL_NSYS_PROFILE_STEP_RANGE': '***', 'NRL_NSYS_WORKER_PATTERNS': '***', 'NRL_ROOT': '***', 'NRL_WORKER_GROUP': '***', 'NRL_WS': '***', 'NVTE_BUILD_MAX_JOBS': '***', 'NVTE_BUILD_THREADS_PER_JOB': '***', 'NVTE_CUDA_ARCHS': '***', 'NVTE_FRAMEWORK': '***', 'NVTE_WITH_NCCL_EP': '***', 'OLDPWD': '***', 'PATH': '***', 'PWD': '***', 'PYTHONBREAKPOINT': '***', 'PYTHONPATH': '***', 'PYTHONPYCACHEPREFIX': '***', 'RANK': '***', 'RAY_CLIENT_MODE': '***', 'RAY_ENABLE_UV_RUN_RUNTIME_ENV': '***', 'RAY_TMPDIR': '***', 'RAY_USAGE_STATS_ENABLED': '***', 'SHELL': '***', 'SHLVL': '***', 'SSH_CLIENT': '***', 'SSH_CONNECTION': '***', 'TMPDIR': '***', 'TORCHINDUCTOR_CACHE_DIR': '***', 'TORCH_CUDA_ARCH_LIST': '***', 'TORCH_EXTENSIONS_DIR': '***', 'USER': '***', 'UV': '***', 'UV_CACHE_DIR': '***', 'UV_HTTP_TIMEOUT': '***', 'UV_PROJECT_ENVIRONMENT': '***', 'UV_PYTHON_INSTALL_DIR': '***', 'UV_PYTHON_INSTALL_MIRROR': '***', 'UV_RUN_RECURSION_DEPTH': '***', 'VIRTUAL_ENV': '***', 'VLLM_CACHE_ROOT': '***', 'VLLM_ENABLE_V1_MULTIPROCESSING': '***', 'VLLM_PORT': '***', 'VLLM_SKIP_P2P_CHECK': '***', 'WORLD_SIZE': '***', '_': '***', '_MLFLOW_TELEMETRY_SESSION_ID': '***', '__RAY_WORKER_PROCESS_SETUP_HOOK_ENV_VAR': '***', 'no_proxy': '***'}, 'worker_process_setup_hook': 'nemo_rl.distributed.ray_worker_setup.ray_worker_process_setup'}
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:09:45 [scheduler.py:310] Chunked prefill is enabled with max_num_batched_tokens=16384.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:09:45 [kernel.py:480] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:09:46 [core.py:139] Initializing a V1 LLM engine (v0.33.0) with config: model='Qwen/Qwen2.5-0.5B', speculative_config=None, tokenizer='Qwen/Qwen2.5-0.5B', skip_tokenizer_init=True, tokenizer_mode=auto, revision=main, tokenizer_revision=main, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=512, download_dir=None, load_format=dummy, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=False, aux_output_config=AuxOutputConfig(enable_return_routed_experts=False, max_bytes=None), kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, custom_histogram_buckets=None, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=Qwen/Qwen2.5-0.5B, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::qwen4_exp_ple_short_conv', 'vllm::qwen4_exp_qsa_with_output', 'vllm::qwen4_exp_qsa_prepare_with_output', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'cudagraph_decoder_replay': True, 'decoder_replay_cudagraph_capture_sizes': [], 'decoder_replay_trim_threshold': 768, 'compile_sizes': [], 'compile_ranges_endpoints': [16384], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_rocm_segmented_attn_autotune=False, enable_cutedsl_warmup=True, enable_jit_warmup=True, monokernel=False, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417] Module nixl_ep was found but failed to import
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417] Traceback (most recent call last):
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]   File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker/lib/python3.13/site-packages/vllm/utils/import_utils.py", line 415, in _has_module
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]     importlib.import_module(module_name)
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]     ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]   File "/planning-users/yangyeyuan/nemo-rl-3976/env/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/importlib/__init__.py", line 88, in import_module
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]     return _bootstrap._gcd_import(name[level:], package, level)
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]            ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]   File "<frozen importlib._bootstrap>", line 1395, in _gcd_import
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]   File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]   File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker/lib/python3.13/site-packages/nixl_ep/__init__.py", line 56, in <module>
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]     _pkg = sys.modules[_load_ep_module()]
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]                        ~~~~~~~~~~~~~~~^^
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]   File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker/lib/python3.13/site-packages/nixl_ep/__init__.py", line 36, in _load_ep_module
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]     return importlib.import_module(mod_name).__name__
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]   File "/planning-users/yangyeyuan/nemo-rl-3976/env/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/importlib/__init__.py", line 88, in import_module
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]     return _bootstrap._gcd_import(name[level:], package, level)
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]            ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]   File "<frozen importlib._bootstrap>", line 1395, in _gcd_import
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]   File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]   File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker/lib/python3.13/site-packages/nixl_ep_cu13/__init__.py", line 23, in <module>
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417]     from . import nixl_ep_cpp as _nixl_ep_cpp
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:09:46 [import_utils.py:417] ImportError: /planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker/lib/python3.13/site-packages/nixl_ep_cu13/nixl_ep_cpp.cpython-313-x86_64-linux-gnu.so: undefined symbol: _ZN3c104impl3cow23materialize_cow_storageERNS_11StorageImplE
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:09:50 [worker_base.py:331] Injected <class 'nemo_rl.models.generation.vllm.vllm_backend.VllmInternalWorkerExtension'> into <class 'vllm.v1.worker.gpu_worker.Worker'> for extended collective_rpc calls ['_build_hf_to_gen_backend_mapping', '_drain_ipc_reload_sender', '_get_drafter_model', '_get_mxfp8_linear_reload_roots', '_get_named_parameters', '_get_reload_weight_preparer', '_get_sparse_delta_applier', '_install_native_lora', '_load_draft_weights', '_load_full_hf_weights', '_load_hf_weights', '_load_weights', '_mark_refit_unusable', '_maybe_process_draft_after_loading', '_maybe_process_mtp_drafter_after_loading', '_maybe_refit_mtp_drafter', '_mtp_drafter_refit_enabled', '_native_lora_refit_settings', '_nccl_reshard_refit_impl', '_new_model_update_coverage', '_prepare_reload_weight_iterator', '_receive_and_load_misc_params', '_reject_native_mxfp8_linear_refit', '_reject_native_refit_of_trtllm_moe_draft', '_reject_unsupported_native_refit', '_reload_model_runner_weights', '_speculative_method', '_split_policy_and_draft_weights', '_supports_unquantized_flashinfer_trtllm_refit', '_synchronize_before_ipc_data_ack', '_trim_vocab_padding', '_unquantized_flashinfer_trtllm_param_ids', '_update_weights_from_collective', '_update_weights_via_ipc_zmq_with_reload', '_uses_deepseek_v4_fp8_refit', '_uses_fp8_kv_cache', '_uses_native_layerwise_refit', '_uses_unquantized_flashinfer_trtllm', '_validate_native_layerwise_refit', '_weight_update_error_must_raise', '_weight_update_errors_are_fatal', '_weight_update_lifecycle', '_without_tied_embedding_aliases', 'bind_numa', 'build_hf_to_local_param_map', 'cleanup', 'configure_mtp_drafter_weight_source', 'finish_sparse_delta_refit', 'get_zmq_address', 'init_collective', 'init_nccl_reshard_comm_group', 'load_mtp_weights_from_disk', 'maybe_init_zmq', 'nccl_reshard_refit', 'prepare_nccl_reshard_refit_info', 'prepare_refit_info', 'prepare_sparse_delta_refit_info', 'report_device_id', 'report_node_hostname', 'start_gpu_profiling', 'stop_gpu_profiling', 'synchronize_sparse_refit_device', 'update_weights_from_collective', 'update_weights_from_decoded_sparse_payload', 'update_weights_via_ipc_zmq']
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:09:50 [parallel_state.py:1929] world_size=1 rank=0 local_rank=0 distributed_init_method=file:///dev/shm/nrl-tmp/vllm_dist_2c0f4731309c4dd384eed151f3149647 backend=nccl
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:09:50 [parallel_state.py:2385] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, ETP rank 0, EP rank N/A, EPLB rank N/A
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:09:50 [gpu_worker.py:513] Using V2 Model Runner
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:09:51 [model_runner.py:399] Loading model from scratch...
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:09:54 [cuda.py:508] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:09:54 [flash_attn.py:1122] Using FlashAttention version 3
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:09:55 [base_loader.py:82] Initializing model took 3.587859 seconds
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:09:57 [model_runner.py:428] Model loading took 0.93 GiB memory and 6.248681 seconds
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:09:57 [topk_topp_sampler.py:149] Using FlashInfer for top-p & top-k sampling.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:09:57 [utils.py:381] Using LBNHC KV cache layout.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:00 [caching.py:342] reconstructed serializable fn from standalone compile artifacts. num_artifacts=3 num_submods=25
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:00 [decorators.py:326] [backbone] Directly load AOT compilation from path /root/.cache/vllm_0/torch_compile_cache/torch_aot_compile/a4d9b44ee0ff9fcafa6251a0649d460d431196856f29878844abd41285b25b89/rank_0_0/model
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:00 [monitor.py:62] [backbone] torch.compile took 0.50 s in total
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:00 [monitor.py:91] [backbone] Initial profiling/warmup run took 0.02 s
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:05 [model_runner.py:1163] Graph capturing finished in 4 secs, took 0.29 GiB
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:06 [gpu_worker.py:772] Available KV cache memory: 53.99 GiB
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:06 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.6000 is equivalent to --gpu-memory-utilization=0.5956 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.6044. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:06 [kv_cache_utils.py:1147] GPU KV cache size: 4,717,376 tokens, Maximum concurrency for 512 tokens per request: 9213.62x
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:06 [kernel_warmup.py:179] JIT kernel warmup starting.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:06 [kernel_warmup.py:192] JIT kernel warmup finished in 0.00s.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:06 [kernel_warmup.py:485] Using FlashInfer managed autotune cache (root=flashinfer default). Pass --disable-flashinfer-autotune to skip autotuning.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:07 [kernel_warmup.py:371] Running FlashInfer autotune with 16384 tokens and token buckets (1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 768, 1024, 1280, 1536, 1792, 2048, 2560, 3072, 3584, 4096, 8192, 16384).
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:11 [model_runner.py:1163] Graph capturing finished in 4 secs, took 0.17 GiB
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:11 [gpu_worker.py:1003] CUDA graph pool memory: 0.17 GiB (actual), 0.41 GiB (estimated), difference: 0.25 GiB (146.5%).
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:11 [gpu_worker.py:1066] Free memory on device (94.6/95.07 GiB) on startup. Desired GPU memory utilization is (0.6, 57.04 GiB). Actual usage is 1.73 GiB for consumed memory (weights + non-torch), 1.33 GiB for peak activation, and 0.17 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=57629503898` (53.67 GiB) to fit into requested memory, or `--kv-cache-memory=97959532544` (91.23 GiB) to fully utilize gpu memory. Current kv cache memory in use is 53.99 GiB.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:13 [jit_monitor.py:84] Kernel JIT monitor activated; monitored JIT compilations during inference will use mode=warn.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:14 [core.py:405] init engine (profile, create kv cache, warmup model) took 16.64 s (compilation: 0.50 s)
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:10:14 [base.py:383] Chat template warmup failed
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:10:14 [base.py:383] Traceback (most recent call last):
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:10:14 [base.py:383]   File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker/lib/python3.13/site-packages/vllm/renderers/base.py", line 376, in warmup
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:10:14 [base.py:383]     self.render_chat([[{"role": "user", "content": "warmup"}]], chat_params)
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:10:14 [base.py:383]     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:10:14 [base.py:383]   File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker/lib/python3.13/site-packages/vllm/renderers/base.py", line 1357, in render_chat
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:10:14 [base.py:383]     self.render_messages(conversation, chat_params)
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:10:14 [base.py:383]     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:10:14 [base.py:383]   File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker/lib/python3.13/site-packages/vllm/renderers/hf.py", line 1110, in render_messages
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:10:14 [base.py:383]     tokenizer = self.get_tokenizer()
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:10:14 [base.py:383]   File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker/lib/python3.13/site-packages/vllm/renderers/base.py", line 220, in get_tokenizer
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:10:14 [base.py:383]     raise ValueError("Tokenizer not available when `skip_tokenizer_init=True`")
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:10:14 [base.py:383] ValueError: Tokenizer not available when `skip_tokenizer_init=True`
+[36m(VllmGenerationWorker pid=102789)[0m [GPU_DIAG] [VllmGenerationWorker] [after_engine_create] host=<host> rank=0 logical_dev=0 physical_dev=0 CUDA_VISIBLE_DEVICES=0 uuid=GPU-91792f8e-5623-d928-47fb-c3dd418e7d2d | NVML: total=97871MB used=58400MB free=39471MB | PyTorch: allocated=56992.1MB reserved=57396.0MB | GPU procs: [PID=102789 (self): 57876.0 MB]
+[36m(VllmGenerationWorker pid=102789)[0m [GPU_DIAG] [VllmGenerationWorker] [load_model_complete] host=<host> rank=0 logical_dev=0 physical_dev=0 CUDA_VISIBLE_DEVICES=0 uuid=GPU-91792f8e-5623-d928-47fb-c3dd418e7d2d | NVML: total=97871MB used=58400MB free=39471MB | PyTorch: allocated=56992.1MB reserved=57396.0MB | GPU procs: [PID=102789 (self): 57876.0 MB]
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:14 [block_pool.py:905] Successfully reset prefix cache
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:14 [scheduler.py:3074] setting pause state to PAUSED_NEW
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:14 [block_pool.py:905] Successfully reset prefix cache
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:14 [sleep_mode_backend.py:202] Using sleep-mode backend: cumem
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:15 [cumem.py:282] CuMemAllocator: sleep freed 55.60 GiB memory in total, of which 1.62 GiB is backed up in CPU and the rest 53.99 GiB is discarded directly.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:15 [gpu_worker.py:335] Sleep mode freed 55.6 GiB memory, 0.93 GiB memory is still in use.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:10:15 [abstract.py:408] It took 1.309744 seconds to fall asleep.
+Initializing lm_policy workers:   0%|          | 0/1 [00:00<?, ?worker/s][36m(pid=103421)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+[36m(IsolatedWorkerInitializer pid=103421)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/3rdparty/Megatron-LM/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+[36m(IsolatedWorkerInitializer pid=103421)[0m   class MimoModelConfig:
+[36m(pid=103420)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+Initializing lm_policy workers: 100%|██████████| 1/1 [00:52<00:00, 52.38s/worker]Initializing lm_policy workers: 100%|██████████| 1/1 [00:52<00:00, 52.38s/worker]
+  ✓ 1 workers initialized in 52.39s
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+  ✓ Using vLLM backend for generation with Qwen/Qwen2.5-0.5B
+[36m(pid=103900)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+[36m(pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/3rdparty/Megatron-LM/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+[36m(pid=103900)[0m   class MimoModelConfig:
+[36m(MegatronPolicyWorker pid=103900)[0m INFO:nemo_rl.utils.nvml:nvml.py:219: [GPU_DIAG] [MegatronPolicyWorker] [init_start] host=<host> rank=0 logical_dev=0 physical_dev=0 CUDA_VISIBLE_DEVICES=unset uuid=GPU-91792f8e-5623-d928-47fb-c3dd418e7d2d | NVML: total=97871MB used=1791MB free=96080MB | PyTorch: allocated=0.0MB reserved=0.0MB | GPU procs: [PID=102789: 938.0 MB; PID=104355: 318.0 MB]
+[36m(MegatronPolicyWorker pid=103900)[0m INFO:nemo_rl.utils.nvml:nvml.py:219: [GPU_DIAG] [MegatronPolicyWorker] [after_nccl_init] host=<host> rank=0 logical_dev=0 physical_dev=0 CUDA_VISIBLE_DEVICES=unset uuid=GPU-91792f8e-5623-d928-47fb-c3dd418e7d2d | NVML: total=97871MB used=2127MB free=95744MB | PyTorch: allocated=0.0MB reserved=0.0MB | GPU procs: [PID=102789: 938.0 MB; PID=103900 (self): 330.0 MB; PID=104355: 318.0 MB]
+[36m(MegatronPolicyWorker pid=103900)[0m INFO:nemo_rl.utils.nvml:nvml.py:219: [GPU_DIAG] [MegatronPolicyWorker] [after_hf_import] host=<host> rank=0 logical_dev=0 physical_dev=0 CUDA_VISIBLE_DEVICES=unset uuid=GPU-91792f8e-5623-d928-47fb-c3dd418e7d2d | NVML: total=97871MB used=2127MB free=95744MB | PyTorch: allocated=0.0MB reserved=0.0MB | GPU procs: [PID=102789: 938.0 MB; PID=103900 (self): 330.0 MB; PID=104355: 318.0 MB]
+[36m(MegatronPolicyWorker pid=103900)[0m WARNING:megatron.core.rerun_state_machine:_rank_utils.py:127: RerunStateMachine initialized in mode RerunMode.DISABLED
+[36m(MegatronPolicyWorker pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+[36m(MegatronPolicyWorker pid=103900)[0m   return func(*args, **kwargs)
+[36m(MegatronPolicyWorker pid=103900)[0m PID 104423: Skipping CPU nice (current 15 already >= target 10; lowering requires superuser
+[36m(MegatronPolicyWorker pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+[36m(MegatronPolicyWorker pid=103900)[0m   return func(*args, **kwargs)
+[36m(MegatronPolicyWorker pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/src/megatron/bridge/utils/common_utils.py:125: UserWarning: `build_tokenizer` is deprecated and will be removed soon. Please, use `megatron.core.tokenizers.utils.build_tokenizer` instead.
+[36m(MegatronPolicyWorker pid=103900)[0m   warnings.warn(message)
+[36m(MegatronPolicyWorker pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/3rdparty/Megatron-LM/megatron/core/models/gpt/gpt_layer_specs.py:198: UserWarning: The fp8 argument in "get_gpt_layer_with_transformer_engine_spec" has been deprecated and will be removed soon. Please update your code accordingly.
+[36m(MegatronPolicyWorker pid=103900)[0m   warnings.warn(
+[36m(MegatronPolicyWorker pid=103900)[0m WARNING:megatron.core.models.gpt.gpt_model:_rank_utils.py:127: GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+[36m(MegatronPolicyWorker pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/checkpoint/utils.py:485: UserWarning: torch.distributed is disabled, unavailable or uninitialized, assuming the intent is to load in a single process.
+[36m(MegatronPolicyWorker pid=103900)[0m   return func(*args, **kwargs)
+[36m(MegatronPolicyWorker pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/checkpoint/logger.py:90: UserWarning: The argument order of load has been changed. Please check the document to avoid future breakages.
+[36m(MegatronPolicyWorker pid=103900)[0m   result = func(*args, **kwargs)
+[36m(MegatronPolicyWorker pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/checkpoint/utils.py:483: UserWarning: torch.distributed is disabled, unavailable or uninitialized, assuming the intent is to load in a single process.
+[36m(MegatronPolicyWorker pid=103900)[0m   return func(args[0], **kwargs)
+[36m(MegatronPolicyWorker pid=103900)[0m INFO:nemo_rl.utils.nvml:nvml.py:219: [GPU_DIAG] [MegatronPolicyWorker] [after_model_setup] host=<host> rank=0 logical_dev=0 physical_dev=0 CUDA_VISIBLE_DEVICES=unset uuid=GPU-91792f8e-5623-d928-47fb-c3dd418e7d2d | NVML: total=97871MB used=5412MB free=92459MB | PyTorch: allocated=1884.6MB reserved=2332.0MB | GPU procs: [PID=102789: 938.0 MB; PID=103900 (self): 3278.0 MB; PID=104355: 318.0 MB; PID=104423: 332.0 MB]
+[36m(MegatronPolicyWorker pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/3rdparty/Megatron-LM/megatron/core/distributed/param_and_grad_buffer.py:1812: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+[36m(MegatronPolicyWorker pid=103900)[0m   if move_grads and self.grad_data is not None and self.grad_data.storage().size() > 0:
+[36m(MegatronPolicyWorker pid=103900)[0m WARNING:megatron.core.models.gpt.gpt_model:_rank_utils.py:127: GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+[36m(MegatronPolicyWorker pid=103900)[0m INFO:nemo_rl.utils.nvml:nvml.py:219: [GPU_DIAG] [MegatronPolicyWorker] [after_ref_model] host=<host> rank=0 logical_dev=0 physical_dev=0 CUDA_VISIBLE_DEVICES=unset uuid=GPU-91792f8e-5623-d928-47fb-c3dd418e7d2d | NVML: total=97871MB used=7306MB free=90565MB | PyTorch: allocated=3769.2MB reserved=4220.0MB | GPU procs: [PID=102789: 938.0 MB; PID=103900 (self): 5166.0 MB; PID=104355: 318.0 MB; PID=104423: 332.0 MB]
+[36m(MegatronPolicyWorker pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/src/megatron/bridge/utils/common_utils.py:125: UserWarning: `hf_tokenizer_kwargs` is deprecated and will be removed soon. Please, use `tokenizer_hf_no_use_fast` / `tokenizer_hf_no_include_special_tokens` / `trust_remote_code` arguments directly instead.
+[36m(MegatronPolicyWorker pid=103900)[0m   warnings.warn(message)
+[36m(MegatronPolicyWorker pid=103900)[0m WARNING:megatron.bridge.models.conversion.auto_bridge:auto_bridge.py:685: Loading a model with trust_remote_code=True allows arbitrary code execution from the model repository. Only use this with models you trust.
+[36m(MegatronPolicyWorker pid=103900)[0m INFO:nemo_rl.utils.nvml:nvml.py:219: [GPU_DIAG] [MegatronPolicyWorker] [init_complete] host=<host> rank=0 logical_dev=0 physical_dev=0 CUDA_VISIBLE_DEVICES=unset uuid=GPU-91792f8e-5623-d928-47fb-c3dd418e7d2d | NVML: total=97871MB used=7306MB free=90565MB | PyTorch: allocated=3769.2MB reserved=4220.0MB | GPU procs: [PID=102789: 938.0 MB; PID=103900 (self): 5166.0 MB; PID=104355: 318.0 MB; PID=104423: 332.0 MB]
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 1095.40it/s]
+[36m(MegatronPolicyWorker pid=103900)[0m [GPU_DIAG] [MegatronPolicyWorker] [init_start] host=<host> rank=0 logical_dev=0 physical_dev=0 CUDA_VISIBLE_DEVICES=unset uuid=GPU-91792f8e-5623-d928-47fb-c3dd418e7d2d | NVML: total=97871MB used=1791MB free=96080MB | PyTorch: allocated=0.0MB reserved=0.0MB | GPU procs: [PID=102789: 938.0 MB; PID=104355: 318.0 MB]
+[36m(MegatronPolicyWorker pid=103900)[0m Applying Triton fix to /planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/transformer_engine/pytorch/triton/permutation.py...
+[36m(MegatronPolicyWorker pid=103900)[0m [DEBUG] Reset Megatron async calls queue (old call_idx: None)
+[36m(MegatronPolicyWorker pid=103900)[0m [GPU_DIAG] [MegatronPolicyWorker] [after_nccl_init] host=<host> rank=0 logical_dev=0 physical_dev=0 CUDA_VISIBLE_DEVICES=unset uuid=GPU-91792f8e-5623-d928-47fb-c3dd418e7d2d | NVML: total=97871MB used=2127MB free=95744MB | PyTorch: allocated=0.0MB reserved=0.0MB | GPU procs: [PID=102789: 938.0 MB; PID=103900 (self): 330.0 MB; PID=104355: 318.0 MB]
+[36m(MegatronPolicyWorker pid=103900)[0m Using default megatron checkpoint dir: /planning-users/yangyeyuan/nemo-rl-3976/hf/nemo_rl
+[36m(MegatronPolicyWorker pid=103900)[0m Checkpoint already exists at /planning-users/yangyeyuan/nemo-rl-3976/hf/nemo_rl/Qwen/Qwen2.5-0.5B. Skipping import.
+[36m(MegatronPolicyWorker pid=103900)[0m [GPU_DIAG] [MegatronPolicyWorker] [after_hf_import] host=<host> rank=0 logical_dev=0 physical_dev=0 CUDA_VISIBLE_DEVICES=unset uuid=GPU-91792f8e-5623-d928-47fb-c3dd418e7d2d | NVML: total=97871MB used=2127MB free=95744MB | PyTorch: allocated=0.0MB reserved=0.0MB | GPU procs: [PID=102789: 938.0 MB; PID=103900 (self): 330.0 MB; PID=104355: 318.0 MB]
+[36m(MegatronPolicyWorker pid=103900)[0m Broadcasting config from rank 0 to all 1 ranks
+[36m(MegatronPolicyWorker pid=103900)[0m  > padded vocab (size: 151936) with 0 dummy tokens (new size: 151936)
+[36m(MegatronPolicyWorker pid=103900)[0m torch distributed is already initialized, skipping initialization ...
+[36m(MegatronPolicyWorker pid=103900)[0m > initialized tensor model parallel with size 1
+[36m(MegatronPolicyWorker pid=103900)[0m > initialized pipeline model parallel with size 1
+[36m(MegatronPolicyWorker pid=103900)[0m > setting random seeds to 1234 ...
+[36m(MegatronPolicyWorker pid=103900)[0m > compiling dataset index builder ...
+[36m(MegatronPolicyWorker pid=103900)[0m make: Entering directory '/planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/3rdparty/Megatron-LM/megatron/core/datasets'
+[36m(MegatronPolicyWorker pid=103900)[0m make: Nothing to be done for 'default'.
+[36m(MegatronPolicyWorker pid=103900)[0m make: Leaving directory '/planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/3rdparty/Megatron-LM/megatron/core/datasets'
+[36m(MegatronPolicyWorker pid=103900)[0m >>> done with dataset index builder. Compilation time: 3.027 seconds
+[36m(MegatronPolicyWorker pid=103900)[0m time to initialize megatron (seconds): 8.086
+[36m(MegatronPolicyWorker pid=103900)[0m  > number of parameters on (tensor, gtp_remat, pipeline) model parallel rank (0, 0, 0): 494032768
+[36m(MegatronPolicyWorker pid=103900)[0m Model, optimizer, and learning rate scheduler built
+[36m(MegatronPolicyWorker pid=103900)[0m Checkpoint file not found in load directory None. Attempting to finetune with checkpoint in /planning-users/yangyeyuan/nemo-rl-3976/hf/nemo_rl/Qwen/Qwen2.5-0.5B
+[36m(MegatronPolicyWorker pid=103900)[0m Broadcasting TrainState from rank 0 to all 1 ranks
+[36m(MegatronPolicyWorker pid=103900)[0m  Auto-detected checkpoint format as 'torch_dist' from /planning-users/yangyeyuan/nemo-rl-3976/hf/nemo_rl/Qwen/Qwen2.5-0.5B/iter_0000000.
+[36m(MegatronPolicyWorker pid=103900)[0m Broadcasting config from rank 0 to all 1 ranks
+[36m(MegatronPolicyWorker pid=103900)[0m sharded_state_dict metadata loaded from the checkpoint: {'singleton_local_shards': False, 'chained_optim_avoid_prefix': True}
+[36m(MegatronPolicyWorker pid=103900)[0m  Auto-detected checkpoint format as 'torch_dist' from /planning-users/yangyeyuan/nemo-rl-3976/hf/nemo_rl/Qwen/Qwen2.5-0.5B/iter_0000000.
+[36m(MegatronPolicyWorker pid=103900)[0m  loading distributed checkpoint from /planning-users/yangyeyuan/nemo-rl-3976/hf/nemo_rl/Qwen/Qwen2.5-0.5B at iteration 0
+[36m(MegatronPolicyWorker pid=103900)[0m  checkpoint version 3.1
+[36m(MegatronPolicyWorker pid=103900)[0m   successfully loaded checkpoint from /planning-users/yangyeyuan/nemo-rl-3976/hf/nemo_rl/Qwen/Qwen2.5-0.5B [ t 0/1, p 0/1 ] at iteration 0
+[36m(MegatronPolicyWorker pid=103900)[0m Checkpoint loaded
+[36m(MegatronPolicyWorker pid=103900)[0m [GPU_DIAG] [MegatronPolicyWorker] [after_model_setup] host=<host> rank=0 logical_dev=0 physical_dev=0 CUDA_VISIBLE_DEVICES=unset uuid=GPU-91792f8e-5623-d928-47fb-c3dd418e7d2d | NVML: total=97871MB used=5412MB free=92459MB | PyTorch: allocated=1884.6MB reserved=2332.0MB | GPU procs: [PID=102789: 938.0 MB; PID=103900 (self): 3278.0 MB; PID=104355: 318.0 MB; PID=104423: 332.0 MB]
+[36m(MegatronPolicyWorker pid=103900)[0m  > number of parameters on (tensor, gtp_remat, pipeline) model parallel rank (0, 0, 0): 494032768
+[36m(MegatronPolicyWorker pid=103900)[0m Loading the Reference Model
+[36m(MegatronPolicyWorker pid=103900)[0m Checkpoint file not found in load directory None. Attempting to finetune with checkpoint in /planning-users/yangyeyuan/nemo-rl-3976/hf/nemo_rl/Qwen/Qwen2.5-0.5B
+[36m(MegatronPolicyWorker pid=103900)[0m  Auto-detected checkpoint format as 'torch_dist' from /planning-users/yangyeyuan/nemo-rl-3976/hf/nemo_rl/Qwen/Qwen2.5-0.5B/iter_0000000.
+[36m(MegatronPolicyWorker pid=103900)[0m Broadcasting config from rank 0 to all 1 ranks
+[36m(MegatronPolicyWorker pid=103900)[0m sharded_state_dict metadata loaded from the checkpoint: {'singleton_local_shards': False, 'chained_optim_avoid_prefix': True}
+[36m(MegatronPolicyWorker pid=103900)[0m  Auto-detected checkpoint format as 'torch_dist' from /planning-users/yangyeyuan/nemo-rl-3976/hf/nemo_rl/Qwen/Qwen2.5-0.5B/iter_0000000.
+[36m(MegatronPolicyWorker pid=103900)[0m  loading distributed checkpoint from /planning-users/yangyeyuan/nemo-rl-3976/hf/nemo_rl/Qwen/Qwen2.5-0.5B at iteration 0
+[36m(MegatronPolicyWorker pid=103900)[0m  checkpoint version 3.1
+[36m(MegatronPolicyWorker pid=103900)[0m   successfully loaded checkpoint from /planning-users/yangyeyuan/nemo-rl-3976/hf/nemo_rl/Qwen/Qwen2.5-0.5B [ t 0/1, p 0/1 ] at iteration 0
+[36m(MegatronPolicyWorker pid=103900)[0m Reference model loaded
+[36m(MegatronPolicyWorker pid=103900)[0m [GPU_DIAG] [MegatronPolicyWorker] [after_ref_model] host=<host> rank=0 logical_dev=0 physical_dev=0 CUDA_VISIBLE_DEVICES=unset uuid=GPU-91792f8e-5623-d928-47fb-c3dd418e7d2d | NVML: total=97871MB used=7306MB free=90565MB | PyTorch: allocated=3769.2MB reserved=4220.0MB | GPU procs: [PID=102789: 938.0 MB; PID=103900 (self): 5166.0 MB; PID=104355: 318.0 MB; PID=104423: 332.0 MB]
++-----------------------------------------+
+| Policy worker mapping to Nodes and GPUs |
++-------------------+---------------------+
+|      Node_IP      |       GPU_ID=0      |
++-------------------+---------------------+
+|    <ip>   |    ('worker-0',)    |
++-------------------+---------------------+
+[36m(MegatronPolicyWorker pid=103900)[0m [GPU_DIAG] [MegatronPolicyWorker] [init_complete] host=<host> rank=0 logical_dev=0 physical_dev=0 CUDA_VISIBLE_DEVICES=unset uuid=GPU-91792f8e-5623-d928-47fb-c3dd418e7d2d | NVML: total=97871MB used=7306MB free=90565MB | PyTorch: allocated=3769.2MB reserved=4220.0MB | GPU procs: [PID=102789: 938.0 MB; PID=103900 (self): 5166.0 MB; PID=104355: 318.0 MB; PID=104423: 332.0 MB]
+
+▶ Worker Initialization Timing:
+  Generation init: 120.0s
+  Policy init: 52.6s
+  Other setup: 73.8s
+  Total setup: 246.4s
+
+============================================================
+                  SETUP COMPLETE
+  Total setup time: 246.4s
+============================================================
+
+
+============================================================
+              RL INIT TIMING BREAKDOWN
+  config: 0.1s
+  data: 27.7s
+  ray_init: 5.2s
+  tokenizer: 4.9s
+  total: 284.4s
+  workers: 246.4s
+============================================================
+
+/planning-users/yangyeyuan/nemo-rl-3976/RL/nemo_rl/algorithms/grpo.py:3577: UserWarning: NRL_JOB_START_EPOCH is not set; timeout is measured from now
+  timeout = TimeoutChecker(
+🚀 Running synchronous GRPO training (legacy)
+  ✓ Using grpo advantage estimator
+
+========================= Epoch 1/1 =========================
+
+========================= Step 1/5 =========================
+▶ Preparing batch...
+💭 Driver CPU memory tracker for Preparing batch:
+- Mem usage before                     1.28 GB
+- Mem usage after                      1.28 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: ['batch', 'batch_cache', 'dynamic_sampling_num_gen_batches', 'metrics', 'metrics_logging_data', 'next_prompt_group_id', 'prompt_group_ids', 'refit_metrics', 'repeated_batch', 'val_metrics', 'validation_timings']
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 1 objects, 0.0% full, 0.0% needed
+
+▶ Generating responses for batch of size 32...
+[36m(VllmGenerationWorker pid=102789)[0m Rendering prompts:   0%|          | 0/32 [00:00<?, ?it/s]Rendering prompts: 100%|██████████| 32/32 [00:00<00:00, 7623.84it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:   0%|          | 0/32 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:   3%|▎         | 1/32 [00:00<00:05,  6.09it/s, est. speed input: 536.02 toks/s, output: 322.81 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:   9%|▉         | 3/32 [00:00<00:02,  9.95it/s, est. speed input: 839.23 toks/s, output: 764.33 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  16%|█▌        | 5/32 [00:00<00:02, 12.16it/s, est. speed input: 1005.71 toks/s, output: 1285.42 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  31%|███▏      | 10/32 [00:00<00:01, 21.31it/s, est. speed input: 1628.37 toks/s, output: 2694.64 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  41%|████      | 13/32 [00:00<00:00, 19.53it/s, est. speed input: 1643.16 toks/s, output: 3143.90 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  50%|█████     | 16/32 [00:00<00:00, 18.52it/s, est. speed input: 1755.13 toks/s, output: 3629.91 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  88%|████████▊ | 28/32 [00:01<00:00, 41.60it/s, est. speed input: 2825.39 toks/s, output: 7906.42 toks/s]Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 41.60it/s, est. speed input: 3112.76 toks/s, output: 9379.66 toks/s]Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 30.11it/s, est. speed input: 3112.76 toks/s, output: 9379.66 toks/s]
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory before optimizer offload: 3.68GB allocated, 4.12GB reserved
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:23 [abstract.py:426] It took 0.047763 seconds to wake up tags ['weights'].
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory after optimizer offload: 0.92GB allocated, 0.92GB reserved
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m MegatronPolicyWorker[rank=0]: Packed 1 groups of tensors
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory before optimizer offload: 0.00GB allocated, 0.92GB reserved
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory after optimizer offload: 0.00GB allocated, 0.00GB reserved
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory after refit complete: 0.00GB allocated, 0.00GB reserved
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:24 [abstract.py:426] It took 0.182342 seconds to wake up tags ['kv_cache'].
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:24 [scheduler.py:3074] setting pause state to UNPAUSED
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:12:24 [base.py:446] Using None for EOS token id because tokenizer is not initialized
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) WARNING 11-19 15:12:24 [jit_monitor.py:140] Triton kernel JIT compilation during inference: _topk_log_softmax_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:25 [block_pool.py:905] Successfully reset prefix cache
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:25 [scheduler.py:3074] setting pause state to PAUSED_NEW
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:25 [block_pool.py:905] Successfully reset prefix cache
+💭 Driver CPU memory tracker for Generation:
+- Mem usage before                     1.28 GB
+- Mem usage after                      1.29 GB
+- Mem usage diff (after - before)     +0.01 GB
+- New variables: ['generation_logger_metrics', 'rollout_metrics']
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+▶ Processing rewards...,
+▶ Computing advantages...
+💭 Driver CPU memory tracker for Processing rewards:
+- Mem usage before                     1.29 GB
+- Mem usage after                      1.30 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: ['_', 'baseline_for_log', 'dataset_loss_multiplier', 'ds_metrics', 'env_baseline_for_log', 'extra_multimodal_data', 'flat_messages', 'gen_step_metrics', 'input_lengths', 'is_batch_complete', 'is_trivial_prompt_distribution', 'num_mask_sample_filtered', 'prompt_ids_for_adv', 'rewards', 'std_rewards', 'train_data', 'use_overlong_filtering']
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+▶ Preparing for logprob inference...
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:25 [cumem.py:282] CuMemAllocator: sleep freed 55.60 GiB memory in total, of which 1.62 GiB is backed up in CPU and the rest 53.99 GiB is discarded directly.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:25 [gpu_worker.py:335] Sleep mode freed 55.64 GiB memory, 5.8 GiB memory is still in use.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:25 [abstract.py:408] It took 0.065466 seconds to fall asleep.
+▶ Computing logprobs...
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m cuDNN Frontend warning: Multiple libcudart libraries found: libcudart.so.12 and libcudart.so.13. Using libcudart.so.12. Set CUDNN_FRONTEND_CUDART_LIB_NAME to select one explicitly.
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/nemo_rl/distributed/model_utils.py:67: FutureWarning: torch.distributed.nn.functional.all_reduce is deprecated, use torch.distributed._functional_collectives.all_reduce instead.
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m   sum_exp_logits = torch.distributed.nn.functional.all_reduce(
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/nemo_rl/distributed/model_utils.py:67: FutureWarning: torch.distributed.nn.functional.all_reduce is deprecated, use torch.distributed._functional_collectives.all_reduce instead.
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m   sum_exp_logits = torch.distributed.nn.functional.all_reduce(
+/planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/3rdparty/Megatron-LM/megatron/core/optimizer/__init__.py:25: UserWarning: Transformer Engine and Apex are not installed. Falling back to Torch optimizers.
+  warnings.warn(
+/planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/3rdparty/Megatron-LM/megatron/core/distributed/fsdp/src/megatron_fsdp/mixed_precision.py:115: UserWarning: Transformer Engine and Apex are not installed. Falling back to local implementations of multi_tensor_applier and multi_tensor_scale
+  warnings.warn(
+/planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/3rdparty/Megatron-LM/megatron/core/optimizer/optimizer.py:29: UserWarning: Transformer Engine and Apex are not installed. Falling back to local implementations of multi_tensor_applier and multi_tensor_scale
+  warnings.warn(
+/planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/3rdparty/Megatron-LM/megatron/core/optimizer/clip_grads.py:32: UserWarning: Transformer Engine and Apex are not installed. Falling back to local implementations of multi_tensor_applier, multi_tensor_l2norm, and multi_tensor_scale
+  warnings.warn(
+▶ Computing advantages...
+💭 Driver CPU memory tracker for Computing logprobs:
+- Mem usage before                     1.30 GB
+- Mem usage after                      1.35 GB
+- Mem usage diff (after - before)     +0.05 GB
+- New variables: ['advantage_valid_mask', 'mask', 'penalty_metrics', 'prev_lp_result', 'sample_mask', 'seq_error_result', 'seq_logprob_error_metrics', 'seq_logprob_error_threshold', 'skip_prev_logprobs', 'skip_reference_logprobs', 'token_mask']
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+▶ Preparing for training...
+▶ Training policy...
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m   return func(*args, **kwargs)
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m   return func(*args, **kwargs)
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m   return func(*args, **kwargs)
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/nemo_rl/distributed/model_utils.py:67: FutureWarning: torch.distributed.nn.functional.all_reduce is deprecated, use torch.distributed._functional_collectives.all_reduce instead.
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m   sum_exp_logits = torch.distributed.nn.functional.all_reduce(
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/nemo_rl/distributed/model_utils.py:67: FutureWarning: torch.distributed.nn.functional.all_reduce is deprecated, use torch.distributed._functional_collectives.all_reduce instead.
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m   sum_exp_logits = torch.distributed.nn.functional.all_reduce(
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/nemo_rl/distributed/model_utils.py:67: FutureWarning: torch.distributed.nn.functional.all_reduce is deprecated, use torch.distributed._functional_collectives.all_reduce instead.
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m   sum_exp_logits = torch.distributed.nn.functional.all_reduce(
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.reduce_scatter_tensor` is deprecated. Please use `torch.distributed.reduce_scatter_single` instead.
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m   return func(*args, **kwargs)
+/planning-users/yangyeyuan/nemo-rl-3976/RL/nemo_rl/models/policy/lm_policy.py:1079: UserWarning: Error getting theoretical flops: Unknown device name: NVIDIA H20 and dtype name: torch.bfloat16
+  warnings.warn(f"Error getting theoretical flops: {e}")
+💭 Driver CPU memory tracker for Policy train:
+- Mem usage before                     1.35 GB
+- Mem usage after                      1.35 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: ['early_stop_message', 'flat_advantages', 'flat_token_mask', 'is_last_step', 'payload_metrics', 'response_advantages', 'should_run_validation', 'train_results']
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+Skipping aggregation for num_mask_sample_filtered (<class 'int'>)
+Skipping aggregation for baseline_reward/pct_0 (<class 'float'>)
+Skipping aggregation for baseline_reward/pct_1 (<class 'float'>)
+Skipping aggregation for baseline_reward/pct_mixed (<class 'float'>)
+Skipping aggregation for advantages/sum (<class 'float'>)
+Skipping aggregation for advantages/mean (<class 'float'>)
+Skipping aggregation for advantages/max (<class 'float'>)
+Skipping aggregation for advantages/min (<class 'float'>)
+Skipping aggregation for vllm/spec_num_drafts (<class 'float'>)
+Skipping aggregation for vllm/spec_num_draft_tokens (<class 'float'>)
+Skipping aggregation for vllm/spec_num_accepted_tokens (<class 'float'>)
+Skipping aggregation for vllm/spec_acceptance_length (<class 'float'>)
+Skipping aggregation for vllm/spec_acceptance_rate (<class 'float'>)
+Skipping aggregation for vllm/prompt_tokens (<class 'float'>)
+Skipping aggregation for vllm/generation_tokens (<class 'float'>)
+Skipping aggregation for vllm/prompt_length_mean (<class 'float'>)
+Skipping aggregation for vllm/generation_length_mean (<class 'float'>)
+Skipping aggregation for vllm/generations_ok (<class 'float'>)
+Skipping aggregation for vllm/generations_failed (<class 'float'>)
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m   return func(*args, **kwargs)
+💭 Driver CPU memory tracker for Metrics:
+- Mem usage before                     1.35 GB
+- Mem usage after                      1.35 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: ['k', 'should_save_by_step', 'should_save_by_timeout', 'v', 'valid_values']
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+💭 Driver CPU memory tracker for Checkpointing:
+- Mem usage before                     1.35 GB
+- Mem usage after                      1.35 GB
+- Mem usage diff (after - before)     -0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+Logged data to /planning-users/yangyeyuan/nemo-rl-3976/logs/offload_3976_pinned/exp_001/train_data_step1.jsonl
+
+📊 Training Results:
+  • Loss: 0.1005
+  • Generation KL Error: 0.0009
+  • Avg Reward: 0.1875
+  • Mean Generation Length: 311.5000
+
+⏱️  Timing:
+  • Total step time: 21.47s
+  • policy_and_reference_logprobs: 11.93s (55.5%)
+  • policy_training: 5.14s (23.9%)
+  • prepare_for_generation/total: 1.96s (9.1%)
+  • generation: 1.61s (7.5%)
+  • logprob_inference_prep: 0.72s (3.4%)
+  • prepare_for_generation/transfer_and_update_weights: 0.20s (1.0%)
+  • policy_training/sharding_data: 0.12s (0.6%)
+  • get_logprobs/shard_data: 0.03s (0.2%)
+  • training_prep: 0.01s (0.0%)
+  • reward_calculation: 0.01s (0.0%)
+  • get_reference_policy_logprobs/submit_reference_policy_logprob_futures: 0.00s (0.0%)
+  • data_processing: 0.00s (0.0%)
+  • policy_training/submit_training_futures: 0.00s (0.0%)
+  • advantage_calculation: 0.00s (0.0%)
+  • prepare_for_generation/sync_policy_params: 0.00s (0.0%)
+  • get_logprobs/submit_logprob_futures: 0.00s (0.0%)
+  • get_reference_policy_logprobs/shard_data: 0.00s (0.0%)
+
+🔍 Performance Metrics:
+  • Mean Total Tokens per Sample: 312.91
+  • Throughputs (per GPU):
+    - E2E (Samples/sec/gpu): 1.49
+    - E2E (Tokens/sec/gpu): 620.33
+    - Policy Training (Tokens/sec/gpu): 2592.88
+    - Policy and Reference Logprobs (Tokens/sec/gpu): 1116.95
+    - Training Worker Group (Tokens/sec/gpu): 780.66
+    - Generation Worker Group (Tokens/sec/gpu): 8259.48
+  • Throughputs (per Group):
+    - E2E (Samples/sec): 1.49
+    - E2E (Tokens/sec): 620.33
+    - Training Worker Group (Tokens/sec): 780.66
+    - Generation Worker Group (Tokens/sec): 8259.48
+💭 Driver CPU memory tracker for Logging:
+- Mem usage before                     1.35 GB
+- Mem usage after                      1.35 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: ['generation_kl_error', 'number_of_samples_per_step', 'percent', 'performance_metrics', 'timing_metrics', 'total_num_gpus', 'total_time']
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+
+========================= Step 2/5 =========================
+Starting GPU profiling for <nemo_rl.models.policy.lm_policy.Policy object at 
+0x7faaf01ec440> for step 2
+Starting GPU profiling for 
+<nemo_rl.models.generation.vllm.vllm_generation.VllmGeneration object at 
+0x7faa885ac440> for step 2
+▶ Preparing batch...
+💭 Driver CPU memory tracker for After CPU memory clear:
+- Mem usage before                     1.35 GB
+- Mem usage after                      1.35 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: ['prompt_group_ids']
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 1 objects, 0.0% full, 0.0% needed
+
+▶ Generating responses for batch of size 32...
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/c10d_logger.py:83: FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m   return func(*args, **kwargs)
+[36m(VllmGenerationWorker pid=102789)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/3rdparty/Megatron-LM/megatron/core/optimizer/__init__.py:25: UserWarning: Transformer Engine and Apex are not installed. Falling back to Torch optimizers.
+[36m(VllmGenerationWorker pid=102789)[0m   warnings.warn(
+[36m(VllmGenerationWorker pid=102789)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/3rdparty/Megatron-LM/megatron/core/distributed/fsdp/src/megatron_fsdp/mixed_precision.py:115: UserWarning: Transformer Engine and Apex are not installed. Falling back to local implementations of multi_tensor_applier and multi_tensor_scale
+[36m(VllmGenerationWorker pid=102789)[0m   warnings.warn(
+[36m(VllmGenerationWorker pid=102789)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/3rdparty/Megatron-LM/megatron/core/optimizer/optimizer.py:29: UserWarning: Transformer Engine and Apex are not installed. Falling back to local implementations of multi_tensor_applier and multi_tensor_scale
+[36m(VllmGenerationWorker pid=102789)[0m   warnings.warn(
+[36m(VllmGenerationWorker pid=102789)[0m /planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/3rdparty/Megatron-LM/megatron/core/optimizer/clip_grads.py:32: UserWarning: Transformer Engine and Apex are not installed. Falling back to local implementations of multi_tensor_applier, multi_tensor_l2norm, and multi_tensor_scale
+[36m(VllmGenerationWorker pid=102789)[0m   warnings.warn(
+[36m(VllmGenerationWorker pid=102789)[0m Rendering prompts:   0%|          | 0/32 [00:00<?, ?it/s]Rendering prompts: 100%|██████████| 32/32 [00:00<00:00, 6116.37it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:   0%|          | 0/32 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:   3%|▎         | 1/32 [00:00<00:06,  4.98it/s, est. speed input: 527.42 toks/s, output: 253.75 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:   6%|▋         | 2/32 [00:00<00:05,  5.04it/s, est. speed input: 533.20 toks/s, output: 422.52 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  16%|█▌        | 5/32 [00:00<00:02, 12.42it/s, est. speed input: 1146.68 toks/s, output: 1212.80 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  22%|██▏       | 7/32 [00:00<00:01, 13.79it/s, est. speed input: 1239.41 toks/s, output: 1587.47 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  38%|███▊      | 12/32 [00:00<00:00, 21.68it/s, est. speed input: 1748.88 toks/s, output: 2777.89 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  50%|█████     | 16/32 [00:00<00:00, 25.39it/s, est. speed input: 2042.10 toks/s, output: 3665.91 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  59%|█████▉    | 19/32 [00:01<00:00, 21.79it/s, est. speed input: 2004.92 toks/s, output: 4012.61 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 21.79it/s, est. speed input: 3232.25 toks/s, output: 8110.20 toks/s]Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 27.86it/s, est. speed input: 3232.25 toks/s, output: 8110.20 toks/s]
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory before optimizer offload: 6.58GB allocated, 6.69GB reserved
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory after optimizer offload: 1.01GB allocated, 1.10GB reserved
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:46 [abstract.py:426] It took 0.047971 seconds to wake up tags ['weights'].
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m MegatronPolicyWorker[rank=0]: Packed 1 groups of tensors
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory before optimizer offload: 0.09GB allocated, 1.10GB reserved
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory after optimizer offload: 0.09GB allocated, 0.18GB reserved
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory after refit complete: 0.09GB allocated, 0.18GB reserved
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:47 [abstract.py:426] It took 0.187560 seconds to wake up tags ['kv_cache'].
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:47 [scheduler.py:3074] setting pause state to UNPAUSED
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:49 [loggers.py:335] Engine 000: Avg prompt throughput: 11.4 tokens/s, Avg generation throughput: 64.3 tokens/s, Running: 32 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 74.6%
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:51 [block_pool.py:905] Successfully reset prefix cache
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:51 [scheduler.py:3074] setting pause state to PAUSED_NEW
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:51 [block_pool.py:905] Successfully reset prefix cache
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:51 [cumem.py:282] CuMemAllocator: sleep freed 55.60 GiB memory in total, of which 1.62 GiB is backed up in CPU and the rest 53.99 GiB is discarded directly.
+💭 Driver CPU memory tracker for Generation:
+- Mem usage before                     1.35 GB
+- Mem usage after                      1.35 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 1 objects, 0.0% full, 0.0% needed
+
+▶ Processing rewards...,
+▶ Computing advantages...
+💭 Driver CPU memory tracker for Processing rewards:
+- Mem usage before                     1.35 GB
+- Mem usage after                      1.35 GB
+- Mem usage diff (after - before)     -0.00 GB
+- New variables: ['baseline_for_log', 'env_baseline_for_log', 'extra_multimodal_data', 'flat_messages', 'prompt_ids_for_adv', 'rewards', 'train_data']
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 1 objects, 0.0% full, 0.0% needed
+
+▶ Preparing for logprob inference...
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:51 [gpu_worker.py:335] Sleep mode freed 55.64 GiB memory, 8.11 GiB memory is still in use.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:51 [abstract.py:408] It took 0.097187 seconds to fall asleep.
+▶ Computing logprobs...
+▶ Computing advantages...
+💭 Driver CPU memory tracker for Computing logprobs:
+- Mem usage before                     1.35 GB
+- Mem usage after                      1.35 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+▶ Preparing for training...
+▶ Training policy...
+💭 Driver CPU memory tracker for Policy train:
+- Mem usage before                     1.35 GB
+- Mem usage after                      1.35 GB
+- Mem usage diff (after - before)     -0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+Skipping aggregation for num_mask_sample_filtered (<class 'int'>)
+Skipping aggregation for baseline_reward/pct_0 (<class 'float'>)
+Skipping aggregation for baseline_reward/pct_1 (<class 'float'>)
+Skipping aggregation for baseline_reward/pct_mixed (<class 'float'>)
+Skipping aggregation for advantages/sum (<class 'float'>)
+Skipping aggregation for advantages/mean (<class 'float'>)
+Skipping aggregation for advantages/max (<class 'float'>)
+Skipping aggregation for advantages/min (<class 'float'>)
+Skipping aggregation for vllm/spec_num_drafts (<class 'float'>)
+Skipping aggregation for vllm/spec_num_draft_tokens (<class 'float'>)
+Skipping aggregation for vllm/spec_num_accepted_tokens (<class 'float'>)
+Skipping aggregation for vllm/spec_acceptance_length (<class 'float'>)
+Skipping aggregation for vllm/spec_acceptance_rate (<class 'float'>)
+Skipping aggregation for vllm/prompt_tokens (<class 'float'>)
+Skipping aggregation for vllm/generation_tokens (<class 'float'>)
+Skipping aggregation for vllm/prompt_length_mean (<class 'float'>)
+Skipping aggregation for vllm/generation_length_mean (<class 'float'>)
+Skipping aggregation for vllm/generations_ok (<class 'float'>)
+Skipping aggregation for vllm/generations_failed (<class 'float'>)
+💭 Driver CPU memory tracker for Metrics:
+- Mem usage before                     1.35 GB
+- Mem usage after                      1.35 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+💭 Driver CPU memory tracker for Checkpointing:
+- Mem usage before                     1.35 GB
+- Mem usage after                      1.35 GB
+- Mem usage diff (after - before)     -0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+Logged data to /planning-users/yangyeyuan/nemo-rl-3976/logs/offload_3976_pinned/exp_001/train_data_step2.jsonl
+
+📊 Training Results:
+  • Loss: 0.0613
+  • Generation KL Error: 0.0009
+  • Avg Reward: 0.1562
+  • Mean Generation Length: 291.0625
+
+⏱️  Timing:
+  • Total step time: 12.62s
+  • generation: 3.60s (28.6%)
+  • prepare_for_generation/total: 3.43s (27.2%)
+  • policy_and_reference_logprobs: 3.10s (24.6%)
+  • policy_training: 1.39s (11.0%)
+  • logprob_inference_prep: 0.92s (7.3%)
+  • training_prep: 0.11s (0.9%)
+  • prepare_for_generation/transfer_and_update_weights: 0.07s (0.6%)
+  • get_logprobs/shard_data: 0.02s (0.2%)
+  • get_reference_policy_logprobs/shard_data: 0.02s (0.1%)
+  • policy_training/sharding_data: 0.01s (0.1%)
+  • reward_calculation: 0.01s (0.0%)
+  • prepare_for_generation/sync_policy_params: 0.00s (0.0%)
+  • get_logprobs/submit_logprob_futures: 0.00s (0.0%)
+  • data_processing: 0.00s (0.0%)
+  • advantage_calculation: 0.00s (0.0%)
+  • policy_training/submit_training_futures: 0.00s (0.0%)
+  • get_reference_policy_logprobs/submit_reference_policy_logprob_futures: 0.00s (0.0%)
+
+🔍 Performance Metrics:
+  • Mean Total Tokens per Sample: 292.84
+  • Throughputs (per GPU):
+    - E2E (Samples/sec/gpu): 2.54
+    - E2E (Tokens/sec/gpu): 1036.83
+    - Policy Training (Tokens/sec/gpu): 9431.92
+    - Policy and Reference Logprobs (Tokens/sec/gpu): 4217.87
+    - Training Worker Group (Tokens/sec/gpu): 2914.52
+    - Generation Worker Group (Tokens/sec/gpu): 3630.56
+  • Throughputs (per Group):
+    - E2E (Samples/sec): 2.54
+    - E2E (Tokens/sec): 1036.83
+    - Training Worker Group (Tokens/sec): 2914.52
+    - Generation Worker Group (Tokens/sec): 3630.56
+💭 Driver CPU memory tracker for Logging:
+- Mem usage before                     1.35 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+
+========================= Step 3/5 =========================
+▶ Preparing batch...
+💭 Driver CPU memory tracker for After CPU memory clear:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: ['prompt_group_ids']
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+▶ Generating responses for batch of size 32...
+[36m(VllmGenerationWorker pid=102789)[0m Rendering prompts:   0%|          | 0/32 [00:00<?, ?it/s]Rendering prompts: 100%|██████████| 32/32 [00:00<00:00, 7229.22it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:   0%|          | 0/32 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:   3%|▎         | 1/32 [00:00<00:09,  3.18it/s, est. speed input: 251.00 toks/s, output: 247.81 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  12%|█▎        | 4/32 [00:00<00:03,  9.08it/s, est. speed input: 772.88 toks/s, output: 802.74 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  19%|█▉        | 6/32 [00:00<00:02, 11.06it/s, est. speed input: 927.49 toks/s, output: 1096.82 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  31%|███▏      | 10/32 [00:00<00:01, 17.43it/s, est. speed input: 1356.13 toks/s, output: 1869.94 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  44%|████▍     | 14/32 [00:00<00:00, 21.69it/s, est. speed input: 1563.45 toks/s, output: 2573.98 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  53%|█████▎    | 17/32 [00:01<00:00, 20.11it/s, est. speed input: 1572.79 toks/s, output: 2910.43 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  62%|██████▎   | 20/32 [00:01<00:00, 21.12it/s, est. speed input: 1671.07 toks/s, output: 3374.28 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  72%|███████▏  | 23/32 [00:01<00:00, 18.82it/s, est. speed input: 1706.49 toks/s, output: 3661.63 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  81%|████████▏ | 26/32 [00:01<00:00, 19.84it/s, est. speed input: 1794.94 toks/s, output: 4118.29 toks/s]Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 19.84it/s, est. speed input: 2071.03 toks/s, output: 5523.37 toks/s]Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 20.23it/s, est. speed input: 2071.03 toks/s, output: 5523.37 toks/s]
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory before optimizer offload: 6.58GB allocated, 6.69GB reserved
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory after optimizer offload: 1.01GB allocated, 1.10GB reserved
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:58 [abstract.py:426] It took 0.077632 seconds to wake up tags ['weights'].
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m MegatronPolicyWorker[rank=0]: Packed 1 groups of tensors
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory before optimizer offload: 0.09GB allocated, 1.10GB reserved
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory after optimizer offload: 0.09GB allocated, 0.18GB reserved
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory after refit complete: 0.09GB allocated, 0.18GB reserved
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:59 [abstract.py:426] It took 0.214793 seconds to wake up tags ['kv_cache'].
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:59 [scheduler.py:3074] setting pause state to UNPAUSED
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:12:59 [loggers.py:335] Engine 000: Avg prompt throughput: 84.4 tokens/s, Avg generation throughput: 1303.5 tokens/s, Running: 29 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.1%, Prefix cache hit rate: 74.2%
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:00 [block_pool.py:905] Successfully reset prefix cache
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:00 [scheduler.py:3074] setting pause state to PAUSED_NEW
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:00 [block_pool.py:905] Successfully reset prefix cache
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:01 [cumem.py:282] CuMemAllocator: sleep freed 55.60 GiB memory in total, of which 1.62 GiB is backed up in CPU and the rest 53.99 GiB is discarded directly.
+💭 Driver CPU memory tracker for Generation:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     -0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 1 objects, 0.0% full, 0.0% needed
+
+▶ Processing rewards...,
+▶ Computing advantages...
+💭 Driver CPU memory tracker for Processing rewards:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     -0.00 GB
+- New variables: ['baseline_for_log', 'env_baseline_for_log', 'extra_multimodal_data', 'flat_messages', 'prompt_ids_for_adv', 'rewards', 'train_data']
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 1 objects, 0.0% full, 0.0% needed
+
+▶ Preparing for logprob inference...
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:01 [gpu_worker.py:335] Sleep mode freed 55.64 GiB memory, 12.73 GiB memory is still in use.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:01 [abstract.py:408] It took 0.105363 seconds to fall asleep.
+▶ Computing logprobs...
+▶ Computing advantages...
+💭 Driver CPU memory tracker for Computing logprobs:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+▶ Preparing for training...
+▶ Training policy...
+💭 Driver CPU memory tracker for Policy train:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 1 objects, 0.0% full, 0.0% needed
+
+Skipping aggregation for num_mask_sample_filtered (<class 'int'>)
+Skipping aggregation for baseline_reward/pct_0 (<class 'float'>)
+Skipping aggregation for baseline_reward/pct_1 (<class 'float'>)
+Skipping aggregation for baseline_reward/pct_mixed (<class 'float'>)
+Skipping aggregation for advantages/sum (<class 'float'>)
+Skipping aggregation for advantages/mean (<class 'float'>)
+Skipping aggregation for advantages/max (<class 'float'>)
+Skipping aggregation for advantages/min (<class 'float'>)
+Skipping aggregation for vllm/spec_num_drafts (<class 'float'>)
+Skipping aggregation for vllm/spec_num_draft_tokens (<class 'float'>)
+Skipping aggregation for vllm/spec_num_accepted_tokens (<class 'float'>)
+Skipping aggregation for vllm/spec_acceptance_length (<class 'float'>)
+Skipping aggregation for vllm/spec_acceptance_rate (<class 'float'>)
+Skipping aggregation for vllm/prompt_tokens (<class 'float'>)
+Skipping aggregation for vllm/generation_tokens (<class 'float'>)
+Skipping aggregation for vllm/prompt_length_mean (<class 'float'>)
+Skipping aggregation for vllm/generation_length_mean (<class 'float'>)
+Skipping aggregation for vllm/generations_ok (<class 'float'>)
+Skipping aggregation for vllm/generations_failed (<class 'float'>)
+💭 Driver CPU memory tracker for Metrics:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 1 objects, 0.0% full, 0.0% needed
+
+💭 Driver CPU memory tracker for Checkpointing:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     -0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 1 objects, 0.0% full, 0.0% needed
+
+Logged data to /planning-users/yangyeyuan/nemo-rl-3976/logs/offload_3976_pinned/exp_001/train_data_step3.jsonl
+
+📊 Training Results:
+  • Loss: 0.0697
+  • Generation KL Error: 0.0009
+  • Avg Reward: 0.2812
+  • Mean Generation Length: 273.0312
+
+⏱️  Timing:
+  • Total step time: 11.07s
+  • policy_and_reference_logprobs: 3.62s (32.7%)
+  • prepare_for_generation/total: 2.32s (21.0%)
+  • policy_training: 2.16s (19.5%)
+  • generation: 1.84s (16.6%)
+  • logprob_inference_prep: 0.96s (8.6%)
+  • training_prep: 0.12s (1.1%)
+  • prepare_for_generation/transfer_and_update_weights: 0.11s (1.0%)
+  • policy_training/sharding_data: 0.10s (0.9%)
+  • get_reference_policy_logprobs/shard_data: 0.04s (0.3%)
+  • get_logprobs/shard_data: 0.03s (0.3%)
+  • prepare_for_generation/sync_policy_params: 0.01s (0.1%)
+  • reward_calculation: 0.01s (0.0%)
+  • data_processing: 0.00s (0.0%)
+  • policy_training/submit_training_futures: 0.00s (0.0%)
+  • advantage_calculation: 0.00s (0.0%)
+  • get_logprobs/submit_logprob_futures: 0.00s (0.0%)
+  • get_reference_policy_logprobs/submit_reference_policy_logprob_futures: 0.00s (0.0%)
+
+🔍 Performance Metrics:
+  • Mean Total Tokens per Sample: 275.00
+  • Throughputs (per GPU):
+    - E2E (Samples/sec/gpu): 2.89
+    - E2E (Tokens/sec/gpu): 1090.81
+    - Policy Training (Tokens/sec/gpu): 5596.42
+    - Policy and Reference Logprobs (Tokens/sec/gpu): 3340.20
+    - Training Worker Group (Tokens/sec/gpu): 2091.75
+    - Generation Worker Group (Tokens/sec/gpu): 6559.83
+  • Throughputs (per Group):
+    - E2E (Samples/sec): 2.89
+    - E2E (Tokens/sec): 1090.81
+    - Training Worker Group (Tokens/sec): 2091.75
+    - Generation Worker Group (Tokens/sec): 6559.83
+💭 Driver CPU memory tracker for Logging:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 1 objects, 0.0% full, 0.0% needed
+
+
+========================= Step 4/5 =========================
+Stopping GPU profiling for <nemo_rl.models.policy.lm_policy.Policy object at 
+0x7faaf01ec440> for step 4
+Stopping GPU profiling for 
+<nemo_rl.models.generation.vllm.vllm_generation.VllmGeneration object at 
+0x7faa885ac440> for step 4
+▶ Preparing batch...
+💭 Driver CPU memory tracker for After CPU memory clear:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: ['prompt_group_ids']
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 1 objects, 0.0% full, 0.0% needed
+
+▶ Generating responses for batch of size 32...
+[36m(VllmGenerationWorker pid=102789)[0m Rendering prompts:   0%|          | 0/32 [00:00<?, ?it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Rendering prompts: 100%|██████████| 32/32 [00:00<00:00, 7894.70it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:   0%|          | 0/32 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:   6%|▋         | 2/32 [00:00<00:02, 13.08it/s, est. speed input: 1196.89 toks/s, output: 418.51 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  12%|█▎        | 4/32 [00:00<00:01, 14.56it/s, est. speed input: 1456.47 toks/s, output: 833.76 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  19%|█▉        | 6/32 [00:00<00:01, 15.56it/s, est. speed input: 1454.30 toks/s, output: 1210.19 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  34%|███▍      | 11/32 [00:00<00:00, 26.21it/s, est. speed input: 2168.52 toks/s, output: 2436.09 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  44%|████▍     | 14/32 [00:00<00:00, 20.25it/s, est. speed input: 1941.36 toks/s, output: 2672.28 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  53%|█████▎    | 17/32 [00:00<00:00, 19.26it/s, est. speed input: 1920.72 toks/s, output: 3170.08 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  62%|██████▎   | 20/32 [00:01<00:00, 19.86it/s, est. speed input: 2025.54 toks/s, output: 3810.71 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  81%|████████▏ | 26/32 [00:01<00:00, 28.73it/s, est. speed input: 2426.29 toks/s, output: 5542.48 toks/s]Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 28.73it/s, est. speed input: 2880.66 toks/s, output: 7712.55 toks/s]Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 27.89it/s, est. speed input: 2880.66 toks/s, output: 7712.55 toks/s]
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory before optimizer offload: 6.58GB allocated, 6.69GB reserved
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory after optimizer offload: 1.01GB allocated, 1.10GB reserved
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:13 [abstract.py:426] It took 0.131419 seconds to wake up tags ['weights'].
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m MegatronPolicyWorker[rank=0]: Packed 1 groups of tensors
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory before optimizer offload: 0.09GB allocated, 1.10GB reserved
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory after optimizer offload: 0.09GB allocated, 0.18GB reserved
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory after refit complete: 0.09GB allocated, 0.18GB reserved
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:14 [abstract.py:426] It took 0.215739 seconds to wake up tags ['kv_cache'].
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:14 [scheduler.py:3074] setting pause state to UNPAUSED
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:14 [loggers.py:335] Engine 000: Avg prompt throughput: 54.9 tokens/s, Avg generation throughput: 334.1 tokens/s, Running: 32 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 75.1%
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:16 [block_pool.py:905] Successfully reset prefix cache
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:16 [scheduler.py:3074] setting pause state to PAUSED_NEW
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:16 [block_pool.py:905] Successfully reset prefix cache
+💭 Driver CPU memory tracker for Generation:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 1 objects, 0.0% full, 0.0% needed
+
+▶ Processing rewards...,
+▶ Computing advantages...
+💭 Driver CPU memory tracker for Processing rewards:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: ['baseline_for_log', 'env_baseline_for_log', 'extra_multimodal_data', 'flat_messages', 'prompt_ids_for_adv', 'rewards', 'train_data']
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 1 objects, 0.0% full, 0.0% needed
+
+▶ Preparing for logprob inference...
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:16 [cumem.py:282] CuMemAllocator: sleep freed 55.60 GiB memory in total, of which 1.62 GiB is backed up in CPU and the rest 53.99 GiB is discarded directly.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:16 [gpu_worker.py:335] Sleep mode freed 55.64 GiB memory, 4.81 GiB memory is still in use.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:16 [abstract.py:408] It took 0.096032 seconds to fall asleep.
+▶ Computing logprobs...
+▶ Computing advantages...
+💭 Driver CPU memory tracker for Computing logprobs:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     -0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+▶ Preparing for training...
+▶ Training policy...
+💭 Driver CPU memory tracker for Policy train:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     -0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+Skipping aggregation for num_mask_sample_filtered (<class 'int'>)
+Skipping aggregation for baseline_reward/pct_0 (<class 'float'>)
+Skipping aggregation for baseline_reward/pct_1 (<class 'float'>)
+Skipping aggregation for baseline_reward/pct_mixed (<class 'float'>)
+Skipping aggregation for advantages/sum (<class 'float'>)
+Skipping aggregation for advantages/mean (<class 'float'>)
+Skipping aggregation for advantages/max (<class 'float'>)
+Skipping aggregation for advantages/min (<class 'float'>)
+Skipping aggregation for vllm/spec_num_drafts (<class 'float'>)
+Skipping aggregation for vllm/spec_num_draft_tokens (<class 'float'>)
+Skipping aggregation for vllm/spec_num_accepted_tokens (<class 'float'>)
+Skipping aggregation for vllm/spec_acceptance_length (<class 'float'>)
+Skipping aggregation for vllm/spec_acceptance_rate (<class 'float'>)
+Skipping aggregation for vllm/prompt_tokens (<class 'float'>)
+Skipping aggregation for vllm/generation_tokens (<class 'float'>)
+Skipping aggregation for vllm/prompt_length_mean (<class 'float'>)
+Skipping aggregation for vllm/generation_length_mean (<class 'float'>)
+Skipping aggregation for vllm/generations_ok (<class 'float'>)
+Skipping aggregation for vllm/generations_failed (<class 'float'>)
+💭 Driver CPU memory tracker for Metrics:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     -0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+💭 Driver CPU memory tracker for Checkpointing:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+Logged data to /planning-users/yangyeyuan/nemo-rl-3976/logs/offload_3976_pinned/exp_001/train_data_step4.jsonl
+
+📊 Training Results:
+  • Loss: 0.0492
+  • Generation KL Error: 0.0011
+  • Avg Reward: 0.1562
+  • Mean Generation Length: 276.4375
+
+⏱️  Timing:
+  • Total step time: 8.88s
+  • policy_and_reference_logprobs: 2.82s (31.8%)
+  • prepare_for_generation/total: 2.47s (27.8%)
+  • generation: 1.49s (16.8%)
+  • policy_training: 1.04s (11.7%)
+  • logprob_inference_prep: 0.89s (10.0%)
+  • prepare_for_generation/transfer_and_update_weights: 0.12s (1.3%)
+  • training_prep: 0.11s (1.3%)
+  • get_logprobs/shard_data: 0.02s (0.2%)
+  • reward_calculation: 0.01s (0.1%)
+  • prepare_for_generation/sync_policy_params: 0.00s (0.0%)
+  • data_processing: 0.00s (0.0%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+  • advantage_calculation: 0.00s (0.0%)
+  • get_logprobs/submit_logprob_futures: 0.00s (0.0%)
+  • policy_training/submit_training_futures: 0.00s (0.0%)
+  • get_reference_policy_logprobs/submit_reference_policy_logprob_futures: 0.00s (0.0%)
+  • get_reference_policy_logprobs/shard_data: 0.00s (0.0%)
+
+🔍 Performance Metrics:
+  • Mean Total Tokens per Sample: 278.22
+  • Throughputs (per GPU):
+    - E2E (Samples/sec/gpu): 3.60
+    - E2E (Tokens/sec/gpu): 1374.71
+    - Policy Training (Tokens/sec/gpu): 11743.20
+    - Policy and Reference Logprobs (Tokens/sec/gpu): 4325.98
+    - Training Worker Group (Tokens/sec/gpu): 3161.39
+    - Generation Worker Group (Tokens/sec/gpu): 8172.22
+  • Throughputs (per Group):
+    - E2E (Samples/sec): 3.60
+    - E2E (Tokens/sec): 1374.71
+    - Training Worker Group (Tokens/sec): 3161.39
+    - Generation Worker Group (Tokens/sec): 8172.22
+💭 Driver CPU memory tracker for Logging:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     -0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+
+========================= Step 5/5 =========================
+▶ Preparing batch...
+💭 Driver CPU memory tracker for After CPU memory clear:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: ['prompt_group_ids']
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+▶ Generating responses for batch of size 32...
+[36m(VllmGenerationWorker pid=102789)[0m Rendering prompts:   0%|          | 0/32 [00:00<?, ?it/s]Rendering prompts: 100%|██████████| 32/32 [00:00<00:00, 8344.80it/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:   0%|          | 0/32 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:   6%|▋         | 2/32 [00:00<00:03,  8.20it/s, est. speed input: 1000.54 toks/s, output: 446.94 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  16%|█▌        | 5/32 [00:00<00:02, 12.39it/s, est. speed input: 1216.78 toks/s, output: 1106.98 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  34%|███▍      | 11/32 [00:00<00:00, 25.44it/s, est. speed input: 2203.12 toks/s, output: 3039.95 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  50%|█████     | 16/32 [00:00<00:00, 30.38it/s, est. speed input: 2425.39 toks/s, output: 4219.37 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  66%|██████▌   | 21/32 [00:00<00:00, 32.28it/s, est. speed input: 2658.88 toks/s, output: 5340.19 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts:  78%|███████▊  | 25/32 [00:00<00:00, 31.91it/s, est. speed input: 2843.85 toks/s, output: 6251.93 toks/s]
+[36m(VllmGenerationWorker pid=102789)[0m Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 31.91it/s, est. speed input: 3244.87 toks/s, output: 8585.11 toks/s]Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 31.46it/s, est. speed input: 3244.87 toks/s, output: 8585.11 toks/s]
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory before optimizer offload: 6.58GB allocated, 6.69GB reserved
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:22 [abstract.py:426] It took 0.072512 seconds to wake up tags ['weights'].
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory after optimizer offload: 1.01GB allocated, 1.10GB reserved
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m MegatronPolicyWorker[rank=0]: Packed 1 groups of tensors
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory before optimizer offload: 0.09GB allocated, 1.10GB reserved
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory after optimizer offload: 0.09GB allocated, 0.18GB reserved
+[36m(MegatronPolicyWorker[rank=0] pid=103900)[0m GPU Memory after refit complete: 0.09GB allocated, 0.18GB reserved
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:23 [abstract.py:426] It took 0.207429 seconds to wake up tags ['kv_cache'].
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:23 [scheduler.py:3074] setting pause state to UNPAUSED
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:24 [block_pool.py:905] Successfully reset prefix cache
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:24 [scheduler.py:3074] setting pause state to PAUSED_NEW
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:24 [block_pool.py:905] Successfully reset prefix cache
+💭 Driver CPU memory tracker for Generation:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+▶ Processing rewards...,
+▶ Computing advantages...
+💭 Driver CPU memory tracker for Processing rewards:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     -0.00 GB
+- New variables: ['baseline_for_log', 'env_baseline_for_log', 'extra_multimodal_data', 'flat_messages', 'prompt_ids_for_adv', 'rewards', 'train_data']
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+▶ Preparing for logprob inference...
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:24 [cumem.py:282] CuMemAllocator: sleep freed 55.60 GiB memory in total, of which 1.62 GiB is backed up in CPU and the rest 53.99 GiB is discarded directly.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:24 [gpu_worker.py:335] Sleep mode freed 55.64 GiB memory, 4.81 GiB memory is still in use.
+[36m(VllmGenerationWorker pid=102789)[0m (MainProcess pid=102789) INFO 11-19 15:13:24 [abstract.py:408] It took 0.090402 seconds to fall asleep.
+▶ Computing logprobs...
+▶ Computing advantages...
+💭 Driver CPU memory tracker for Computing logprobs:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+▶ Preparing for training...
+▶ Training policy...
+💭 Driver CPU memory tracker for Policy train:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+Skipping aggregation for num_mask_sample_filtered (<class 'int'>)
+Skipping aggregation for baseline_reward/pct_0 (<class 'float'>)
+Skipping aggregation for baseline_reward/pct_1 (<class 'float'>)
+Skipping aggregation for baseline_reward/pct_mixed (<class 'float'>)
+Skipping aggregation for advantages/sum (<class 'float'>)
+Skipping aggregation for advantages/mean (<class 'float'>)
+Skipping aggregation for advantages/max (<class 'float'>)
+Skipping aggregation for advantages/min (<class 'float'>)
+Skipping aggregation for vllm/spec_num_drafts (<class 'float'>)
+Skipping aggregation for vllm/spec_num_draft_tokens (<class 'float'>)
+Skipping aggregation for vllm/spec_num_accepted_tokens (<class 'float'>)
+Skipping aggregation for vllm/spec_acceptance_length (<class 'float'>)
+Skipping aggregation for vllm/spec_acceptance_rate (<class 'float'>)
+Skipping aggregation for vllm/prompt_tokens (<class 'float'>)
+Skipping aggregation for vllm/generation_tokens (<class 'float'>)
+Skipping aggregation for vllm/prompt_length_mean (<class 'float'>)
+Skipping aggregation for vllm/generation_length_mean (<class 'float'>)
+Skipping aggregation for vllm/generations_ok (<class 'float'>)
+Skipping aggregation for vllm/generations_failed (<class 'float'>)
+💭 Driver CPU memory tracker for Metrics:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     -0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+💭 Driver CPU memory tracker for Checkpointing:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     -0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+Logged data to /planning-users/yangyeyuan/nemo-rl-3976/logs/offload_3976_pinned/exp_001/train_data_step5.jsonl
+
+📊 Training Results:
+  • Loss: 0.0017
+  • Generation KL Error: 0.0009
+  • Avg Reward: 0.0625
+  • Mean Generation Length: 272.8438
+
+⏱️  Timing:
+  • Total step time: 7.57s
+  • policy_and_reference_logprobs: 2.43s (32.2%)
+  • prepare_for_generation/total: 1.95s (25.8%)
+  • generation: 1.25s (16.5%)
+  • policy_training: 1.01s (13.3%)
+  • logprob_inference_prep: 0.76s (10.0%)
+  • training_prep: 0.12s (1.6%)
+  • prepare_for_generation/transfer_and_update_weights: 0.09s (1.2%)
+  • policy_training/sharding_data: 0.01s (0.1%)
+  • reward_calculation: 0.01s (0.1%)
+  • prepare_for_generation/sync_policy_params: 0.00s (0.1%)
+  • data_processing: 0.00s (0.0%)
+  • advantage_calculation: 0.00s (0.0%)
+  • policy_training/submit_training_futures: 0.00s (0.0%)
+  • get_reference_policy_logprobs/submit_reference_policy_logprob_futures: 0.00s (0.0%)
+  • get_logprobs/submit_logprob_futures: 0.00s (0.0%)
+  • get_logprobs/shard_data: 0.00s (0.0%)
+  • get_reference_policy_logprobs/shard_data: 0.00s (0.0%)
+
+🔍 Performance Metrics:
+  • Mean Total Tokens per Sample: 274.81
+  • Throughputs (per GPU):
+    - E2E (Samples/sec/gpu): 4.23
+    - E2E (Tokens/sec/gpu): 1597.56
+    - Policy Training (Tokens/sec/gpu): 12030.67
+    - Policy and Reference Logprobs (Tokens/sec/gpu): 4966.95
+    - Training Worker Group (Tokens/sec/gpu): 3515.54
+    - Generation Worker Group (Tokens/sec/gpu): 9661.61
+  • Throughputs (per Group):
+    - E2E (Samples/sec): 4.23
+    - E2E (Tokens/sec): 1597.56
+    - Training Worker Group (Tokens/sec): 3515.54
+    - Generation Worker Group (Tokens/sec): 9661.61
+💭 Driver CPU memory tracker for Logging:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     -0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+💭 Driver CPU memory tracker for After CPU memory clear:
+- Mem usage before                     1.36 GB
+- Mem usage after                      1.36 GB
+- Mem usage diff (after - before)     +0.00 GB
+- New variables: []
+
+⚡️ Ray memory snapshot:
+--- Aggregate object store stats across all nodes ---
+Plasma memory usage 0 MiB, 2 objects, 0.0% full, 0.0% needed
+
+Max number of steps has been reached, stopping training early
+[36m(VllmGenerationWorker pid=102789)[0m CUDA Error: invalid argument at /workspace/csrc/cumem_allocator.cpp:249
+🛑 Shutting down environment gsm8k...
+Stopping GPU profiling on exit for 
+<nemo_rl.models.generation.vllm.vllm_generation.VllmGeneration object at 
+0x7faa885ac440> for step 2
+Stopping GPU profiling on exit for <nemo_rl.models.policy.lm_policy.Policy 
+object at 0x7faaf01ec440> for step 2

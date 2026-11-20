@@ -1,0 +1,601 @@
+=== [2026-11-17 19:38:06] driver venv (.venv)
+Using CPython 3.13.14
+Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
+Using CPython 3.13.14
+Creating virtual environment `nemo-rl-cp3.13.14-ec414780f8fd8c50`
+   Building nemo-rl @ file:///planning-users/yangyeyuan/nemo-rl-3976/RL
+   Updating https://github.com/NVIDIA-NeMo/Lens.git (4d045c03186b90afdc815db46b671f6a21bc7e98)
+   Updating https://github.com/Ascend/TransferQueue.git (05d4cc3377bee9b0f2897bbb90914ee20c0aea39)
+Downloading sympy (6.0MiB)
+Downloading tensorboard (5.3MiB)
+Downloading hf-xet (4.3MiB)
+Downloading cryptography (4.5MiB)
+Downloading zstandard (5.3MiB)
+Downloading cuda-core (6.3MiB)
+Downloading pyrefly (6.0MiB)
+ Downloaded hf-xet
+Downloading cuda-bindings (6.6MiB)
+ Downloaded pyrefly
+Downloading virtualenv (5.2MiB)
+Downloading multi-storage-client (6.3MiB)
+ Downloaded zstandard
+Downloading torchvision (7.1MiB)
+Downloading matplotlib (9.4MiB)
+Downloading pandas (10.3MiB)
+Downloading plotly (9.2MiB)
+Downloading nvidia-cuda-cupti (10.2MiB)
+Downloading grpcio (6.8MiB)
+Downloading scikit-learn (8.7MiB)
+Downloading ruff (10.7MiB)
+Downloading transformers (11.5MiB)
+Downloading uvloop (4.2MiB)
+Downloading lxml (5.0MiB)
+Downloading pillow (6.8MiB)
+Downloading tensorboard-data-server (6.3MiB)
+ Downloaded ruff
+Downloading fonttools (5.1MiB)
+Downloading botocore (15.3MiB)
+ Downloaded tensorboard-data-server
+    Updated https://github.com/Ascend/TransferQueue.git (05d4cc3377bee9b0f2897bbb90914ee20c0aea39)
+   Building transferqueue @ git+https://github.com/Ascend/TransferQueue.git@05d4cc3377bee9b0f2897bbb90914ee20c0aea39
+ Downloaded nvidia-cuda-cupti
+ Downloaded cryptography
+ Downloaded grpcio
+Downloading debugpy (3.8MiB)
+ Downloaded uvloop
+ Downloaded cuda-bindings
+Downloading tokenizers (3.2MiB)
+Downloading awscrt (4.2MiB)
+ Downloaded virtualenv
+Downloading nvidia-cuda-cccl (3.7MiB)
+ Downloaded tokenizers
+Downloading numpy (15.9MiB)
+Downloading wandb (24.9MiB)
+Downloading mlflow-skinny (3.6MiB)
+ Downloaded awscrt
+Downloading z3-solver (27.9MiB)
+ Downloaded torchvision
+ Downloaded tensorboard
+Downloading sqlalchemy (3.3MiB)
+Downloading fastokens (3.3MiB)
+Downloading py-spy (2.8MiB)
+ Downloaded lxml
+    Updated https://github.com/NVIDIA-NeMo/Lens.git (4d045c03186b90afdc815db46b671f6a21bc7e98)
+   Building nemo-lens @ git+https://github.com/NVIDIA-NeMo/Lens.git@4d045c03186b90afdc815db46b671f6a21bc7e98
+ Downloaded multi-storage-client
+Downloading nccl-extensions (21.5MiB)
+ Downloaded pillow
+Downloading apache-tvm-ffi (2.6MiB)
+Downloading timm (2.4MiB)
+ Downloaded py-spy
+ Downloaded fastokens
+Downloading scipy (33.7MiB)
+Downloading mlflow (11.1MiB)
+Downloading nvtx (2.7MiB)
+Downloading pycryptodomex (2.2MiB)
+Downloading nvidia-cuda-runtime (2.1MiB)
+Downloading networkx (2.0MiB)
+ Downloaded z3-solver
+ Downloaded nvtx
+Downloading aiohttp (1.8MiB)
+Downloading nccl4py (3.4MiB)
+Downloading pydantic-core (2.0MiB)
+Downloading pip (1.7MiB)
+Downloading nvidia-nvjitlink (38.8MiB)
+ Downloaded nccl-extensions
+ Downloaded pydantic-core
+ Downloaded cuda-core
+Downloading mlflow-tracing (1.7MiB)
+Downloading open-clip-torch (1.5MiB)
+ Downloaded nvidia-cuda-runtime
+ Downloaded nccl4py
+Downloading kiwisolver (1.4MiB)
+ Downloaded aiohttp
+Downloading tilelang (48.6MiB)
+Downloading pyroaring (2.0MiB)
+ Downloaded debugpy
+ Downloaded kiwisolver
+Downloading sentencepiece (1.3MiB)
+ Downloaded nvidia-nvjitlink
+Downloading soundfile (1.3MiB)
+ Downloaded sentencepiece
+ Downloaded pyroaring
+ Downloaded soundfile
+ Downloaded apache-tvm-ffi
+Downloading pyarrow (47.8MiB)
+   Building pwinput==1.0.3
+Downloading nixl-cu13 (43.0MiB)
+Downloading nvidia-curand (56.8MiB)
+ Downloaded fonttools
+ Downloaded sqlalchemy
+Downloading nixl-cu12 (48.2MiB)
+ Downloaded timm
+ Downloaded open-clip-torch
+ Downloaded nvidia-curand
+ Downloaded pycryptodomex
+ Downloaded matplotlib
+   Building docopt==0.6.2
+ Downloaded wandb
+ Downloaded pip
+Downloading ray (74.7MiB)
+Downloading nvidia-cuda-nvrtc (86.0MiB)
+ Downloaded networkx
+Downloading pygments (1.2MiB)
+ Downloaded mlflow-tracing
+ Downloaded scikit-learn
+Downloading mooncake-transfer-engine-cuda13 (93.3MiB)
+   Building antlr4-python3-runtime==4.9.3
+ Downloaded nvidia-cuda-nvrtc
+Downloading nvidia-cufile (1.2MiB)
+Downloading databricks-sdk (1.0MiB)
+ Downloaded nvidia-cufile
+ Downloaded numpy
+Downloading tiktoken (1.1MiB)
+ Downloaded databricks-sdk
+ Downloaded sympy
+ Downloaded tiktoken
+ Downloaded pygments
+Downloading nvidia-nvshmem-cu13 (129.1MiB)
+ Downloaded mooncake-transfer-engine-cuda13
+ Downloaded pyarrow
+ Downloaded mlflow-skinny
+ Downloaded pandas
+Downloading nvidia-cusparse (139.2MiB)
+ Downloaded nixl-cu13
+ Downloaded plotly
+ Downloaded nvidia-nvshmem-cu13
+Downloading nvidia-cusparselt-cu13 (162.3MiB)
+ Downloaded nixl-cu12
+Downloading nvidia-cusolver (191.6MiB)
+ Downloaded nvidia-cusparse
+Downloading nvidia-cufft (204.2MiB)
+Downloading nvidia-nccl-cu13 (206.0MiB)
+ Downloaded scipy
+ Downloaded nvidia-cusparselt-cu13
+ Downloaded botocore
+ Downloaded mlflow
+Downloading triton (235.4MiB)
+ Downloaded nvidia-cusolver
+ Downloaded nvidia-cufft
+ Downloaded nvidia-nccl-cu13
+ Downloaded nvidia-cuda-cccl
+ Downloaded transformers
+      Built pwinput==1.0.3
+      Built docopt==0.6.2
+      Built nemo-rl @ file:///planning-users/yangyeyuan/nemo-rl-3976/RL
+ Downloaded triton
+      Built antlr4-python3-runtime==4.9.3
+      Built nemo-lens @ git+https://github.com/NVIDIA-NeMo/Lens.git@4d045c03186b90afdc815db46b671f6a21bc7e98
+ Downloaded ray
+      Built transferqueue @ git+https://github.com/Ascend/TransferQueue.git@05d4cc3377bee9b0f2897bbb90914ee20c0aea39
+Downloading nvidia-cublas (388.9MiB)
+ Downloaded nvidia-cublas
+Downloading nvidia-cudnn-cu13 (495.1MiB)
+ Downloaded nvidia-cudnn-cu13
+Downloading torch (528.9MiB)
+ Downloaded tilelang
+ Downloaded torch
+Prepared 270 packages in 3m 42s
+Installed 270 packages in 8m 57s
+ + absl-py==2.5.0
+ + accelerate==1.15.0
+ + agent-detector==2.0.0
+ + aiohappyeyeballs==2.7.1
+ + aiohttp==3.14.5
+ + aiohttp-cors==0.8.1
+ + aiosignal==1.4.0
+ + alembic==1.20.0
+ + annotated-doc==0.0.5
+ + annotated-types==0.8.0
+ + antlr4-python3-runtime==4.9.3
+ + anyio==4.15.1
+ + apache-tvm-ffi==0.1.12
+ + asgiref==3.13.0
+ + attrs==26.1.0
+ + awscrt==0.36.4
+ + blinker==1.9.0
+ + blobfile==3.0.0
+ + boto3==1.43.115
+ + botocore==1.43.115
+ + bracex==3.0.1
+ + cachetools==7.2.0
+ + certifi==2026.10.23
+ + cffi==2.1.1
+ + cfgv==3.5.0
+ + charset-normalizer==3.5.1
+ + click==8.5.0
+ + cloudpickle==3.1.2
+ + colored==2.2.3
+ + colorful==0.5.8
+ + contourpy==1.4.0
+ + cryptography==50.0.1
+ + cuda-bindings==13.4.2
+ + cuda-core==1.2.0
+ + cuda-pathfinder==1.8.2
+ + cuda-toolkit==13.0.3.0
+ + cycler==0.12.1
+ + databricks-sdk==0.140.0
+ + datasets==5.0.1
+ + debugpy==1.8.22
+ + detect-installer==0.2.1
+ + dill==0.4.1
+ + distlib==0.4.3
+ + dnspython==2.8.0
+ + docker==7.2.0
+ + docopt==0.6.2
+ + einops==0.8.2
+ + email-validator==2.3.0
+ + fastapi==0.136.3
+ + fastapi-cli==0.0.32
+ + fastapi-cloud-cli==0.26.0
+ + fastar==0.12.0
+ + fastokens==0.3.2
+ + filelock==3.32.7
+ + flask==3.1.3
+ + flask-cors==6.0.5
+ + fonttools==4.65.0
+ + frozenlist==1.8.0
+ + fsspec==2026.6.0
+ + ftfy==6.3.1
+ + gitdb==4.0.12
+ + gitpython==3.1.62
+ + google-api-core==2.38.0
+ + google-auth==2.58.0
+ + googleapis-common-protos==1.75.3
+ + graphene==3.4.3
+ + graphql-core==3.2.12
+ + graphql-relay==3.2.0
+ + greenlet==3.5.6
+ + grpcio==1.84.0
+ + gunicorn==26.2.0
+ + h11==0.16.0
+ + hatchling==1.32.4
+ + hf-xet==1.6.0
+ + httpcore==1.0.9
+ + httptools==0.8.0
+ + httpx==0.28.1
+ + huey==3.4.0
+ + huggingface-hub==1.32.0
+ + hydra-core==1.3.7
+ + identify==2.6.19
+ + idna==3.20
+ + importlib-metadata==9.0.1
+ + itsdangerous==2.2.0
+ + jinja2==3.1.6
+ + jmespath==1.1.0
+ + joblib==1.6.0
+ + jsonschema==4.26.0
+ + jsonschema-specifications==2025.9.1
+ + kiwisolver==1.5.1
+ + lark==1.3.1
+ + latex2sympy2-extended==1.11.0
+ + lxml==6.1.3
+ + mako==1.4.1
+ + markdown==3.10.3
+ + markdown-it-py==4.2.0
+ + markupsafe==3.0.3
+ + math-verify==0.9.0
+ + matplotlib==3.11.2
+ + mdurl==0.1.2
+ + ml-dtypes==0.6.0
+ + mlflow==3.16.1
+ + mlflow-skinny==3.16.1
+ + mlflow-tracing==3.16.1
+ + mooncake-transfer-engine-cuda13==0.3.13.post1
+ + mpmath==1.3.0
+ + msgpack==1.2.2
+ + msgspec==0.21.1
+ + multi-storage-client==0.51.0
+ + multidict==7.2.1
+ + multiprocess==0.70.19
+ + narwhals==2.26.0
+ + nccl-extensions==0.1.0
+ + nccl4py==0.5.0
+ + nemo-lens==0.2.0+4d045c0 (from git+https://github.com/NVIDIA-NeMo/Lens.git@4d045c03186b90afdc815db46b671f6a21bc7e98)
+ + nemo-rl==0.8.0+bfe65cdf6 (from file:///planning-users/yangyeyuan/nemo-rl-3976/RL)
+ + networkx==3.7
+ + ninja==1.13.2
+ + nixl==1.3.0
+ + nixl-cu12==1.3.0
+ + nixl-cu13==1.3.0
+ + nodeenv==1.10.0
+ + num2words==0.5.14
+ + numpy==2.4.6
+ + nvidia-cublas==13.5.1.27
+ + nvidia-cuda-cccl==13.3.4.3.1
+ + nvidia-cuda-cupti==13.0.85
+ + nvidia-cuda-nvrtc==13.0.88
+ + nvidia-cuda-runtime==13.0.96
+ + nvidia-cudnn-cu13==9.26.0.51
+ + nvidia-cufft==12.0.0.61
+ + nvidia-cufile==1.15.1.6
+ + nvidia-curand==<ip>
+ + nvidia-cusolver==12.0.4.66
+ + nvidia-cusparse==12.6.3.3
+ + nvidia-cusparselt-cu13==0.8.1
+ + nvidia-ml-py==13.610.43
+ + nvidia-nccl-cu13==2.30.7
+ + nvidia-nvjitlink==13.0.88
+ + nvidia-nvshmem-cu13==3.7.2
+ + nvidia-nvtx==13.0.85
+ + nvtx==0.2.16
+ + omegaconf==2.3.1
+ + open-clip-torch==3.3.0
+ + opencensus==0.11.4
+ + opencensus-context==0.1.3
+ + opentelemetry-api==1.44.0
+ + opentelemetry-exporter-otlp-proto-common==1.44.0
+ + opentelemetry-exporter-otlp-proto-grpc==1.44.0
+ + opentelemetry-exporter-otlp-proto-http==1.44.0
+ + opentelemetry-exporter-prometheus==0.65b0
+ + opentelemetry-instrumentation==0.65b0
+ + opentelemetry-instrumentation-aiohttp-client==0.65b0
+ + opentelemetry-instrumentation-asgi==0.65b0
+ + opentelemetry-instrumentation-fastapi==0.65b0
+ + opentelemetry-proto==1.44.0
+ + opentelemetry-sdk==1.44.0
+ + opentelemetry-semantic-conventions==0.65b0
+ + opentelemetry-util-http==0.65b0
+ + orjson==3.12.0
+ + packaging==26.3
+ + pandas==3.0.6
+ + pathspec==1.1.1
+ + pillow==13.0.0
+ + pip==26.2.1
+ + platformdirs==4.11.11
+ + plotly==7.1.0
+ + pluggy==1.6.0
+ + pre-commit==4.6.2
+ + prettytable==3.18.0
+ + prometheus-client==0.26.0
+ + propcache==0.5.4
+ + proto-plus==1.28.4
+ + protobuf==6.33.6
+ + psutil==7.2.2
+ + pwinput==1.0.3
+ + py-spy==0.4.2
+ + pyarrow==25.0.1
+ + pyasn1==0.6.4
+ + pyasn1-modules==0.4.2
+ + pybase64==1.5.0
+ + pybind11==3.1.0
+ + pycparser==3.0
+ + pycryptodomex==3.23.0
+ + pydantic==2.13.5
+ + pydantic-core==2.46.5
+ + pydantic-extra-types==2.11.1
+ + pydantic-settings==2.15.0
+ + pyecharts==2.1.0
+ + pygments==2.21.0
+ + pyparsing==3.3.3
+ + pyrefly==0.24.2
+ + pyroaring==1.0.3
+ + python-dateutil==2.9.0.post0
+ + python-discovery==1.6.1
+ + python-dotenv==1.2.3
+ + python-multipart==0.0.32
+ + pyvers==0.2.3
+ + pyyaml==6.0.3
+ + pyzmq==27.2.0
+ + ray==2.58.0
+ + referencing==0.37.0
+ + regex==2026.9.10
+ + requests==2.34.2
+ + rich==15.0.0
+ + rich-toolkit==0.20.5
+ + rignore==0.8.1
+ + rpds-py==2026.6.3
+ + ruff==0.9.9
+ + s3transfer==0.19.3
+ + safetensors==0.8.0
+ + scikit-learn==1.9.1
+ + scipy==1.18.1
+ + sentencepiece==0.2.2
+ + sentry-sdk==2.69.2
+ + setuptools==84.0.0
+ + shellingham==1.5.4
+ + simplejson==4.1.2
+ + six==1.17.0
+ + skops==0.15.0
+ + smart-open==8.0.1
+ + smmap==5.0.3
+ + soundfile==0.13.1
+ + sqlalchemy==2.0.54
+ + sqlparse==0.6.0
+ + starlette==1.6.0
+ + swanlab==0.10.0
+ + sympy==1.14.0
+ + tensorboard==2.21.0
+ + tensorboard-data-server==0.7.2
+ + tensordict==0.14.2
+ + threadpoolctl==3.7.0
+ + tiktoken==0.14.0
+ + tilelang==0.1.13
+ + timm==1.0.22
+ + tokenizers==0.23.3
+ + tomlkit==0.15.1
+ + torch==2.14.0+cu130
+ + torch-c-dlpack-ext==0.1.5
+ + torchdata==0.11.0
+ + torchvision==0.29.0+cu130
+ + tqdm==4.70.1
+ + transferqueue==0.1.11 (from git+https://github.com/Ascend/TransferQueue.git@05d4cc3377bee9b0f2897bbb90914ee20c0aea39)
+ + transformers==5.16.1
+ + triton==3.8.0
+ + trove-classifiers==2026.9.21.13
+ + typer==0.27.2
+ + types-pyyaml==6.0.12.20260906
+ + types-requests==2.33.0.20260906
+ + typing-extensions==4.16.0
+ + typing-inspection==0.4.4
+ + tzdata==2025.3
+ + urllib3==2.8.0
+ + uvicorn==0.53.0
+ + uvloop==0.22.1
+ + virtualenv==21.9.0
+ + wandb==0.30.0
+ + watchdog==6.0.0
+ + watchfiles==1.3.0
+ + wcmatch==10.2.1
+ + wcwidth==0.8.4
+ + websockets==17.1
+ + werkzeug==3.1.8
+ + wrapt==2.4.1
+ + xattr==1.3.0
+ + xxhash==4.0.1
+ + yarl==1.25.1
+ + z3-solver==4.15.4.0
+ + zipp==4.1.0
+ + zstandard==0.25.0
+=== [2026-11-17 19:50:56] list worker venvs
+nemo_rl.algorithms.async_utils.AsyncTrajectoryCollector	deps	--extra vllm
+nemo_rl.algorithms.async_utils.ReplayBuffer	deps	--extra vllm
+nemo_rl.data.energon.sft_worker.SFTMegatronPolicyWorker	deps	--extra mcore --extra nemo_gym
+nemo_rl.environments.nemo_gym.NemoGym	deps	--extra nemo_gym
+nemo_rl.experience.rollout_reassembler_actor.RolloutReassemblerActor	deps	--extra nemo_gym
+nemo_rl.experience.sync_rollout_actor.SyncRolloutActor	deps	--extra vllm
+nemo_rl.modelopt.models.generation.vllm_quant_worker.VllmQuantAsyncGenerationWorker	deps	--extra modelopt --extra vllm
+nemo_rl.modelopt.models.generation.vllm_quant_worker.VllmQuantGenerationWorker	deps	--extra modelopt --extra vllm
+nemo_rl.modelopt.models.policy.workers.automodel_quant_policy_worker.AutomodelQuantPolicyWorker	deps	--extra modelopt --extra automodel
+nemo_rl.modelopt.models.policy.workers.megatron_quant_policy_worker.MegatronQuantPolicyWorker	deps	--extra modelopt --extra mcore
+nemo_rl.models.generation.sglang.sglang_worker.SGLangGenerationWorker	deps	--extra sglang
+nemo_rl.models.generation.trtllm.trtllm_worker_async.TrtllmAsyncGenerationWorker	trtllm	--extra trtllm
+nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker	deps	--extra vllm --extra nemo_gym
+nemo_rl.models.generation.vllm.vllm_worker_async.VllmAsyncGenerationWorker	deps	--extra vllm --extra nemo_gym
+nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker	deps	--extra automodel
+nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker	deps	--extra mcore --extra nemo_gym
+nemo_rl.models.value.workers.automodel_value_worker.AutomodelValueWorker	deps	--extra automodel
+nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker	deps	--extra mcore
+=== [2026-11-17 19:50:56] worker venv nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker (--extra mcore)
+Using CPython 3.13.14
+Creating virtual environment at: venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker
+Activate with: source venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/bin/activate
+   Building megatron-bridge @ file:///planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge
+   Updating https://github.com/fzyzcjy/torch_memory_saver.git (9bc9a442e6d108c7b7903def199896a005143aaf)
+   Updating https://github.com/NVIDIA/nvidia-resiliency-ext.git (v0.7.0)
+   Updating https://github.com/NVIDIA-NeMo/Emerging-Optimizers.git (v0.3.0)
+   Updating https://github.com/NVIDIA/Model-Optimizer (cc4b76d74625b42cca1967118628b25ed326a3d1)
+   Building megatron-core @ file:///planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/3rdparty/Megatron-LM
+Downloading torch (502.1MiB)
+Downloading flashinfer-jit-cache-sm90a (284.2MiB)
+Downloading grpcio-tools (2.6MiB)
+Downloading nvshmem4py-cu13 (3.0MiB)
+Downloading cython (3.2MiB)
+Downloading openai (1.6MiB)
+Downloading dulwich (1.4MiB)
+Downloading nvidia-cutlass-dsl-libs-base (2.9MiB)
+Downloading nvidia-cutlass-dsl-libs-core (1.6MiB)
+Downloading gigatoken (5.1MiB)
+ Downloaded grpcio-tools
+    Updated https://github.com/fzyzcjy/torch_memory_saver.git (9bc9a442e6d108c7b7903def199896a005143aaf)
+   Building torch-memory-saver @ git+https://github.com/fzyzcjy/torch_memory_saver.git@9bc9a442e6d108c7b7903def199896a005143aaf
+Downloading mistral-common (6.2MiB)
+Downloading pycountry (7.7MiB)
+ Downloaded nvshmem4py-cu13
+Downloading onnx (8.5MiB)
+Downloading pulp (15.6MiB)
+ Downloaded dulwich
+ Downloaded gigatoken
+Downloading nvidia-cudnn-frontend (11.1MiB)
+Downloading diffusers (5.6MiB)
+ Downloaded nvidia-cutlass-dsl-libs-base
+    Updated https://github.com/NVIDIA-NeMo/Emerging-Optimizers.git (b309e2f01cda75dc96a6dc1a2355a7b3b64b5e16)
+   Building emerging-optimizers @ git+https://github.com/NVIDIA-NeMo/Emerging-Optimizers.git@b309e2f01cda75dc96a6dc1a2355a7b3b64b5e16
+Downloading torchvision (7.3MiB)
+Downloading tensorstore (20.6MiB)
+ Downloaded mistral-common
+   Building wget==3.2
+ Downloaded nvidia-cutlass-dsl-libs-core
+ Downloaded pulp
+ Downloaded cython
+ Downloaded torchvision
+      Built wget==3.2
+ Downloaded tensorstore
+      Built emerging-optimizers @ git+https://github.com/NVIDIA-NeMo/Emerging-Optimizers.git@b309e2f01cda75dc96a6dc1a2355a7b3b64b5e16
+Downloading cupy-cuda13x (65.8MiB)
+ Downloaded pycountry
+Downloading flashinfer-python (59.2MiB)
+    Updated https://github.com/NVIDIA/nvidia-resiliency-ext.git (ebf0352a82ca5699148ea10bec2b8eedd121e382)
+   Building nvidia-resiliency-ext @ git+https://github.com/NVIDIA/nvidia-resiliency-ext.git@ebf0352a82ca5699148ea10bec2b8eedd121e382
+Downloading nvidia-cutlass-dsl-libs-cu12 (87.5MiB)
+Downloading nvidia-cutlass-dsl-libs-cu13 (87.7MiB)
+ Downloaded diffusers
+ Downloaded onnx
+ Downloaded flashinfer-jit-cache-sm90a
+Downloading flashinfer-jit-cache-sm89 (110.2MiB)
+ Downloaded nvidia-cudnn-frontend
+Downloading flashinfer-jit-cache-sm80 (111.8MiB)
+      Built megatron-core @ file:///planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/3rdparty/Megatron-LM
+ Downloaded openai
+ Downloaded nvidia-cutlass-dsl-libs-cu12
+ Downloaded nvidia-cutlass-dsl-libs-cu13
+      Built torch-memory-saver @ git+https://github.com/fzyzcjy/torch_memory_saver.git@9bc9a442e6d108c7b7903def199896a005143aaf
+ Downloaded flashinfer-jit-cache-sm89
+Downloading triton (188.0MiB)
+ Downloaded flashinfer-jit-cache-sm80
+Downloading flashinfer-jit-cache-sm120f (185.7MiB)
+error: Failed to build `nvidia-resiliency-ext @ git+https://github.com/NVIDIA/nvidia-resiliency-ext.git@ebf0352a82ca5699148ea10bec2b8eedd121e382`
+  cause: The build backend returned an error
+  cause: Call to `poetry_dynamic_versioning.backend.build_wheel` failed (exit status: 1)
+
+         [stdout]
+         Compiling 3 proto file(s): nvhcd.proto, log_aggregation.proto, nvrx_interface.proto
+         ✓ Successfully compiled 3 proto file(s)
+           Generated: src/nvidia_resiliency_ext/shared_utils/proto/nvhcd_pb2.py
+           Generated: src/nvidia_resiliency_ext/shared_utils/proto/nvhcd_pb2.pyi
+           Generated: src/nvidia_resiliency_ext/shared_utils/proto/nvhcd_pb2_grpc.py
+           Generated: src/nvidia_resiliency_ext/shared_utils/proto/log_aggregation_pb2.py
+           Generated: src/nvidia_resiliency_ext/shared_utils/proto/log_aggregation_pb2.pyi
+           Generated: src/nvidia_resiliency_ext/shared_utils/proto/log_aggregation_pb2_grpc.py
+           Generated: src/nvidia_resiliency_ext/shared_utils/proto/nvrx_interface_pb2.py
+           Generated: src/nvidia_resiliency_ext/shared_utils/proto/nvrx_interface_pb2.pyi
+           Generated: src/nvidia_resiliency_ext/shared_utils/proto/nvrx_interface_pb2_grpc.py
+
+         [stderr]
+         Traceback (most recent call last):
+           File "/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/b667db27a8ea6b8c/ebf0352/setup.py", line 103, in <module>
+             build(setup_kwargs)
+             ~~~~~^^^^^^^^^^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/b667db27a8ea6b8c/ebf0352/build.py", line 212, in build
+             raise FileNotFoundError(f"required files {libcupti_so} and {cupti_h} not found")
+         FileNotFoundError: required files libcupti.so and cupti.h not found
+         Traceback (most recent call last):
+           File "<string>", line 11, in <module>
+             wheel_filename = backend.build_wheel(__import__("os").fsdecode(b"/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/builds-v0/.tmpVgqeJ2"), {}, None)
+           File "/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/builds-v0/.tmpRgVTgC/lib/python3.13/site-packages/poetry/core/masonry/api.py", line 58, in build_wheel
+             return WheelBuilder.make_in(
+                    ~~~~~~~~~~~~~~~~~~~~^
+                 poetry,
+                 ^^^^^^^
+             ...<2 lines>...
+                 config_settings=config_settings,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             )
+             ^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/builds-v0/.tmpRgVTgC/lib/python3.13/site-packages/poetry/core/masonry/builders/wheel.py", line 95, in make_in
+             wb.build(target_dir=directory)
+             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/builds-v0/.tmpRgVTgC/lib/python3.13/site-packages/poetry/core/masonry/builders/wheel.py", line 132, in build
+             self._build(zip_file)
+             ~~~~~~~~~~~^^^^^^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/builds-v0/.tmpRgVTgC/lib/python3.13/site-packages/poetry/core/masonry/builders/wheel.py", line 193, in _build
+             self._run_build_command(setup)
+             ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/builds-v0/.tmpRgVTgC/lib/python3.13/site-packages/poetry/core/masonry/builders/wheel.py", line 288, in _run_build_command
+             subprocess.check_call(
+             ~~~~~~~~~~~~~~~~~~~~~^
+                 [
+                 ^
+             ...<9 lines>...
+                 ]
+                 ^
+             )
+             ^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/env/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/subprocess.py", line 419, in check_call
+             raise CalledProcessError(retcode, cmd)
+         subprocess.CalledProcessError: Command '['/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/builds-v0/.tmpRgVTgC/bin/python', '/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/b667db27a8ea6b8c/ebf0352/setup.py', 'build', '-b', '/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/b667db27a8ea6b8c/ebf0352/build', '--build-purelib', '/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/b667db27a8ea6b8c/ebf0352/build/lib', '--build-platlib', '/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/b667db27a8ea6b8c/ebf0352/build/lib.linux-x86_64-cpython-313']' returned non-zero exit status 1.
+
+hint: `nvidia-resiliency-ext` was included because `nemo-rl[mcore]` depends on `megatron-bridge` which depends on `nvidia-resiliency-ext`
+
+hint: Build failures usually indicate a problem with the package or the build environment

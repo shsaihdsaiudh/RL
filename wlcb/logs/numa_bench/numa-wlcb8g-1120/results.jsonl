@@ -1,0 +1,28 @@
+{"case": "solo0-local", "gpu": 0, "node": 0, "cpu_bound": true, "cpus": "3-134", "pages": {"N0": 1048580}, "pin_s": 1.36, "h2d_gbs": 55.3, "d2h_gbs": 55.3, "h2d_all": [55.3, 55.3, 55.3, 55.3, 55.3, 55.3]}
+{"case": "solo0-remote", "gpu": 0, "node": 1, "cpu_bound": true, "cpus": "48-191", "pages": {"N1": 1048580}, "pin_s": 1.28, "h2d_gbs": 55.3, "d2h_gbs": 55.3, "h2d_all": [55.3, 55.3, 55.3, 55.3, 55.3, 55.3]}
+{"case": "solo0-unbound", "gpu": 0, "node": -1, "cpu_bound": false, "cpus": "3-191", "pages": {"N1": 1048580}, "pin_s": 1.24, "h2d_gbs": 55.3, "d2h_gbs": 55.3, "h2d_all": [55.3, 55.2, 55.3, 55.3, 55.3, 55.3]}
+{"case": "solo7-local", "gpu": 7, "node": 1, "cpu_bound": true, "cpus": "48-191", "pages": {"N1": 1048580}, "pin_s": 1.23, "h2d_gbs": 55.3, "d2h_gbs": 55.3, "h2d_all": [55.3, 55.3, 55.3, 55.3, 55.3, 55.3]}
+{"case": "all-local", "gpu": 4, "node": 1, "cpu_bound": true, "cpus": "48-191", "pages": {"N1": 1048580}, "pin_s": 1.28, "h2d_gbs": 54.8, "d2h_gbs": 36.5, "h2d_all": [54.8, 54.8, 54.9, 54.9, 54.8, 54.9]}
+{"case": "all-local", "gpu": 7, "node": 1, "cpu_bound": true, "cpus": "48-191", "pages": {"N1": 1048580}, "pin_s": 1.46, "h2d_gbs": 55.0, "d2h_gbs": 36.8, "h2d_all": [54.9, 54.9, 55.0, 55.0, 55.0, 55.0]}
+{"case": "all-local", "gpu": 6, "node": 1, "cpu_bound": true, "cpus": "48-191", "pages": {"N1": 1048580}, "pin_s": 1.46, "h2d_gbs": 55.0, "d2h_gbs": 36.8, "h2d_all": [54.9, 54.9, 55.0, 55.0, 55.0, 55.0]}
+{"case": "all-local", "gpu": 5, "node": 1, "cpu_bound": true, "cpus": "48-191", "pages": {"N1": 1048580}, "pin_s": 1.28, "h2d_gbs": 55.0, "d2h_gbs": 36.6, "h2d_all": [54.9, 54.9, 55.0, 55.0, 54.9, 55.0]}
+{"case": "all-local", "gpu": 3, "node": 0, "cpu_bound": true, "cpus": "3-134", "pages": {"N0": 1048580}, "pin_s": 1.46, "h2d_gbs": 54.3, "d2h_gbs": 36.6, "h2d_all": [54.0, 54.1, 54.2, 54.3, 54.3, 54.3]}
+{"case": "all-local", "gpu": 1, "node": 0, "cpu_bound": true, "cpus": "3-134", "pages": {"N0": 1048580}, "pin_s": 1.46, "h2d_gbs": 54.3, "d2h_gbs": 36.4, "h2d_all": [54.0, 54.1, 54.2, 54.3, 54.3, 54.3]}
+{"case": "all-local", "gpu": 2, "node": 0, "cpu_bound": true, "cpus": "3-134", "pages": {"N0": 1048580}, "pin_s": 1.46, "h2d_gbs": 54.2, "d2h_gbs": 36.4, "h2d_all": [53.9, 54.1, 54.2, 54.3, 54.3, 54.3]}
+{"case": "all-local", "gpu": 0, "node": 0, "cpu_bound": true, "cpus": "3-134", "pages": {"N0": 1048580}, "pin_s": 1.46, "h2d_gbs": 54.2, "d2h_gbs": 36.3, "h2d_all": [53.9, 54.1, 54.2, 54.3, 54.2, 54.3]}
+{"case": "all-remote", "gpu": 3, "node": 1, "cpu_bound": true, "cpus": "48-191", "pages": {"N1": 1048580}, "pin_s": 1.32, "h2d_gbs": 27.4, "d2h_gbs": 18.0, "h2d_all": [27.4, 27.4, 27.5, 27.4, 27.4, 27.5]}
+{"case": "all-remote", "gpu": 0, "node": 1, "cpu_bound": true, "cpus": "48-191", "pages": {"N1": 1048580}, "pin_s": 1.45, "h2d_gbs": 27.4, "d2h_gbs": 17.9, "h2d_all": [27.4, 27.4, 27.4, 27.3, 27.4, 27.4]}{"case": "all-remote", "gpu": 1, "node": 1, "cpu_bound": true, "cpus": "48-191", "pages": {"N1": 1048580}, "pin_s": 1.31, "h2d_gbs": 27.4, "d2h_gbs": 18.0, "h2d_all": [27.4, 27.4, 27.4, 27.3, 27.4, 27.4]}
+
+{"case": "all-remote", "gpu": 7, "node": 0, "cpu_bound": true, "cpus": "3-134", "pages": {"N0": 1048580}, "pin_s": 1.46, "h2d_gbs": 27.5, "d2h_gbs": 17.8, "h2d_all": [27.5, 27.5, 27.5, 27.5, 27.6, 27.5]}{"case": "all-remote", "gpu": 2, "node": 1, "cpu_bound": true, "cpus": "48-191", "pages": {"N1": 1048580}, "pin_s": 1.3, "h2d_gbs": 27.4, "d2h_gbs": 17.9, "h2d_all": [27.4, 27.4, 27.4, 27.4, 27.4, 27.4]}
+
+{"case": "all-remote", "gpu": 6, "node": 0, "cpu_bound": true, "cpus": "3-134", "pages": {"N0": 1048580}, "pin_s": 1.47, "h2d_gbs": 27.5, "d2h_gbs": 17.8, "h2d_all": [27.4, 27.5, 27.5, 27.5, 27.7, 27.5]}
+{"case": "all-remote", "gpu": 5, "node": 0, "cpu_bound": true, "cpus": "3-134", "pages": {"N0": 1048580}, "pin_s": 1.45, "h2d_gbs": 27.5, "d2h_gbs": 17.8, "h2d_all": [27.4, 27.5, 27.4, 27.5, 27.5, 27.5]}
+{"case": "all-remote", "gpu": 4, "node": 0, "cpu_bound": true, "cpus": "3-134", "pages": {"N0": 1048580}, "pin_s": 1.46, "h2d_gbs": 27.3, "d2h_gbs": 17.7, "h2d_all": [27.3, 27.3, 27.2, 27.3, 27.4, 27.2]}
+{"case": "all-unbound", "gpu": 3, "node": -1, "cpu_bound": false, "cpus": "3-191", "pages": {"N0": 1048580}, "pin_s": 1.58, "h2d_gbs": 53.3, "d2h_gbs": 33.0, "h2d_all": [53.3, 53.3, 53.3, 53.4, 53.3, 53.5]}
+{"case": "all-unbound", "gpu": 7, "node": -1, "cpu_bound": false, "cpus": "3-191", "pages": {"N0": 1048580}, "pin_s": 1.55, "h2d_gbs": 53.7, "d2h_gbs": 29.6, "h2d_all": [53.7, 53.7, 53.7, 53.7, 53.6, 53.6]}
+{"case": "all-unbound", "gpu": 6, "node": -1, "cpu_bound": false, "cpus": "3-191", "pages": {"N0": 1048580}, "pin_s": 1.53, "h2d_gbs": 53.6, "d2h_gbs": 29.6, "h2d_all": [53.5, 53.7, 53.6, 53.7, 53.5, 53.6]}
+{"case": "all-unbound", "gpu": 5, "node": -1, "cpu_bound": false, "cpus": "3-191", "pages": {"N1": 1048580}, "pin_s": 1.54, "h2d_gbs": 53.9, "d2h_gbs": 23.9, "h2d_all": [53.9, 54.0, 53.9, 54.0, 53.8, 53.7]}
+{"case": "all-unbound", "gpu": 4, "node": -1, "cpu_bound": false, "cpus": "3-191", "pages": {"N1": 1048580}, "pin_s": 1.54, "h2d_gbs": 53.4, "d2h_gbs": 23.7, "h2d_all": [53.3, 53.4, 53.5, 53.7, 53.4, 53.3]}
+{"case": "all-unbound", "gpu": 1, "node": -1, "cpu_bound": false, "cpus": "3-191", "pages": {"N1": 1048580}, "pin_s": 1.28, "h2d_gbs": 35.8, "d2h_gbs": 20.3, "h2d_all": [35.8, 35.9, 35.9, 35.8, 35.8, 35.8]}
+{"case": "all-unbound", "gpu": 2, "node": -1, "cpu_bound": false, "cpus": "3-191", "pages": {"N1": 1048580}, "pin_s": 1.54, "h2d_gbs": 35.9, "d2h_gbs": 20.2, "h2d_all": [35.8, 36.0, 36.0, 35.9, 35.9, 35.9]}
+{"case": "all-unbound", "gpu": 0, "node": -1, "cpu_bound": false, "cpus": "3-191", "pages": {"N1": 1048580}, "pin_s": 1.53, "h2d_gbs": 35.8, "d2h_gbs": 20.2, "h2d_all": [35.7, 35.9, 35.9, 35.8, 35.8, 35.8]}

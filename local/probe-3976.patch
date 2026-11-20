@@ -1,0 +1,131 @@
+diff --git a/nemo_rl/models/policy/workers/megatron_policy_worker.py b/nemo_rl/models/policy/workers/megatron_policy_worker.py
+index bcd56980f..96acc5df6 100644
+--- a/nemo_rl/models/policy/workers/megatron_policy_worker.py
++++ b/nemo_rl/models/policy/workers/megatron_policy_worker.py
+@@ -4865,7 +4865,14 @@ class MegatronPolicyWorkerImpl(
+             and self.optimizer is not None
+             and not self.optimizer_cpu_offload
+         ):
++            _t0 = time.perf_counter()  # TEMPORARY #3976 probe
+             self.move_optimizer("cuda")
++            torch.cuda.synchronize()
++            print(
++                f"[3976-probe] prepare_for_training move_optimizer(cuda)="
++                f"{time.perf_counter() - _t0:.3f}s",
++                flush=True,
++            )
+ 
+         if self._train_step_state is not None:
+             self._train_step_state["offloaded"] = False
+@@ -4958,15 +4965,71 @@ class MegatronPolicyWorkerImpl(
+             and generation_cfg.get("refit_transport") == "nccl_reshard"
+         )
+ 
++    def _probe3976_state_report(self):
++        # TEMPORARY #3976 probe, not for commit.
++        import collections
++        import sys
++
++        if isinstance(self.optimizer, ChainedOptimizer):
++            optimizer_state = self.optimizer.state
++        else:
++            optimizer_state = self.optimizer._get_state()
++        n = 0
++        cuda_bytes = 0
++        types = collections.Counter()
++        dtypes = collections.Counter()
++        storages = set()
++        views = 0
++        oversized = 0
++        refcounts = collections.Counter()
++        for _, state in optimizer_state.items():
++            for k, v in state.items():
++                if not torch.is_tensor(v):
++                    continue
++                n += 1
++                types[type(v).__name__] += 1
++                dtypes[f"{k}:{v.dtype}"] += 1
++                if v.is_cuda:
++                    cuda_bytes += v.numel() * v.element_size()
++                st = v.untyped_storage()
++                storages.add(st.data_ptr())
++                if v._base is not None:
++                    views += 1
++                if st.nbytes() != v.numel() * v.element_size():
++                    oversized += 1
++                refcounts[sys.getrefcount(v)] += 1
++        buf_bytes = collections.Counter()
++        if isinstance(self.model, DistributedDataParallel):
++            for buffers in [self.model.buffers, self.model.expert_parallel_buffers]:
++                for b in buffers:
++                    if b.param_data is not None:
++                        buf_bytes["param_data"] += b.param_data.untyped_storage().nbytes()
++                    if b.grad_data is not None:
++                        buf_bytes["grad_data"] += b.grad_data.untyped_storage().nbytes()
++        print(
++            f"[3976-probe] state: tensors={n} unique_storages={len(storages)} "
++            f"views={views} storage_larger_than_tensor={oversized} "
++            f"cuda_GiB={cuda_bytes / 2**30:.3f} types={dict(types)} dtypes={dict(dtypes)} "
++            f"refcounts={dict(refcounts)} buffers_GiB="
++            f"{ {k: round(v / 2**30, 3) for k, v in buf_bytes.items()} } "
++            f"allocated_GiB={torch.cuda.memory_allocated() / 2**30:.3f}",
++            flush=True,
++        )
++
+     @wrap_with_nvtx_name("megatron_policy_worker/offload_before_refit")
+     def offload_before_refit(self):
+         """Offload optimizer state and buffers that are safe to release."""
++        _t = [time.perf_counter()]  # TEMPORARY #3976 probe
+         self._release_opd_full_teacher_lm_head()
+         # An in-flight async checkpoint keeps references to the CUDA tensors in
+         # its sharded state dict until the write is finalized. Offloading swaps
+         # those tensors for CPU storage, so the checkpoint references would keep
+         # the old CUDA storage alive and defeat the offload.
+         self.finalize_async_save()
++        _t.append(time.perf_counter())
++        if hasattr(self, "optimizer") and self.optimizer is not None:
++            self._probe3976_state_report()
++        _t.append(time.perf_counter())
+ 
+         no_grad = torch.no_grad()
+         no_grad.__enter__()
+@@ -4997,6 +5060,7 @@ class MegatronPolicyWorkerImpl(
+             clear_transient_megatron_caches(self.model)
+ 
+         torch.randn(1).cuda()  # wake up torch allocator
++        _t.append(time.perf_counter())
+         if (
+             hasattr(self, "optimizer")
+             and self.optimizer is not None
+@@ -5004,9 +5068,13 @@ class MegatronPolicyWorkerImpl(
+             and self.offload_optimizer_for_refit
+         ):
+             self.move_optimizer("cpu")
++        _t.append(time.perf_counter())
+ 
+-        gc.collect()
++        _gc_before = gc.get_count()
++        _collected = gc.collect()
++        _t.append(time.perf_counter())
+         torch.cuda.empty_cache()
++        _t.append(time.perf_counter())
+ 
+         # Print memory stats after offloading
+         allocated = torch.cuda.memory_allocated() / (1024**3)  # Convert to GB
+@@ -5015,6 +5083,16 @@ class MegatronPolicyWorkerImpl(
+             f"GPU Memory after optimizer offload: {allocated:.2f}GB allocated, {reserved:.2f}GB reserved"
+         )
+         no_grad.__exit__(None, None, None)
++        _d = [b - a for a, b in zip(_t, _t[1:])]
++        print(
++            f"[3976-probe] offload_before_refit: total={_t[-1] - _t[0]:.3f}s "
++            f"(probe_report={_d[1]:.3f}s excluded below) "
++            f"finalize_async_save={_d[0]:.3f}s move_model_and_caches={_d[2]:.3f}s "
++            f"move_optimizer={_d[3]:.3f}s gc_collect={_d[4]:.3f}s "
++            f"(collected={_collected}, counts_before={_gc_before}, "
++            f"tracked_objects={len(gc.get_objects())}) empty_cache={_d[5]:.3f}s",
++            flush=True,
++        )
+ 
+     @wrap_with_nvtx_name("megatron_policy_worker/offload_after_refit")
+     def offload_after_refit(self):

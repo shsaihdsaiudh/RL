@@ -1,0 +1,158 @@
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+WARNING:root:logger.py:2043: Cannot detect container startup time: NRL_JOB_START_EPOCH not set. Ensure the launch script exports this variable for init timing.
+2026-11-17 21:48:31,710	WARNING utils.py:473 -- Detecting docker specified CPUs. In previous versions of Ray, CPU detection in containers was incorrect. Please ensure that Ray has enough CPUs allocated. As a temporary workaround to revert to the prior behavior, set `RAY_USE_MULTIPROCESSING_CPU_COUNT=1` as an env var before starting Ray. Set the env var: `RAY_DISABLE_DOCKER_CPU_WARNING=1` to mute this warning.
+2026-11-17 21:48:38,211	INFO worker.py:2015 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+INFO:nemo_rl.distributed.virtual_cluster:virtual_cluster.py:544: Started local cluster with tag 'nrl_tag_ALL': {'GPU': 1.0, 'accelerator_type:H20': 1.0, 'node:__internal_head__': 1.0, 'node:<ip>': 1.0, 'memory': 1852071526400.0, 'CPU': 20.0, 'nrl_tag_ALL': 1.0, 'object_store_memory': 200000000000.0}
+/planning-users/yangyeyuan/nemo-rl-3976/RL/nemo_rl/data/utils.py:222: UserWarning: Dataset config key seed=42 is not supported by GSM8KDataset and will be ignored. Remove the key, or use a dataset class that supports it.
+  data = load_response_dataset(cfg)
+/planning-users/yangyeyuan/nemo-rl-3976/RL/nemo_rl/data/utils.py:222: UserWarning: Dataset config key split_validation_size=0.05 is not supported by GSM8KDataset and will be ignored. Remove the key, or use a dataset class that supports it.
+  data = load_response_dataset(cfg)
+[36m(pid=91654)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+Loaded configuration from: examples/configs/grpo_math_1B_megatron.yaml
+Overrides: ['policy.model_name=Qwen/Qwen2.5-0.5B', 'data.train.dataset_name=gsm8k', 'grpo.max_num_steps=3', 'grpo.num_prompts_per_step=8', 'grpo.num_generations_per_prompt=4', 'grpo.val_period=-1', 'policy.train_global_batch_size=32', 'policy.max_total_sequence_length=512', 'checkpointing.enabled=false', 'logger.log_dir=/planning-users/yangyeyuan/nemo-rl-3976/logs/smoke_grpo_megatron']
+Applied CLI overrides
+Final config:
+MasterConfig(policy={'model_name': 'Qwen/Qwen2.5-0.5B', 'tokenizer': {'name': 'Qwen/Qwen2.5-0.5B', 'chat_template_kwargs': None, 'tokenizer_kwargs': None, 'use_fastokens': False}, 'train_global_batch_size': 32, 'train_micro_batch_size': 4, 'offload_optimizer_for_logprob': False, 'logprob_batch_size': 4, 'logprob_chunk_size': None, 'generation': {'backend': 'vllm', 'max_new_tokens': 512, 'temperature': 1.0, 'top_p': 1.0, 'top_k': None, 'sampler_replay': SamplerReplayConfig(enabled=False), 'top_logprobs': 0, 'val_temperature': 1.0, 'val_top_p': 1.0, 'val_top_k': None, 'stop_token_ids': None, 'stop_strings': None, 'colocated': {'enabled': True, 'resources': {'gpus_per_node': None, 'num_nodes': None}}, 'port_range_low': 3000, 'port_range_high': 4999, 'disaggregation': DisaggConfig(enabled=False, num_prefill_engines=1, num_decode_engines=1, num_frontend_workers=1, frontend_tokenize=False, frontend_base_port=8300), 'refit_transport': None, 'lora_refit_mode': 'native', 'worker_extension_cls_fqn': None, 'real_quant_export_cpu_offload': True, 'refit_cfg': {'nixl': {'update_weights_bucket_memory_ratio': 0.05, 'device': 'cuda', 'backend_name': 'UCX', 'backend_init_params': None, 'release_after_refit': False, 'shard_expert_weights': False}}, 'mcore_generation_config': {'max_model_len': 512, 'cuda_graph_impl': 'local', 'cuda_graph_sizing_distribution': 'hybrid', 'cuda_graph_max_tokens': 512, 'inference_cuda_graph_scope': 'block', 'buffer_size_gb': 10, 'num_cuda_graphs': -1, 'block_size_tokens': 256, 'use_cuda_graphs_for_non_decode_steps': True, 'enable_chunked_prefill': True, 'enable_prefix_caching': True, 'prefix_caching_mamba_gb': None, 'prefix_caching_eviction_policy': 'lru', 'prefix_caching_coordinator_policy': 'longest_prefix', 'prefix_cache_ttl_seconds': 300.0, 'prefix_caching_routing_alpha': 1.0, 'max_tokens': 16384, 'kv_cache_management_mode': 'recompute', 'async_sched_mode': 'async', 'materialize_only_last_token_logits': True, 'num_speculative_tokens': 0, 'mamba_inference_ssm_states_dtype': None, 'mamba_inference_conv_states_dtype': None, 'refit_backend': None, 'refit_execution_batch_bytes': None, 'logprobs_mode': 'processed_logprobs', 'parsers': [], 'expose_http_server': False, 'http_server_num_replicas': 8}, 'vllm_cfg': {'http_api_server_count': 1, 'http_server_api_key_required': False, 'async_engine': False, 'precision': 'bfloat16', 'refit_prequantize': False, 'kv_cache_dtype': 'auto', 'logprobs_mode': 'processed_logprobs', 'fp32_lm_head': False, 'refit_with_reload_api': False, 'tensor_parallel_size': 1, 'pipeline_parallel_size': 1, 'expert_parallel_size': 1, 'gpu_memory_utilization': 0.6, 'max_model_len': 512, 'enforce_eager': False, 'use_tqdm': True, 'use_deep_gemm': False, 'num_last_layers_in_bf16': 0, 'num_first_layers_in_bf16': 0, 'enable_vllm_metrics_logger': True, 'flat_logprobs': False, 'output_loop_yield_budget_ms': None, 'vllm_metrics_logger_interval': 0.5, 'http_refit_api_key_env_var': None, 'reset_encoder_cache_after_weight_update': False, 'http_refit_server_port': None, 'zmq_refit_server_port': None}, 'vllm_kwargs': {}}, 'generation_batch_size': 64, 'precision': 'bfloat16', 'automodel_cfg': {'enabled': False, 'checkpoint': {'model_save_format': 'safetensors', 'save_consolidated': 'false', 'single_rank_consolidation': False, 'consolidation_timeout_minutes': 30}, 'cpu_offload': False, 'sequence_parallel': False, 'activation_checkpointing': False, 'deterministic': False, 'tensor_parallel_size': 1, 'context_parallel_size': 1, 'custom_parallel_plan': None, 'automodel_kwargs': {}, 'lora_cfg': {'enabled': False, 'target_modules': [], 'exclude_modules': [], 'match_all_linear': True, 'dim': 8, 'alpha': 32, 'dropout': 0.0, 'dropout_position': 'post', 'lora_A_init': 'xavier', 'use_triton': True, 'restore_from': None}}, 'megatron_cfg': {'enabled': True, 'env_vars': None, 'model_overrides': {}, 'empty_unused_memory_level': 1, 'manual_gc': False, 'manual_gc_interval': 10, 'activation_checkpointing': False, 'recompute_granularity': 'full', 'recompute_modules': None, 'tensor_model_parallel_size': 1, 'pipeline_model_parallel_size': 1, 'num_layers_in_first_pipeline_stage': None, 'num_layers_in_last_pipeline_stage': None, 'context_parallel_size': 1, 'pipeline_dtype': 'bfloat16', 'sequence_parallel': False, 'freeze_moe_router': True, 'moe_router_dtype': 'fp64', 'moe_router_load_balancing_type': 'none', 'moe_router_bias_update_rate': 0.0, 'moe_permute_fusion': True, 'expert_tensor_parallel_size': 1, 'expert_model_parallel_size': 1, 'defer_fp32_logits': False, 'apply_rope_fusion': True, 'bias_activation_fusion': True, 'force_reconvert_from_hf': False, 'moe_per_layer_logging': False, 'moe_enable_deepep': False, 'moe_token_dispatcher_type': 'alltoall', 'cuda_graph_impl': 'none', 'cuda_graph_modules': [], 'cuda_graph_warmup_steps': 3, 'moe_shared_expert_overlap': False, 'fine_grained_activation_offloading': False, 'offload_modules': None, 'use_gloo_process_groups': False, 'distributed_timeout_minutes': None, 'moe_hybridep_prepad_packed_inputs': False, 'peft': {'enabled': False, 'target_modules': [], 'exclude_modules': [], 'dim': 8, 'alpha': 32, 'dropout': 0.0, 'dropout_position': 'post', 'lora_A_init_method': 'xavier', 'lora_B_init_method': 'zero', 'a2a_experimental': False, 'lora_dtype': None, 'restore_from': None}, 'optimizer': {'optimizer': 'adam', 'lr': 5e-06, 'min_lr': 5e-07, 'weight_decay': 0.01, 'bf16': True, 'fp16': False, 'params_dtype': 'float32', 'adam_beta1': 0.9, 'adam_beta2': 0.999, 'adam_eps': 1e-08, 'sgd_momentum': 0.9, 'use_distributed_optimizer': True, 'use_precision_aware_optimizer': True, 'clip_grad': 1.0, 'optimizer_cpu_offload': False, 'optimizer_offload_fraction': 0.0, 'overlap_cpu_optimizer_d2h_h2d': False}, 'scheduler': {'start_weight_decay': 0.01, 'end_weight_decay': 0.01, 'weight_decay_incr_style': 'constant', 'lr_decay_style': 'constant', 'lr_decay_iters': 1000, 'lr_warmup_iters': 13, 'lr_warmup_init': 5e-07}, 'distributed_data_parallel_config': {'grad_reduce_in_fp32': False, 'overlap_grad_reduce': True, 'overlap_param_gather': True, 'use_custom_fsdp': False, 'data_parallel_sharding_strategy': 'optim_grads_params'}, 'checkpoint': {'async_save': True, 'ckpt_assume_constant_structure': True, 'parallel_read_threads': 4}, 'gradient_accumulation_fusion': False, 'use_fused_weighted_squared_relu': False, 'use_fused_linear_logprobs': False, 'fused_linear_logprobs_chunk_size': 256, 'fp32_lm_head': False, 'mtp_num_layers': 0, 'mtp_loss_scaling_factor': 0.0, 'mtp_use_repeated_layer': False, 'mtp_detach_heads': False, 'clear_memory_caches_before_refit': False, 'reuse_logits_storage': False, 'fp8_cfg': {'enabled': False, 'fp8': 'e4m3', 'fp8_recipe': 'blockwise', 'fp8_param': False}, 'fp4_cfg': Fp4Config(enabled=False, fp4='e2m1', fp4_recipe='nvfp4', fp4_param=False), 'first_last_layers_bf16': False, 'num_layers_at_start_in_bf16': 1, 'num_layers_at_end_in_bf16': 1, 'flash_attention_version': 2}, 'draft': Eagle3DraftConfig(speculator_type='eagle3', enabled=False, model_name=None, loss_weight=0.1, num_layers=None, aux_layer_indices=None, optimizer=None, learning_rate=0.0001, ttt_steps=3, ttt_step_loss_decay=1.0, train_embed_and_head=True, token_chunk_size=4096), 'hf_config_overrides': {}, 'dynamic_batching': {'enabled': False, 'train_mb_tokens': 2048, 'logprob_mb_tokens': 2048, 'sequence_length_round': 64}, 'sequence_packing': {'enabled': True, 'train_mb_tokens': 2048, 'logprob_mb_tokens': 2048, 'algorithm': 'modified_first_fit_decreasing', 'microbatch_order': 'packer', 'sequence_length_round': 64}, 'make_sequence_length_divisible_by': 1, 'max_total_sequence_length': 512, 'max_grad_norm': 1.0, 'offload_policy_before_refit': False, 'offload_optimizer_for_refit': True, 'optimizer': None, 'scheduler': [{'name': 'torch.optim.lr_scheduler.LinearLR', 'kwargs': {'start_factor': 0.1, 'end_factor': 1.0, 'total_iters': 50}}, {'name': 'torch.optim.lr_scheduler.ConstantLR', 'kwargs': {'factor': 1.0, 'total_iters': 10000000000}}, {'milestones': [50]}], 'worker_extension_cls_fqn': None}, loss_fn=ClippedPGLossConfig(disable_ppo_ratio=False, token_level_loss=True, sequence_level_importance_ratios=False, ratio_clip_min=0.2, ratio_clip_max=0.2, ratio_clip_c=None, reference_policy_kl_penalty=0.01, reference_policy_kl_type='k3', kl_input_clamp_value=20.0, kl_output_clamp_value=10.0, use_kl_in_reward=False, use_importance_sampling_correction=False, truncated_importance_sampling_type=None, truncated_importance_sampling_ratio=None, truncated_importance_sampling_ratio_min=None, truncated_importance_sampling_adaptive_target_entropy=0.3, truncated_importance_sampling_adaptive_k_step=0.25, truncated_importance_sampling_adaptive_k_max=1.0, truncated_importance_sampling_adaptive_outer_bound=50.0, use_on_policy_kl_approximation=False, force_on_policy_ratio=False, seq_logprob_error_in_loss=False, use_cispo=False, positive_example_nll_weight=0.0, metrics_level='full', enable_torch_compile=False, score_centering=False), env={'math': {'num_workers': 8, 'math_verify_impl': 'hf_math_verify'}}, data={'max_input_seq_length': 512, 'shuffle': True, 'num_workers': 1, 'use_multiple_dataloader': False, 'train': {'dataset_name': 'gsm8k', 'split_validation_size': 0.05, 'seed': 42}, 'validation': None, 'default': {'prompt_file': 'examples/prompts/cot.txt', 'system_prompt_file': None, 'env_name': 'math', 'processor': 'math_hf_data_processor'}}, grpo=GRPOConfig(num_prompts_per_step=8, num_generations_per_prompt=4, max_num_epochs=1, max_num_steps=3, max_rollout_turns=1, normalize_rewards=True, masked_reward_policy='include', advantage_clip_low=None, advantage_clip_high=None, use_leave_one_out_baseline=True, val_period=-1, val_start_at=-1, val_batch_size=256, val_at_start=False, val_at_end=False, max_val_samples=256, val_num_generations_per_prompt=1, stop_at_validation_metric=None, stop_at_validation_threshold=None, skip_reference_policy_logprobs_calculation=False, seed=42, async_grpo=AsyncGRPOConfig(enabled=False, max_trajectory_age_steps=1, max_generation_failures=0, in_flight_weight_updates=False, recompute_kv_cache_after_weight_updates=True), overlong_filtering=False, use_dynamic_sampling=False, dynamic_sampling_max_gen_batches=10, batch_multiplier=1.0, reward_shaping=RewardShapingConfig(enabled=False, overlong_buffer_length=128, overlong_buffer_penalty=1.0, max_response_length=512, stop_properly_penalty_coef=None), reward_scaling=RewardScalingConfig(enabled=False, source_min=0.0, source_max=1.0, target_min=0.0, target_max=1.0), calculate_advantages_on_gpu=False, seq_logprob_error_threshold=None, invalid_tool_call_advantage=None, malformed_thinking_advantage=None, adv_estimator=AdvEstimatorConfig(name='grpo', normalize_rewards=True, use_leave_one_out_baseline=True, reward_weights=None, minus_baseline=True, proximal_teacher_alpha=1.0, subtract_global_baseline=False), deduplicate_multimodal_data=False, debug_payload_metrics=False, length_penalty=None), logger=LoggerConfig(log_dir='/planning-users/yangyeyuan/nemo-rl-3976/logs/smoke_grpo_megatron', wandb_enabled=False, swanlab_enabled=False, tensorboard_enabled=False, mlflow_enabled=False, wandb=WandbConfig(project='grpo-dev', name='sj_megatron_1B', entity=None, id=None, resume=None, log_nemo_gym_full_result_tables=False), tensorboard=TensorboardConfig(log_dir=None), swanlab=SwanlabConfig(project='grpo-dev', name='sj_megatron_1B'), mlflow=MLflowConfig(experiment_name='grpo-dev', run_id=None, run_name='sj_megatron_1B', tracking_uri='http://localhost:5000', artifact_location=None), monitor_gpus=False, gpu_monitoring=GPUMonitoringConfig(collection_interval=10.0, flush_interval=10.0), num_val_samples_to_print=0, extra_backends=[]), cluster=ClusterConfig(gpus_per_node=1, num_nodes=1, master_port_range_low=1400, master_port_range_high=1999, segment_size=None), checkpointing=CheckpointingConfig(enabled=False, checkpoint_dir='results/grpo_megatron', metric_name='val:accuracy', higher_is_better=True, save_period=10, keep_top_k=3, ft_keep_latest_k=None, ft_save_period=None, checkpoint_must_save_by=None, pretrained_checkpoint=None, save_optimizer=True, save_data_plane=False, load_replay_buffer=True), reward_penalties=RewardPenaltyConfig(penalize_duplicated_reasoning=False, penalize_empty_final_answer=False, penalize_unwanted_tokens=False, penalize_malformed_think_tag=False, token_ids=None), data_plane={'enabled': False, 'impl': 'transfer_queue', 'backend': 'simple', 'claim_meta_poll_interval_s': 0.5, 'simple': SimpleStorageConfig(storage_capacity=1000000, num_storage_units=2, storage_unit_placement=None, ssd_offload=SsdOffloadConfig(enabled=False, path=None, threshold_bytes=1048576), async_checkpoint=False, checkpoint_io_timeout_s=600.0), 'mooncake_cpu': MooncakeCpuConfig(global_segment_size=68719476736, local_buffer_size=2147483648, reuse_registered_buffers=True, staging_buffer_size=536870912, use_gdr=False, gdr_staging_buffer_mb=1024, gdr_keep_teacher_payload_on_gpu=True, storage_unit_segment_size=0, num_storage_units=None, storage_unit_placement='all', ssd_offload=MooncakeSsdOffloadConfig(enabled=False, path=None, offload_threshold=0.5)), 'nixl': NixlStoreConfig(num_storage_units=None, storage_units_per_node=None, storage_unit_placement='all', node_ids=None, unit_slab_bytes=17179869184, max_blob_bytes=None, numa='auto', client_staging_bytes=1073741824, client_staging_buffers=2, client_pool_max_bytes=4294967296, zero_copy_min_bytes=1048576, zero_copy_max_bytes=33554432, parallel_copy_min_bytes=16777216, read_pin_s=None, transfer_timeout_s=120.0, lease_margin_s=30.0, op_timeout_s=None, graveyard_max_bytes=4294967296, debug_check_finite=False, ssd=NixlSsdConfig(enabled=False, path=None, staging_bytes=None, pickup_s=10.0), nixl=NixlAgentConfig(backend_name='UCX', backend_init_params={})), 'observability': {'enabled': True, 'verify_tensor_hash': False}}, on_policy_distillation=None, telemetry=None)
+📊 Using log directory: /planning-users/yangyeyuan/nemo-rl-3976/logs/smoke_grpo_megatron/exp_001
+No chat template provided, using tokenizer's default
+
+▶ Setting up envs...
+
+▶ Setting up data...
+Generating train split:   0%|          | 0/7473 [00:00<?, ? examples/s]Generating train split:  13%|█▎        | 1000/7473 [00:00<00:02, 3115.60 examples/s]Generating train split: 100%|██████████| 7473/7473 [00:00<00:00, 18393.02 examples/s]
+Generating test split:   0%|          | 0/1319 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 1319/1319 [00:00<00:00, 26645.06 examples/s]
+Map:   0%|          | 0/7473 [00:00<?, ? examples/s]Map:  61%|██████    | 4544/7473 [00:00<00:00, 43800.82 examples/s]Map: 100%|██████████| 7473/7473 [00:00<00:00, 32066.95 examples/s]
+/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/environments-v2/nemo-rl-cp3.13.14-ec414780f8fd8c50/lib/python3.13/site-packages/torchdata/stateful_dataloader/stateful_dataloader.py:379: UserWarning: 'set_vital' is deprecated, please do not call
+  torch.set_vital("Dataloader", "enabled", "True")  # type: ignore[attr-defined]
+  - Loaded training dataset gsm8k with 7473 samples.
+  ✓ Training dataset loaded with 7473 samples.
+No loggers initialized
+  ✓ Training dataloader loaded with 934 samples
+
+▶ Setting up compute cluster...
+  ✓ Ray cluster for policy initialized with 1 nodes
+
+▶ Setting up model and training...
+  ⚙️  Using sequential worker initialization (colocated mode)
+[36m(pid=92797)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+[36m(pid=92125)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+[36m(pid=93563)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code[32m [repeated 7x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+Initializing vllm_policy workers:   0%|          | 0/1 [00:00<?, ?worker/s][36m(_env_builder pid=93563)[0m INFO:nemo_rl.utils.venvs:venvs.py:161: Using existing venv at /planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker
+Initializing vllm_policy workers: 100%|██████████| 1/1 [00:01<00:00,  1.52s/worker]Initializing vllm_policy workers: 100%|██████████| 1/1 [00:01<00:00,  1.52s/worker]
+[33m(raylet)[0m A worker died or was killed while executing a task by an unexpected system error. To troubleshoot the problem, check the logs for the dead worker. Lease ID: 09000000506adf352a23956dc601452892aa3c8eb984d760ac807f50e418f427 Worker ID: 9af61258b51f8e6cc74b62af9b6f8f15f24f399b26426dbfe972c49d Node ID: 2119751f67b8f50700b53ff24fd3061237b32f3e168eacc4d028911b Worker IP address: <ip> Worker port: 38675 Worker PID: 93753 Worker exit type: SYSTEM_ERROR Worker exit detail: Failed to execute the setup hook method, nemo_rl.distributed.ray_worker_setup.ray_worker_process_setup from ``ray.init(runtime_env={'worker_process_setup_hook': nemo_rl.distributed.ray_worker_setup.ray_worker_process_setup})``. Please make sure the given module exists and is available from ray workers. For more details, see the error trace below.
+Traceback (most recent call last):
+  File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker/lib/python3.13/site-packages/ray/_private/runtime_env/setup_hook.py", line 208, in load_and_execute_setup_hook_module
+    setup_func = load_class(worker_process_setup_hook_key)
+  File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker/lib/python3.13/site-packages/ray/_common/utils.py", line 371, in load_class
+    module = importlib.import_module(module_path)
+  File "/planning-users/yangyeyuan/nemo-rl-3976/env/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1395, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1395, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1395, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'nemo_rl'
+
+Traceback (most recent call last):
+  File "/planning-users/yangyeyuan/nemo-rl-3976/RL/examples/run_grpo.py", line 272, in <module>
+    main()
+    ~~~~^^
+  File "/planning-users/yangyeyuan/nemo-rl-3976/RL/examples/run_grpo.py", line 170, in main
+    ) = setup(
+        ~~~~~^
+        config,
+        ^^^^^^^
+    ...<3 lines>...
+        policy_factory=make_policy_factory(config.data_plane),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/planning-users/yangyeyuan/nemo-rl-3976/RL/nemo_rl/algorithms/grpo.py", line 1910, in setup
+    policy_generation, policy = initialize_generation_with_policy(
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        init_generation_fn=init_vllm,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        colocated_inference=colocated_inference,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        setup_timing_metrics=setup_timing_metrics,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/planning-users/yangyeyuan/nemo-rl-3976/RL/nemo_rl/algorithms/grpo.py", line 1662, in initialize_generation_with_policy
+    policy_generation, generation_time = init_generation_fn()
+                                         ~~~~~~~~~~~~~~~~~~^^
+  File "/planning-users/yangyeyuan/nemo-rl-3976/RL/nemo_rl/algorithms/grpo.py", line 1556, in init_vllm
+    pg = VllmGeneration(cluster=inference_cluster, config=generation_config)
+  File "/planning-users/yangyeyuan/nemo-rl-3976/RL/nemo_rl/models/generation/vllm/vllm_generation.py", line 466, in __init__
+    self.worker_group = RayWorkerGroup(
+                        ~~~~~~~~~~~~~~^
+        cluster,
+        ^^^^^^^^
+    ...<4 lines>...
+        env_vars=env_vars,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/planning-users/yangyeyuan/nemo-rl-3976/RL/nemo_rl/distributed/worker_groups.py", line 514, in __init__
+    self._create_workers_from_bundle_indices(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        remote_worker_builder,
+        ^^^^^^^^^^^^^^^^^^^^^^
+        bundle_indices_list,
+        ^^^^^^^^^^^^^^^^^^^^
+        env_vars=env_vars,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/planning-users/yangyeyuan/nemo-rl-3976/RL/nemo_rl/distributed/worker_groups.py", line 776, in _create_workers_from_bundle_indices
+    workers = ray.get(worker_refs)
+  File "/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/environments-v2/nemo-rl-cp3.13.14-ec414780f8fd8c50/lib/python3.13/site-packages/ray/_private/auto_init_hook.py", line 22, in auto_init_wrapper
+    return fn(*args, **kwargs)
+  File "/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/environments-v2/nemo-rl-cp3.13.14-ec414780f8fd8c50/lib/python3.13/site-packages/ray/_private/client_mode_hook.py", line 134, in wrapper
+    return func(*args, **kwargs)
+  File "/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/environments-v2/nemo-rl-cp3.13.14-ec414780f8fd8c50/lib/python3.13/site-packages/ray/_private/worker.py", line 2986, in get
+    values, debugger_breakpoint = worker.get_objects(
+                                  ~~~~~~~~~~~~~~~~~~^
+        object_refs, timeout, use_object_store=_use_object_store
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/environments-v2/nemo-rl-cp3.13.14-ec414780f8fd8c50/lib/python3.13/site-packages/ray/_private/worker.py", line 1052, in get_objects
+    raise value
+ray.exceptions.ActorDiedError: The actor died unexpectedly before finishing this task.
+	class_name: RayWorkerBuilder.IsolatedWorkerInitializer
+	actor_id: 96f608e0a6c306ada724380101000000
+	pid: 93753
+	namespace: 8381d226-af53-4daa-ab81-8d97cba32d79
+	ip: <ip>
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Failed to execute the setup hook method, nemo_rl.distributed.ray_worker_setup.ray_worker_process_setup from ``ray.init(runtime_env={'worker_process_setup_hook': nemo_rl.distributed.ray_worker_setup.ray_worker_process_setup})``. Please make sure the given module exists and is available from ray workers. For more details, see the error trace below.
+Traceback (most recent call last):
+  File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker/lib/python3.13/site-packages/ray/_private/runtime_env/setup_hook.py", line 208, in load_and_execute_setup_hook_module
+    setup_func = load_class(worker_process_setup_hook_key)
+  File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker/lib/python3.13/site-packages/ray/_common/utils.py", line 371, in load_class
+    module = importlib.import_module(module_path)
+  File "/planning-users/yangyeyuan/nemo-rl-3976/env/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1395, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1395, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1395, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'nemo_rl'
+
+The actor never ran - it was cancelled before it started running.

@@ -1,0 +1,7 @@
+{"case": "solo0-local", "gpu": 0, "node": 1, "cpu_bound": true, "cpus": "124-143", "pages": {"N1": 262145}, "pin_s": 0.3, "h2d_gbs": 55.0, "d2h_gbs": 54.9, "h2d_all": [55.0, 55.0]}
+{"case": "solo0-remote", "gpu": 0, "node": 0, "cpu_bound": false, "cpus": "124-143", "pages": {"N0": 262145}, "pin_s": 0.38, "h2d_gbs": 55.0, "d2h_gbs": 54.9, "h2d_all": [55.0, 55.0]}
+{"case": "solo0-unbound", "gpu": 0, "node": -1, "cpu_bound": false, "cpus": "124-143", "pages": {"N1": 262145}, "pin_s": 0.3, "h2d_gbs": 55.1, "d2h_gbs": 55.0, "h2d_all": [55.1, 55.1]}
+{"case": "solo0-local", "gpu": 0, "node": 1, "cpu_bound": true, "cpus": "124-143", "pages": {"N1": 262145}, "pin_s": 0.28, "h2d_gbs": 55.1, "d2h_gbs": 55.0, "h2d_all": [55.2, 55.1]}
+{"case": "all-local", "gpu": 0, "node": 1, "cpu_bound": true, "cpus": "124-143", "pages": {"N1": 262147}, "pin_s": 0.28, "h2d_gbs": 55.1, "d2h_gbs": 55.0, "h2d_all": [55.2, 55.1]}
+{"case": "all-remote", "gpu": 0, "node": 0, "cpu_bound": false, "cpus": "124-143", "pages": {"N0": 262147}, "pin_s": 0.37, "h2d_gbs": 54.2, "d2h_gbs": 47.8, "h2d_all": [54.0, 54.4]}
+{"case": "all-unbound", "gpu": 0, "node": -1, "cpu_bound": false, "cpus": "124-143", "pages": {"N1": 262145}, "pin_s": 0.3, "h2d_gbs": 54.4, "d2h_gbs": 47.8, "h2d_all": [54.8, 54.0]}

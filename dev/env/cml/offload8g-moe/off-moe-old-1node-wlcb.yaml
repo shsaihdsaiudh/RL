@@ -1,0 +1,63 @@
+jobName: 261119-nrl3976-offload-moe-old-yangyeyuan
+description: 'NeMo-RL #3976 optimizer offload: colocated GRPO OLMoE-1B-7B Megatron TP1 EP4 DP8, previous move_optimizer (baseline), 12 steps, 1x8 H20e (wlcb)'
+accessType: PRIVATE
+imageConfig:
+    imageUrl: <redacted-image>
+    imageCommand: bash /planning-users/yangyeyuan/nemo-rl-3976/env/cml/offload_entry.sh
+modelUri: ""
+juiceFsMountConfigs:
+    - volume: <redacted>
+      juiceFsCluster: <redacted>
+      subPath: /planning-users
+      mountPath: /planning-users
+      readOnly: false
+envConfigs:
+    - key: UV_DEFAULT_INDEX
+      value: "<redacted-url>"
+    - key: RUN_NAME
+      value: "off-moe-old-wlcb8g-1119"
+    - key: STEPS
+      value: "12"
+    - key: RAY_TAG
+      value: "omo"
+    - key: ALGO
+      value: "grpo"
+    - key: MODEL
+      value: "/planning-users/yangyeyuan/nemo-rl-3976/hf/local/OLMoE-1B-7B-0125-Instruct"
+    - key: EXTRA_OVERRIDES
+      value: "policy.megatron_cfg.expert_model_parallel_size=4"
+    - key: NRL_OFFLOAD_LEGACY
+      value: "1"
+    - key: NRL_MEGATRON_CHECKPOINT_DIR
+      value: "/planning-users/yangyeyuan/nemo-rl-3976/hf/nemo_rl_omo"
+queueId: "<redacted>"
+priority: 5
+preemptible: false
+framework: pytorch
+resourceConfigs:
+    - nodeRole: worker
+      nodeNumber: 1
+      perNodeResourceSpec:
+        resourcePriority: GUARANTEED
+        resourceName: <redacted>
+        resourceNumber: 8
+      elastic: false
+      preemptible: false
+enableTensorboard: false
+enableMetrics: false
+retryConfig:
+    enableRetry: false
+    maxRetryTimes: 0
+    policySets: []
+rdma: false
+diagOptions:
+    - name: HangDetection
+      enable: false
+    - name: SanityCheck
+      enable: false
+      config:
+        preSanityCheck: false
+        postSanityCheck: false
+alertConfig:
+    enableAlert: false
+    alertItems: []

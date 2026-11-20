@@ -1,0 +1,363 @@
+=== [2026-11-17 19:55:46] driver venv (.venv)
+Using CPython 3.13.14
+Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
+Checked 270 packages in 6.77s
+=== [2026-11-17 19:55:55] list worker venvs
+nemo_rl.algorithms.async_utils.AsyncTrajectoryCollector	deps	--extra vllm
+nemo_rl.algorithms.async_utils.ReplayBuffer	deps	--extra vllm
+nemo_rl.data.energon.sft_worker.SFTMegatronPolicyWorker	deps	--extra mcore --extra nemo_gym
+nemo_rl.environments.nemo_gym.NemoGym	deps	--extra nemo_gym
+nemo_rl.experience.rollout_reassembler_actor.RolloutReassemblerActor	deps	--extra nemo_gym
+nemo_rl.experience.sync_rollout_actor.SyncRolloutActor	deps	--extra vllm
+nemo_rl.modelopt.models.generation.vllm_quant_worker.VllmQuantAsyncGenerationWorker	deps	--extra modelopt --extra vllm
+nemo_rl.modelopt.models.generation.vllm_quant_worker.VllmQuantGenerationWorker	deps	--extra modelopt --extra vllm
+nemo_rl.modelopt.models.policy.workers.automodel_quant_policy_worker.AutomodelQuantPolicyWorker	deps	--extra modelopt --extra automodel
+nemo_rl.modelopt.models.policy.workers.megatron_quant_policy_worker.MegatronQuantPolicyWorker	deps	--extra modelopt --extra mcore
+nemo_rl.models.generation.sglang.sglang_worker.SGLangGenerationWorker	deps	--extra sglang
+nemo_rl.models.generation.trtllm.trtllm_worker_async.TrtllmAsyncGenerationWorker	trtllm	--extra trtllm
+nemo_rl.models.generation.vllm.vllm_worker.VllmGenerationWorker	deps	--extra vllm --extra nemo_gym
+nemo_rl.models.generation.vllm.vllm_worker_async.VllmAsyncGenerationWorker	deps	--extra vllm --extra nemo_gym
+nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker	deps	--extra automodel
+nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker	deps	--extra mcore --extra nemo_gym
+nemo_rl.models.value.workers.automodel_value_worker.AutomodelValueWorker	deps	--extra automodel
+nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker	deps	--extra mcore
+=== [2026-11-17 19:55:55] worker venv nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker (--extra mcore)
+Using CPython 3.13.14
+Creating virtual environment at: venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker
+Activate with: source venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/bin/activate
+   Building megatron-bridge @ file:///planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge
+   Building nvidia-resiliency-ext @ git+https://github.com/NVIDIA/nvidia-resiliency-ext.git@ebf0352a82ca5699148ea10bec2b8eedd121e382
+Downloading torch (502.1MiB)
+Downloading flashinfer-jit-cache-sm120f (185.7MiB)
+Downloading flashinfer-python (59.2MiB)
+Downloading flashinfer-jit-cache-sm100a (272.4MiB)
+Downloading flashinfer-jit-cache-sm103a (277.3MiB)
+Downloading cupy-cuda13x (65.8MiB)
+Downloading transformer-engine-cu13 (266.5MiB)
+Downloading triton (188.0MiB)
+Downloading flashinfer-cubin (1.6GiB)
+ Downloaded transformer-engine-cu13
+ Downloaded triton
+ Downloaded flashinfer-jit-cache-sm120f
+ Downloaded flashinfer-jit-cache-sm100a
+ Downloaded flashinfer-jit-cache-sm103a
+ Downloaded cupy-cuda13x
+      Built nvidia-resiliency-ext @ git+https://github.com/NVIDIA/nvidia-resiliency-ext.git@ebf0352a82ca5699148ea10bec2b8eedd121e382
+ Downloaded flashinfer-python
+ Downloaded torch
+   Building nvidia-modelopt @ git+https://github.com/NVIDIA/Model-Optimizer@cc4b76d74625b42cca1967118628b25ed326a3d1
+      Built megatron-bridge @ file:///planning-users/yangyeyuan/nemo-rl-3976/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge
+      Built nvidia-modelopt @ git+https://github.com/NVIDIA/Model-Optimizer@cc4b76d74625b42cca1967118628b25ed326a3d1
+ Downloaded flashinfer-cubin
+Prepared 12 packages in 11m 50s
+warning: The file `build_backend.py` is provided by more than one package, which causes an install race condition and can result in a broken module. Packages containing the file:
+* flashinfer-python (flashinfer_python-0.7.2.post1-py3-none-any.whl)
+* torch-c-dlpack-ext (torch_c_dlpack_ext-0.1.5-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl)
+Installed 356 packages in 59.98s
+   Updating https://github.com/state-spaces/mamba.git (a14b1dff0454a3bc27d9eb31355dc01e4b2490ec)
+   Updating https://github.com/Dao-AILab/causal-conv1d (4f6ae4e26ae5fe8af9372f8d312ab25cc4595223)
+   Updating https://github.com/deepseek-ai/DeepEP.git (17cfb817bccec3a9c247013360cc550c2bac441e)
+   Updating https://github.com/deepseek-ai/FlashMLA (b7643bd54521f563b839b98289b5cd048c062ba2)
+   Updating https://github.com/Dao-AILab/fast-hadamard-transform.git (f134af63deb2df17e1171a9ec1ea4a7d8604d5ca)
+    Updated https://github.com/Dao-AILab/fast-hadamard-transform.git (f134af63deb2df17e1171a9ec1ea4a7d8604d5ca)
+   Building fast-hadamard-transform @ git+https://github.com/Dao-AILab/fast-hadamard-transform.git@f134af63deb2df17e1171a9ec1ea4a7d8604d5ca
+   Building transformer-engine-torch==2.18.0
+    Updated https://github.com/Dao-AILab/causal-conv1d (4f6ae4e26ae5fe8af9372f8d312ab25cc4595223)
+   Building causal-conv1d @ git+https://github.com/Dao-AILab/causal-conv1d@4f6ae4e26ae5fe8af9372f8d312ab25cc4595223
+    Updated https://github.com/state-spaces/mamba.git (a14b1dff0454a3bc27d9eb31355dc01e4b2490ec)
+   Building mamba-ssm @ git+https://github.com/state-spaces/mamba.git@a14b1dff0454a3bc27d9eb31355dc01e4b2490ec
+    Updated https://github.com/deepseek-ai/DeepEP.git (17cfb817bccec3a9c247013360cc550c2bac441e)
+   Building deep-ep @ git+https://github.com/deepseek-ai/DeepEP.git@17cfb817bccec3a9c247013360cc550c2bac441e
+error: Failed to build `deep-ep @ git+https://github.com/deepseek-ai/DeepEP.git@17cfb817bccec3a9c247013360cc550c2bac441e`
+  cause: The build backend returned an error
+  cause: Call to `setuptools.build_meta:__legacy__.build_wheel` failed (exit status: 1)
+
+         [stdout]
+         Build summary:
+          > Sources: ['csrc/deep_ep.cpp', 'csrc/kernels/runtime.cu', 'csrc/kernels/layout.cu', 'csrc/kernels/intranode.cu', 'csrc/kernels/internode.cu', 'csrc/kernels/internode_ll.cu', 'csrc/kernels/pcie.cu']
+          > Includes: ['csrc/', '/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/nvidia/nvshmem/include']
+          > Libraries: ['/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/nvidia/nvshmem/lib']
+          > Compilation flags: {'cxx': ['-O3', '-Wno-deprecated-declarations', '-Wno-unused-variable', '-Wno-sign-compare', '-Wno-reorder', '-Wno-attributes', '-DDISABLE_AGGRESSIVE_PTX_INSTRS'], 'nvcc': ['-O3', '-Xcompiler', '-O3', '-rdc=true', '--ptxas-options=--register-usage-level=10', '-DDISABLE_AGGRESSIVE_PTX_INSTRS'], 'nvcc_dlink': ['-dlink', '-L/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/nvidia/nvshmem/lib', '-lnvshmem_device']}
+          > Link flags: ['-lcuda', '-l:libnvshmem_host.so.3', '-l:libnvshmem_device.a', '-Wl,-rpath,/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/nvidia/nvshmem/lib']
+          > Arch list: 9.0
+          > NVSHMEM path: /planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/nvidia/nvshmem
+
+         Build summary:
+          > Sources: ['csrc/hybrid_ep/hybrid_ep.cu', 'csrc/hybrid_ep/buffer/intranode.cu', 'csrc/hybrid_ep/allocator/allocator.cu', 'csrc/hybrid_ep/jit/compiler.cu', 'csrc/hybrid_ep/executor/executor.cu', 'csrc/hybrid_ep/extension/permute.cu', 'csrc/hybrid_ep/extension/allgather.cu', 'csrc/hybrid_ep/pybind_hybrid_ep.cu']
+          > Includes: ['/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/hybrid_ep/', '/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/hybrid_ep/backend/']
+          > Libraries: ['cuda', 'nvtx3interop']
+          > Library dirs: []
+          > Extra link args: []
+          > Compilation flags: {'nvcc': ['-std=c++17', '-Xcompiler', '-fPIC', '--expt-relaxed-constexpr', '-O3', '--shared', '-DSM_ARCH="9.0"']}
+          > Extra objects: []
+          > Runtime library dirs: []
+          > Arch list: 9.0
+
+         running bdist_wheel
+         running build
+         running build_py
+         creating build/lib.linux-x86_64-cpython-313/deep_ep
+         copying deep_ep/__init__.py -> build/lib.linux-x86_64-cpython-313/deep_ep
+         copying deep_ep/buffer.py -> build/lib.linux-x86_64-cpython-313/deep_ep
+         copying deep_ep/hybrid_ep_buffer.py -> build/lib.linux-x86_64-cpython-313/deep_ep
+         copying deep_ep/utils.py -> build/lib.linux-x86_64-cpython-313/deep_ep
+         running egg_info
+         creating deep_ep.egg-info
+         writing deep_ep.egg-info/PKG-INFO
+         writing dependency_links to deep_ep.egg-info/dependency_links.txt
+         writing requirements to deep_ep.egg-info/requires.txt
+         writing top-level names to deep_ep.egg-info/top_level.txt
+         writing manifest file 'deep_ep.egg-info/SOURCES.txt'
+         reading manifest file 'deep_ep.egg-info/SOURCES.txt'
+         adding license file 'LICENSE'
+         writing manifest file 'deep_ep.egg-info/SOURCES.txt'
+         creating build/lib.linux-x86_64-cpython-313/deep_ep/backend
+         copying deep_ep/backend/NCCL_LICENSE.txt -> build/lib.linux-x86_64-cpython-313/deep_ep/backend
+         copying deep_ep/backend/hybrid_ep_backend.cuh -> build/lib.linux-x86_64-cpython-313/deep_ep/backend
+         copying deep_ep/backend/ibvcore.h -> build/lib.linux-x86_64-cpython-313/deep_ep/backend
+         copying deep_ep/backend/topo_detection.cuh -> build/lib.linux-x86_64-cpython-313/deep_ep/backend
+         copying deep_ep/backend/utils.cuh -> build/lib.linux-x86_64-cpython-313/deep_ep/backend
+         running build_ext
+         building 'deep_ep_cpp' extension
+         [1/8] /planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/bin/nvcc -MD -MF /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/internode.o.d -Icsrc/ -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/nvidia/nvshmem/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/.venv/lib/python3.13/site-packages/nvidia/cudnn/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/python/cpython-3.13.14-linux-x86_64-gnu/include/python3.13 -c -c /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/internode.cu -o /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/internode.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -Xcompiler -O3 -rdc=true --ptxas-options=--register-usage-level=10 -DDISABLE_AGGRESSIVE_PTX_INSTRS -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=deep_ep_cpp -gencode=arch=compute_90,code=sm_90 -std=c++20
+         FAILED: [code=1] /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/internode.o 
+         /planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/bin/nvcc -MD -MF /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/internode.o.d -Icsrc/ -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/nvidia/nvshmem/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/.venv/lib/python3.13/site-packages/nvidia/cudnn/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/python/cpython-3.13.14-linux-x86_64-gnu/include/python3.13 -c -c /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/internode.cu -o /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/internode.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -Xcompiler -O3 -rdc=true --ptxas-options=--register-usage-level=10 -DDISABLE_AGGRESSIVE_PTX_INSTRS -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=deep_ep_cpp -gencode=arch=compute_90,code=sm_90 -std=c++20
+         In file included from /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/internode.cu:4:
+         /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/configs.cuh:64:10: fatal error: infiniband/mlx5dv.h: No such file or directory
+            64 | #include <infiniband/mlx5dv.h>
+               |          ^~~~~~~~~~~~~~~~~~~~~
+         compilation terminated.
+         [2/8] /planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/bin/nvcc -MD -MF /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/internode_ll.o.d -Icsrc/ -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/nvidia/nvshmem/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/.venv/lib/python3.13/site-packages/nvidia/cudnn/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/python/cpython-3.13.14-linux-x86_64-gnu/include/python3.13 -c -c /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/internode_ll.cu -o /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/internode_ll.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -Xcompiler -O3 -rdc=true --ptxas-options=--register-usage-level=10 -DDISABLE_AGGRESSIVE_PTX_INSTRS -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=deep_ep_cpp -gencode=arch=compute_90,code=sm_90 -std=c++20
+         FAILED: [code=1] /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/internode_ll.o 
+         /planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/bin/nvcc -MD -MF /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/internode_ll.o.d -Icsrc/ -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/nvidia/nvshmem/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/.venv/lib/python3.13/site-packages/nvidia/cudnn/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/python/cpython-3.13.14-linux-x86_64-gnu/include/python3.13 -c -c /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/internode_ll.cu -o /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/internode_ll.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -Xcompiler -O3 -rdc=true --ptxas-options=--register-usage-level=10 -DDISABLE_AGGRESSIVE_PTX_INSTRS -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=deep_ep_cpp -gencode=arch=compute_90,code=sm_90 -std=c++20
+         In file included from /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/internode_ll.cu:1:
+         /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/configs.cuh:64:10: fatal error: infiniband/mlx5dv.h: No such file or directory
+            64 | #include <infiniband/mlx5dv.h>
+               |          ^~~~~~~~~~~~~~~~~~~~~
+         compilation terminated.
+         [3/8] /planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/bin/nvcc -MD -MF /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/runtime.o.d -Icsrc/ -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/nvidia/nvshmem/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/.venv/lib/python3.13/site-packages/nvidia/cudnn/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/python/cpython-3.13.14-linux-x86_64-gnu/include/python3.13 -c -c /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/runtime.cu -o /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/runtime.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -Xcompiler -O3 -rdc=true --ptxas-options=--register-usage-level=10 -DDISABLE_AGGRESSIVE_PTX_INSTRS -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=deep_ep_cpp -gencode=arch=compute_90,code=sm_90 -std=c++20
+         FAILED: [code=1] /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/runtime.o 
+         /planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/bin/nvcc -MD -MF /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/runtime.o.d -Icsrc/ -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/nvidia/nvshmem/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/.venv/lib/python3.13/site-packages/nvidia/cudnn/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/python/cpython-3.13.14-linux-x86_64-gnu/include/python3.13 -c -c /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/runtime.cu -o /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/runtime.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -Xcompiler -O3 -rdc=true --ptxas-options=--register-usage-level=10 -DDISABLE_AGGRESSIVE_PTX_INSTRS -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=deep_ep_cpp -gencode=arch=compute_90,code=sm_90 -std=c++20
+         In file included from /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/runtime.cu:5:
+         /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/configs.cuh:64:10: fatal error: infiniband/mlx5dv.h: No such file or directory
+            64 | #include <infiniband/mlx5dv.h>
+               |          ^~~~~~~~~~~~~~~~~~~~~
+         compilation terminated.
+         [4/8] /planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/bin/nvcc -MD -MF /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/intranode.o.d -Icsrc/ -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/nvidia/nvshmem/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/.venv/lib/python3.13/site-packages/nvidia/cudnn/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/python/cpython-3.13.14-linux-x86_64-gnu/include/python3.13 -c -c /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/intranode.cu -o /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/intranode.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -Xcompiler -O3 -rdc=true --ptxas-options=--register-usage-level=10 -DDISABLE_AGGRESSIVE_PTX_INSTRS -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=deep_ep_cpp -gencode=arch=compute_90,code=sm_90 -std=c++20
+         FAILED: [code=1] /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/intranode.o 
+         /planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/bin/nvcc -MD -MF /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/intranode.o.d -Icsrc/ -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/nvidia/nvshmem/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/.venv/lib/python3.13/site-packages/nvidia/cudnn/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/python/cpython-3.13.14-linux-x86_64-gnu/include/python3.13 -c -c /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/intranode.cu -o /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/intranode.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -Xcompiler -O3 -rdc=true --ptxas-options=--register-usage-level=10 -DDISABLE_AGGRESSIVE_PTX_INSTRS -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=deep_ep_cpp -gencode=arch=compute_90,code=sm_90 -std=c++20
+         In file included from /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/intranode.cu:1:
+         /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/configs.cuh:64:10: fatal error: infiniband/mlx5dv.h: No such file or directory
+            64 | #include <infiniband/mlx5dv.h>
+               |          ^~~~~~~~~~~~~~~~~~~~~
+         compilation terminated.
+         [5/8] /planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/bin/nvcc -MD -MF /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/layout.o.d -Icsrc/ -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/nvidia/nvshmem/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/.venv/lib/python3.13/site-packages/nvidia/cudnn/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/python/cpython-3.13.14-linux-x86_64-gnu/include/python3.13 -c -c /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/layout.cu -o /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/layout.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -Xcompiler -O3 -rdc=true --ptxas-options=--register-usage-level=10 -DDISABLE_AGGRESSIVE_PTX_INSTRS -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=deep_ep_cpp -gencode=arch=compute_90,code=sm_90 -std=c++20
+         FAILED: [code=1] /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/layout.o 
+         /planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/bin/nvcc -MD -MF /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/layout.o.d -Icsrc/ -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/nvidia/nvshmem/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/.venv/lib/python3.13/site-packages/nvidia/cudnn/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/python/cpython-3.13.14-linux-x86_64-gnu/include/python3.13 -c -c /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/layout.cu -o /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/layout.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -Xcompiler -O3 -rdc=true --ptxas-options=--register-usage-level=10 -DDISABLE_AGGRESSIVE_PTX_INSTRS -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=deep_ep_cpp -gencode=arch=compute_90,code=sm_90 -std=c++20
+         In file included from /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/layout.cu:1:
+         /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/configs.cuh:64:10: fatal error: infiniband/mlx5dv.h: No such file or directory
+            64 | #include <infiniband/mlx5dv.h>
+               |          ^~~~~~~~~~~~~~~~~~~~~
+         compilation terminated.
+         [6/8] /planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/bin/nvcc -MD -MF /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/pcie.o.d -Icsrc/ -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/nvidia/nvshmem/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/.venv/lib/python3.13/site-packages/nvidia/cudnn/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/python/cpython-3.13.14-linux-x86_64-gnu/include/python3.13 -c -c /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/pcie.cu -o /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/pcie.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -Xcompiler -O3 -rdc=true --ptxas-options=--register-usage-level=10 -DDISABLE_AGGRESSIVE_PTX_INSTRS -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=deep_ep_cpp -gencode=arch=compute_90,code=sm_90 -std=c++20
+         FAILED: [code=1] /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/pcie.o 
+         /planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/bin/nvcc -MD -MF /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/pcie.o.d -Icsrc/ -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/nvidia/nvshmem/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/.venv/lib/python3.13/site-packages/nvidia/cudnn/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/python/cpython-3.13.14-linux-x86_64-gnu/include/python3.13 -c -c /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/pcie.cu -o /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/kernels/pcie.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -Xcompiler -O3 -rdc=true --ptxas-options=--register-usage-level=10 -DDISABLE_AGGRESSIVE_PTX_INSTRS -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=deep_ep_cpp -gencode=arch=compute_90,code=sm_90 -std=c++20
+         In file included from /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/pcie.cu:3:
+         /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/configs.cuh:64:10: fatal error: infiniband/mlx5dv.h: No such file or directory
+            64 | #include <infiniband/mlx5dv.h>
+               |          ^~~~~~~~~~~~~~~~~~~~~
+         compilation terminated.
+         [7/8] c++ -MMD -MF /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/deep_ep.o.d -pthread -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -g -O3 -Wall -O3 -fstack-protector -fstack-clash-protection -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fPIC -fPIC -Icsrc/ -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/nvidia/nvshmem/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/.venv/lib/python3.13/site-packages/nvidia/cudnn/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/python/cpython-3.13.14-linux-x86_64-gnu/include/python3.13 -c -c /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/deep_ep.cpp -o /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/deep_ep.o -O3 -Wno-deprecated-declarations -Wno-unused-variable -Wno-sign-compare -Wno-reorder -Wno-attributes -DDISABLE_AGGRESSIVE_PTX_INSTRS -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=deep_ep_cpp -std=c++20
+         FAILED: [code=1] /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/deep_ep.o 
+         c++ -MMD -MF /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/deep_ep.o.d -pthread -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -g -O3 -Wall -O3 -fstack-protector -fstack-clash-protection -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fPIC -fPIC -Icsrc/ -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/nvidia/nvshmem/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/include/torch/csrc/api/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/cuda-home/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/.venv/lib/python3.13/site-packages/nvidia/cudnn/include -I/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/include -I/planning-users/yangyeyuan/nemo-rl-3976/env/python/cpython-3.13.14-linux-x86_64-gnu/include/python3.13 -c -c /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/deep_ep.cpp -o /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/build/temp.linux-x86_64-cpython-313/csrc/deep_ep.o -O3 -Wno-deprecated-declarations -Wno-unused-variable -Wno-sign-compare -Wno-reorder -Wno-attributes -DDISABLE_AGGRESSIVE_PTX_INSTRS -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=deep_ep_cpp -std=c++20
+         In file included from /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/exception.cuh:6,
+                          from /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/config.hpp:5,
+                          from /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/deep_ep.hpp:15,
+                          from /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/deep_ep.cpp:10:
+         /planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/git-v1/checkouts/3e67e6f9c0307405/17cfb81/csrc/kernels/configs.cuh:64:10: fatal error: infiniband/mlx5dv.h: No such file or directory
+            64 | #include <infiniband/mlx5dv.h>
+               |          ^~~~~~~~~~~~~~~~~~~~~
+         compilation terminated.
+         ninja: build stopped: subcommand failed.
+
+         [stderr]
+         /planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/command/build_py.py:215: _Warning: Package 'deep_ep.backend' is absent from the `packages` configuration.
+         !!
+
+                 ********************************************************************************
+                 ############################
+                 # Package would be ignored #
+                 ############################
+                 Python recognizes 'deep_ep.backend' as an importable package[^1],
+                 but it is absent from setuptools' `packages` configuration.
+
+                 This leads to an ambiguous overall configuration. If you want to distribute this
+                 package, please make sure that 'deep_ep.backend' is explicitly added
+                 to the `packages` configuration field.
+
+                 Alternatively, you can also rely on setuptools' discovery methods
+                 (for example by using `find_namespace_packages(...)`/`find_namespace:`
+                 instead of `find_packages(...)`/`find:`).
+
+                 You can read more about "package discovery" on setuptools documentation page:
+
+                 - https://setuptools.pypa.io/en/latest/userguide/package_discovery.html
+
+                 If you don't want 'deep_ep.backend' to be distributed and are
+                 already explicitly excluding 'deep_ep.backend' via
+                 `find_namespace_packages(...)/find_namespace` or `find_packages(...)/find`,
+                 you can try to use `exclude_package_data`, or `include-package-data=False` in
+                 combination with a more fine grained `package-data` configuration.
+
+                 You can read more about "package data files" on setuptools documentation page:
+
+                 - https://setuptools.pypa.io/en/latest/userguide/datafiles.html
+
+
+                 [^1]: For Python, any directory (with suitable naming) can be imported,
+                       even if it does not contain any `.py` files.
+                       On the other hand, currently there is no concept of package data
+                       directory, all directories are treated like packages.
+                 ********************************************************************************
+
+         !!
+           check.warn(importable)
+         Traceback (most recent call last):
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/utils/cpp_extension.py", line 2893, in _run_ninja_build
+             subprocess.run(
+             ~~~~~~~~~~~~~~^
+                 command,
+                 ^^^^^^^^
+             ...<4 lines>...
+                 check=True,
+                 ^^^^^^^^^^^
+                 env=env)
+                 ^^^^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/env/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/subprocess.py", line 577, in run
+             raise CalledProcessError(retcode, process.args,
+                                      output=stdout, stderr=stderr)
+         subprocess.CalledProcessError: Command '['ninja', '-v', '-j', '16']' returned non-zero exit status 1.
+
+         The above exception was the direct cause of the following exception:
+
+         Traceback (most recent call last):
+           File "<string>", line 11, in <module>
+             wheel_filename = backend.build_wheel(__import__("os").fsdecode(b"/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/builds-v0/.tmp3fzvz6"), {}, None)
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/build_meta.py", line 438, in build_wheel
+             return _build(['bdist_wheel'])
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/build_meta.py", line 429, in _build
+             return self._build_with_temp_dir(
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+                 cmd,
+                 ^^^^
+             ...<3 lines>...
+                 self._arbitrary_args(config_settings),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             )
+             ^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/build_meta.py", line 410, in _build_with_temp_dir
+             self.run_setup()
+             ~~~~~~~~~~~~~~^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/build_meta.py", line 520, in run_setup
+             super().run_setup(setup_script=setup_script)
+             ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/build_meta.py", line 317, in run_setup
+             exec(code, locals())  # noqa: S102 # exec is intentional here
+             ~~~~^^^^^^^^^^^^^^^^
+           File "<string>", line 318, in <module>
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/__init__.py", line 117, in setup
+             return distutils.core.setup(**attrs)  # type: ignore[return-value]
+                    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/_distutils/core.py", line 168, in setup
+             return run_commands(dist)
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/_distutils/core.py", line 184, in run_commands
+             dist.run_commands()
+             ~~~~~~~~~~~~~~~~~^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/_distutils/dist.py", line 1028, in run_commands
+             self.run_command(cmd)
+             ~~~~~~~~~~~~~~~~^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/dist.py", line 1106, in run_command
+             super().run_command(command)
+             ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/_distutils/dist.py", line 1047, in run_command
+             cmd_obj.run()
+             ~~~~~~~~~~~^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/command/bdist_wheel.py", line 385, in run
+             self.run_command("build")
+             ~~~~~~~~~~~~~~~~^^^^^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/_distutils/cmd.py", line 342, in run_command
+             self.distribution.run_command(command)
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/dist.py", line 1106, in run_command
+             super().run_command(command)
+             ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/_distutils/dist.py", line 1047, in run_command
+             cmd_obj.run()
+             ~~~~~~~~~~~^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/_distutils/command/build.py", line 137, in run
+             self.run_command(cmd_name)
+             ~~~~~~~~~~~~~~~~^^^^^^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/_distutils/cmd.py", line 342, in run_command
+             self.distribution.run_command(command)
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/dist.py", line 1106, in run_command
+             super().run_command(command)
+             ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/_distutils/dist.py", line 1047, in run_command
+             cmd_obj.run()
+             ~~~~~~~~~~~^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/command/build_ext.py", line 95, in run
+             _build_ext.run(self)
+             ~~~~~~~~~~~~~~^^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/_distutils/command/build_ext.py", line 382, in run
+             self.build_extensions()
+             ~~~~~~~~~~~~~~~~~~~~~^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/utils/cpp_extension.py", line 1289, in build_extensions
+             super().build_extensions()
+             ~~~~~~~~~~~~~~~~~~~~~~~~^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/_distutils/command/build_ext.py", line 498, in build_extensions
+             self._build_extensions_serial()
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/_distutils/command/build_ext.py", line 524, in _build_extensions_serial
+             self.build_extension(ext)
+             ~~~~~~~~~~~~~~~~~~~~^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/command/build_ext.py", line 260, in build_extension
+             _build_ext.build_extension(self, ext)
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/Cython/Distutils/build_ext.py", line 140, in build_extension
+             super().build_extension(ext)
+             ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/setuptools/_distutils/command/build_ext.py", line 585, in build_extension
+             objects = self.compiler.compile(
+                 sources,
+             ...<5 lines>...
+                 depends=ext.depends,
+             )
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/utils/cpp_extension.py", line 1027, in unix_wrap_ninja_compile
+             _write_ninja_file_and_compile_objects(
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+                 sources=sources,
+                 ^^^^^^^^^^^^^^^^
+             ...<11 lines>...
+                 with_cuda=with_cuda,
+                 ^^^^^^^^^^^^^^^^^^^^
+                 with_sycl=with_sycl)
+                 ^^^^^^^^^^^^^^^^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/utils/cpp_extension.py", line 2475, in _write_ninja_file_and_compile_objects
+             _run_ninja_build(
+             ~~~~~~~~~~~~~~~~^
+                 build_directory,
+                 ^^^^^^^^^^^^^^^^
+             ...<2 lines>...
+                 # that failed to build but there isn't a good way to get it here.
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 error_prefix='Error compiling objects for extension')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           File "/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.value.workers.megatron_value_worker.MegatronValueWorker/lib/python3.13/site-packages/torch/utils/cpp_extension.py", line 2910, in _run_ninja_build
+             raise RuntimeError(message) from e
+         RuntimeError: Error compiling objects for extension
+
+hint: `deep-ep` was included because `nemo-rl[mcore]` depends on `deep-ep`
+
+hint: Build failures usually indicate a problem with the package or the build environment

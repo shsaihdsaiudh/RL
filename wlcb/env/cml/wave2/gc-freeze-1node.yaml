@@ -1,0 +1,57 @@
+jobName: 261119-nrl3976-gcprobe-freeze-yangyeyuan
+description: 'NeMo-RL #3976 gc probe wave 2: colocated GRPO Qwen2.5-1.5B, gc.collect() then gc.freeze() at the end of worker __init__, 10 steps, 1x8 H20'
+accessType: PRIVATE
+imageConfig:
+    imageUrl: <redacted-image>
+    imageCommand: bash /planning-users/yangyeyuan/nemo-rl-3976/env/cml/gc_probe_entry.sh
+modelUri: ""
+juiceFsMountConfigs:
+    - volume: <redacted>
+      juiceFsCluster: <redacted>
+      subPath: /
+      mountPath: /planning-users
+      readOnly: false
+envConfigs:
+    - key: RUN_NAME
+      value: "gc-freeze-8g-1119"
+    - key: MODEL
+      value: "Qwen/Qwen2.5-1.5B"
+    - key: STEPS
+      value: "10"
+    - key: NRL_GC_PROBE_ANALYZE
+      value: "first"
+    - key: NRL_GC_FREEZE
+      value: "init"
+    - key: RAY_TAG
+      value: "f"
+queueId: "<redacted>"
+priority: 5
+preemptible: false
+framework: pytorch
+resourceConfigs:
+    - nodeRole: worker
+      nodeNumber: 1
+      perNodeResourceSpec:
+        resourcePriority: GUARANTEED
+        resourceName: <redacted>
+        resourceNumber: 8
+      elastic: false
+      preemptible: false
+enableTensorboard: false
+enableMetrics: false
+retryConfig:
+    enableRetry: false
+    maxRetryTimes: 0
+    policySets: []
+rdma: false
+diagOptions:
+    - name: HangDetection
+      enable: false
+    - name: SanityCheck
+      enable: false
+      config:
+        preSanityCheck: false
+        postSanityCheck: false
+alertConfig:
+    enableAlert: false
+    alertItems: []
