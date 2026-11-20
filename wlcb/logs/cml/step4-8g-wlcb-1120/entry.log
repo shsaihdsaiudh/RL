@@ -1,0 +1,165 @@
+<host>
+GPU 0: NVIDIA H20-3e (UUID: GPU-c8dd7989-d639-b934-c45f-3c5c0e5f1067)
+GPU 1: NVIDIA H20-3e (UUID: GPU-e3f0a897-0869-232b-fc26-2b8eee3b46da)
+GPU 2: NVIDIA H20-3e (UUID: GPU-2e31c6ba-c942-30ea-2efe-02057ea2e6ab)
+GPU 3: NVIDIA H20-3e (UUID: GPU-81e5d174-988c-bdf0-e286-1cd2ccbf04c5)
+GPU 4: NVIDIA H20-3e (UUID: GPU-ccd42711-a59c-1502-9ebd-6146ab0e0cb9)
+GPU 5: NVIDIA H20-3e (UUID: GPU-0d582a1d-e8c9-ea7a-6fb7-d2bd251b72c6)
+GPU 6: NVIDIA H20-3e (UUID: GPU-22fbc192-5286-aae6-8c92-81771cad8185)
+GPU 7: NVIDIA H20-3e (UUID: GPU-a395cd30-8b2e-8b90-afcf-667243be7aea)
+dca9c8c042a2628bfc84226e6b4e9518  nemo_rl/distributed/fused_linear_logprobs.py
+61cbc0fcb2c230fc2243eb6fca353c7b  nemo_rl/models/automodel/fused_logprobs.py
+ab8c1c8cdfd2268c7136fef17986fd82  nemo_rl/models/automodel/train.py
+b85c98252f435752622e43d9c8db7ba2  /planning-users/yangyeyuan/nemo-rl-4169/logs/scratch/super_proxy_fused.py
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+/planning-users/yangyeyuan/nemo-rl-4169/RL/nemo_rl/__init__.py /planning-users/yangyeyuan/nemo-rl-4169/RL/3rdparty/Automodel-workspace/Automodel/nemo_automodel/__init__.py 2.13.0+cu130 2.18.0
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+2026-11-19 23:48:18,695	INFO worker.py:2015 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+INFO:nemo_rl.distributed.virtual_cluster:virtual_cluster.py:544: Started local cluster with tag 'nrl_tag_ALL': {'nrl_tag_ALL': 1.0, 'GPU': 8.0, 'node:__internal_head__': 1.0, 'memory': 1567308759040.0, 'object_store_memory': 200000000000.0, 'accelerator_type:H20': 1.0, 'CPU': 168.0, 'node:<ip>': 1.0}
+GPU monitoring started with collection interval=1s, flush interval=infs
+...............INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLinear) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLinear) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLlamaForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLlamaForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+.INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLinear) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLinear) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLlamaForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLlamaForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+.INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLlamaForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLlamaForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+.INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLlamaForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLlamaForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+.GPU monitoring stopped
+
+Saving unit test data to /planning-users/yangyeyuan/nemo-rl-4169/RL/tests/unit/unit_results.json
+and saving to /planning-users/yangyeyuan/nemo-rl-4169/RL/tests/unit/unit_results/20261119_234802.json
+
+=============================== warnings summary ===============================
+tests/unit/models/automodel/test_fused_logprobs.py::test_te_lm_head_matches_te_forward
+  /planning-users/yangyeyuan/nemo-rl-4169/RL/nemo_rl/models/automodel/fused_logprobs.py:212: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+___________ test_capture_matches_logits_path[1.0-bf16_params-False] ____________
+------------------------------ Captured log setup ------------------------------
+2026-11-19 23:48:18,695	INFO worker.py:2015 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+2026-11-19 23:48:20,653	INFO virtual_cluster.py:544 -- Started local cluster with tag 'nrl_tag_ALL': {'nrl_tag_ALL': 1.0, 'GPU': 8.0, 'node:__internal_head__': 1.0, 'memory': 1567308759040.0, 'object_store_memory': 200000000000.0, 'accelerator_type:H20': 1.0, 'CPU': 168.0, 'node:<ip>': 1.0}
+============================ slowest 100 durations =============================
+24.28s call     tests/unit/models/automodel/test_fused_logprobs.py::test_fsdp2_gradients_match_logits_path[te_lm_head_own_unit]
+21.39s call     tests/unit/models/automodel/test_fused_logprobs.py::test_fsdp2_gradients_match_logits_path[lm_head_own_unit]
+21.15s call     tests/unit/models/automodel/test_fused_logprobs.py::test_fsdp2_gradients_match_logits_path[tied]
+21.08s call     tests/unit/models/automodel/test_fused_logprobs.py::test_fsdp2_gradients_match_logits_path[lm_head_in_root]
+14.23s setup    tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[1.0-bf16_params-False]
+4.96s call     tests/unit/models/automodel/test_fused_logprobs.py::test_te_lm_head_matches_te_forward
+4.13s call     tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[1.0-bf16_params-False]
+1.62s teardown tests/unit/models/automodel/test_fused_logprobs.py::test_fsdp2_gradients_match_logits_path[tied]
+0.13s call     tests/unit/models/automodel/test_fused_logprobs.py::test_head_runs_unchanged_outside_capture
+0.03s call     tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[1.0-bf16_params-True]
+0.02s call     tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[1.0-fp32_params_bf16_autocast-False]
+0.02s call     tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[0.7-fp32_params_bf16_autocast-False]
+0.02s call     tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[1.0-fp32_params_bf16_autocast-True]
+0.02s call     tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[0.7-fp32_params_bf16_autocast-True]
+0.02s call     tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[0.7-bf16_params-False]
+0.02s call     tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[0.7-bf16_params-True]
+0.02s call     tests/unit/models/automodel/test_fused_logprobs.py::test_capture_misuse_fails_loudly
+0.01s call     tests/unit/models/automodel/test_fused_logprobs.py::test_rejects_te_lm_head_with_bias
+0.01s call     tests/unit/models/automodel/test_fused_logprobs.py::test_rejects_heads_it_would_compute_wrongly[bias]
+
+(38 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[1.0-bf16_params-False]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[1.0-bf16_params-True]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[1.0-fp32_params_bf16_autocast-False]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[1.0-fp32_params_bf16_autocast-True]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[0.7-bf16_params-False]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[0.7-bf16_params-True]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[0.7-fp32_params_bf16_autocast-False]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[0.7-fp32_params_bf16_autocast-True]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_te_lm_head_matches_te_forward
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_rejects_te_lm_head_with_bias
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_head_runs_unchanged_outside_capture
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_rejects_heads_it_would_compute_wrongly[bias]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_rejects_heads_it_would_compute_wrongly[custom_forward]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_rejects_heads_it_would_compute_wrongly[softcapping]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_capture_misuse_fails_loudly
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_fsdp2_gradients_match_logits_path[lm_head_own_unit]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_fsdp2_gradients_match_logits_path[te_lm_head_own_unit]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_fsdp2_gradients_match_logits_path[lm_head_in_root]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_fsdp2_gradients_match_logits_path[tied]
+19 passed, 1 warning in 123.11s (0:02:03)
+
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+grouped_gemm is not available. Please run:pip install git+https://github.com/fanshiqing/grouped_gemm@v1.1.4
+grouped_gemm is not available. Please run:pip install git+https://github.com/fanshiqing/grouped_gemm@v1.1.4
+grouped_gemm is not available. Please run:pip install git+https://github.com/fanshiqing/grouped_gemm@v1.1.4
+grouped_gemm is not available. Please run:pip install git+https://github.com/fanshiqing/grouped_gemm@v1.1.4
+grouped_gemm is not available. Please run:pip install git+https://github.com/fanshiqing/grouped_gemm@v1.1.4
+grouped_gemm is not available. Please run:pip install git+https://github.com/fanshiqing/grouped_gemm@v1.1.4
+grouped_gemm is not available. Please run:pip install git+https://github.com/fanshiqing/grouped_gemm@v1.1.4
+grouped_gemm is not available. Please run:pip install git+https://github.com/fanshiqing/grouped_gemm@v1.1.4
+INFO:nemo_automodel.components.distributed.parallelizer:parallelizer.py:515: Custom parallel plan is not supported for NemotronHForCausalLM. Using NemotronH-specific TP plan.
+INFO:nemo_automodel.components.distributed.parallelizer:parallelizer.py:515: Custom parallel plan is not supported for NemotronHForCausalLM. Using NemotronH-specific TP plan.
+INFO:nemo_automodel.components.distributed.parallelizer:parallelizer.py:515: Custom parallel plan is not supported for NemotronHForCausalLM. Using NemotronH-specific TP plan.
+INFO:nemo_automodel.components.distributed.parallelizer:parallelizer.py:515: Custom parallel plan is not supported for NemotronHForCausalLM. Using NemotronH-specific TP plan.
+INFO:nemo_automodel.components.distributed.parallelizer:parallelizer.py:515: Custom parallel plan is not supported for NemotronHForCausalLM. Using NemotronH-specific TP plan.
+INFO:nemo_automodel.components.distributed.parallelizer:parallelizer.py:515: Custom parallel plan is not supported for NemotronHForCausalLM. Using NemotronH-specific TP plan.
+INFO:nemo_automodel.components.distributed.parallelizer:parallelizer.py:515: Custom parallel plan is not supported for NemotronHForCausalLM. Using NemotronH-specific TP plan.
+INFO:nemo_automodel.components.distributed.parallelizer:parallelizer.py:515: Custom parallel plan is not supported for NemotronHForCausalLM. Using NemotronH-specific TP plan.
+[setup] world=8 layers=*E seq=32768 vocab=131072 lm_head own FSDP unit=False lm_head weight dtype=torch.float32 params=1.34B
+cuDNN Frontend warning: Multiple libcudart libraries found: libcudart.so.12 and libcudart.so.13. Using libcudart.so.12. Set CUDNN_FRONTEND_CUDART_LIB_NAME to select one explicitly.
+cuDNN Frontend warning: Multiple libcudart libraries found: libcudart.so.12 and libcudart.so.13. Using libcudart.so.12. Set CUDNN_FRONTEND_CUDART_LIB_NAME to select one explicitly.
+cuDNN Frontend warning: Multiple libcudart libraries found: libcudart.so.12 and libcudart.so.13. Using libcudart.so.12. Set CUDNN_FRONTEND_CUDART_LIB_NAME to select one explicitly.
+cuDNN Frontend warning: Multiple libcudart libraries found: libcudart.so.12 and libcudart.so.13. Using libcudart.so.12. Set CUDNN_FRONTEND_CUDART_LIB_NAME to select one explicitly.
+cuDNN Frontend warning: Multiple libcudart libraries found: libcudart.so.12 and libcudart.so.13. Using libcudart.so.12. Set CUDNN_FRONTEND_CUDART_LIB_NAME to select one explicitly.
+cuDNN Frontend warning: Multiple libcudart libraries found: libcudart.so.12 and libcudart.so.13. Using libcudart.so.12. Set CUDNN_FRONTEND_CUDART_LIB_NAME to select one explicitly.
+cuDNN Frontend warning: Multiple libcudart libraries found: libcudart.so.12 and libcudart.so.13. Using libcudart.so.12. Set CUDNN_FRONTEND_CUDART_LIB_NAME to select one explicitly.
+cuDNN Frontend warning: Multiple libcudart libraries found: libcudart.so.12 and libcudart.so.13. Using libcudart.so.12. Set CUDNN_FRONTEND_CUDART_LIB_NAME to select one explicitly.
+/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPNemotronHForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPNemotronHForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPNemotronHForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPNemotronHForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPNemotronHForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPNemotronHForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPNemotronHForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-3976/RL/venvs/nemo_rl.models.policy.workers.megatron_policy_worker.MegatronPolicyWorker/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPNemotronHForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+RESULT {"world": 8, "seq": 32768, "layers": "*E", "chunk": 2048, "fused_chunk": 1024, "temperature": 0.7, "loss_unfused": 0.0037708980962634087, "loss_fused": 0.0037708980962634087, "peak_gib_unfused": 47.185638427734375, "peak_gib_fused": 17.861860275268555, "time_s_unfused": 3.00529180560261, "time_s_fused": 2.284043670631945, "grads_bitwise_equal": "12/16", "worst_grad_rel_norm_diff": 0.00048256043825900503, "worst_grad": "model.layers.0.norm.weight", "lm_head_grad_rel_norm_diff": 0.00040332712854599084, "lm_head_grad_norm_unfused": 0.19087974233940902, "lm_head_grad_norm_fused": 0.19088503853594357, "nonfinite_grad_elements_unfused_fused": {}}
+[step4-entry] done status=0

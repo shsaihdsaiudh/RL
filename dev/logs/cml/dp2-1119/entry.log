@@ -1,0 +1,400 @@
+<host>
+GPU 0: NVIDIA H20 (UUID: GPU-00f0be4d-5859-9dc0-7136-9ffb5af28b1f)
+GPU 1: NVIDIA H20 (UUID: GPU-0106679f-728d-2819-f112-e9839c88c04e)
+dca9c8c042a2628bfc84226e6b4e9518  nemo_rl/distributed/fused_linear_logprobs.py
+1750de8fe67216add49128c1c5a16b13  nemo_rl/models/automodel/fused_logprobs.py
+15651271b257dd90590c13b12a7eb404  tests/unit/models/automodel/test_fused_logprobs.py
+37ad9a71402ddc73630194c7d5485cf6  tests/unit/distributed/test_fused_linear_logprobs.py
+INFO:nemo_rl.transformers_compat:transformers_compat.py:179: Applied the Transformers 5.12.1 dynamic-module symlink-cache patch (https://github.com/huggingface/transformers/pull/46618)
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+W1119 17:06:35.311000 19 venvs/automodel-test/lib/python3.13/site-packages/torch/utils/_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W1119 17:06:36.401000 19 venvs/automodel-test/lib/python3.13/site-packages/torch/utils/_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Running 41 items in this shard
+Deleted existing results file: /planning-users/yangyeyuan/nemo-rl-4169/RL/tests/unit/unit_results.json
+2026-11-19 17:07:07,455	INFO worker.py:2015 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+INFO:nemo_rl.distributed.virtual_cluster:virtual_cluster.py:544: Started local cluster with tag 'nrl_tag_ALL': {'nrl_tag_ALL': 1.0, 'GPU': 2.0, 'node:__internal_head__': 1.0, 'node:<ip>': 1.0, 'object_store_memory': 131327582208.0, 'accelerator_type:H20': 1.0, 'CPU': 40.0, 'memory': 306431025152.0}
+GPU monitoring started with collection interval=1s, flush interval=infs
+.............INFO:nemo_rl.transformers_compat:transformers_compat.py:179: Applied the Transformers 5.12.1 dynamic-module symlink-cache patch (https://github.com/huggingface/transformers/pull/46618)
+INFO:nemo_rl.transformers_compat:transformers_compat.py:179: Applied the Transformers 5.12.1 dynamic-module symlink-cache patch (https://github.com/huggingface/transformers/pull/46618)
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+W1119 17:10:10.672000 3450 venvs/automodel-test/lib/python3.13/site-packages/torch/utils/_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W1119 17:10:10.672000 3449 venvs/automodel-test/lib/python3.13/site-packages/torch/utils/_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W1119 17:10:12.581000 3449 venvs/automodel-test/lib/python3.13/site-packages/torch/utils/_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W1119 17:10:12.581000 3450 venvs/automodel-test/lib/python3.13/site-packages/torch/utils/_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLinear) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLinear) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLlamaForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLlamaForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+.INFO:nemo_rl.transformers_compat:transformers_compat.py:179: Applied the Transformers 5.12.1 dynamic-module symlink-cache patch (https://github.com/huggingface/transformers/pull/46618)
+INFO:nemo_rl.transformers_compat:transformers_compat.py:179: Applied the Transformers 5.12.1 dynamic-module symlink-cache patch (https://github.com/huggingface/transformers/pull/46618)
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+W1119 17:10:40.562000 4316 venvs/automodel-test/lib/python3.13/site-packages/torch/utils/_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W1119 17:10:40.563000 4317 venvs/automodel-test/lib/python3.13/site-packages/torch/utils/_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W1119 17:10:40.615000 4316 venvs/automodel-test/lib/python3.13/site-packages/torch/utils/_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W1119 17:10:40.615000 4317 venvs/automodel-test/lib/python3.13/site-packages/torch/utils/_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLlamaForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLlamaForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+Error in rank 1: expected mat1 and mat2 to have the same dtype, but got: float != c10::BFloat16
+Error in rank 0: expected mat1 and mat2 to have the same dtype, but got: float != c10::BFloat16
+W1119 17:10:44.926000 19 venvs/automodel-test/lib/python3.13/site-packages/torch/multiprocessing/spawn.py:165] Terminating process 4317 via signal SIGTERM
+FGPU monitoring stopped
+
+Saving unit test data to /planning-users/yangyeyuan/nemo-rl-4169/RL/tests/unit/unit_results.json
+and saving to /planning-users/yangyeyuan/nemo-rl-4169/RL/tests/unit/unit_results/20261119_170541.json
+
+=================================== FAILURES ===================================
+___________ test_fsdp2_gradients_match_logits_path[lm_head_in_root] ____________
+
+distributed_test_runner = <function distributed_test_runner.<locals>.run_distributed_test at 0x7ef808a97f60>
+layout = 'lm_head_in_root'
+
+    @pytest.mark.parametrize("layout", ["lm_head_own_unit", "lm_head_in_root", "tied"])
+    def test_fsdp2_gradients_match_logits_path(distributed_test_runner, layout: str):
+        """Under FSDP2 DP=2 the LM-head and backbone gradients are reduced as on the logits path."""
+>       distributed_test_runner(
+            functools.partial(_run_fsdp_matches_logits_path, layout=layout), world_size=2
+        )
+
+tests/unit/models/automodel/test_fused_logprobs.py:232: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/conftest.py:500: in run_distributed_test
+    mp.spawn(
+venvs/automodel-test/lib/python3.13/site-packages/torch/multiprocessing/spawn.py:340: in spawn
+    return start_processes(fn, args, nprocs, join, daemon, start_method="spawn")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venvs/automodel-test/lib/python3.13/site-packages/torch/multiprocessing/spawn.py:296: in start_processes
+    while not context.join():
+              ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <torch.multiprocessing.spawn.ProcessContext object at 0x7ef808de9f90>
+timeout = None, grace_period = None
+
+    def join(self, timeout: float | None = None, grace_period: float | None = None):
+        r"""Join one or more processes within spawn context.
+    
+        Attempt to join one or more processes in this spawn context.
+        If one of them exited with a non-zero exit status, this function
+        kills the remaining processes (optionally with a grace period)
+        and raises an exception with the cause of the first process exiting.
+    
+        Returns ``True`` if all processes have been joined successfully,
+        ``False`` if there are more processes that need to be joined.
+    
+        Args:
+            timeout (float): Wait this long (in seconds) before giving up on waiting.
+            grace_period (float): When any processes fail, wait this long (in seconds)
+                for others to shutdown gracefully before terminating them. If they
+                still don't exit, wait another grace period before killing them.
+        """
+        # Ensure this function can be called even when we're done.
+        if len(self.sentinels) == 0:
+            return True
+    
+        # Wait for any process to fail or all of them to succeed.
+        ready = multiprocessing.connection.wait(
+            self.sentinels.keys(),
+            timeout=timeout,
+        )
+    
+        error_index = None
+        for sentinel in ready:
+            index = self.sentinels.pop(sentinel)
+            process = self.processes[index]
+            process.join()
+            if process.exitcode != 0:
+                error_index = index
+                break
+    
+        # Return if there was no error.
+        if error_index is None:
+            # Return whether or not all processes have been joined.
+            return len(self.sentinels) == 0
+        # An error occurred. Clean-up all processes before returning.
+        # First, allow a grace period for processes to shutdown themselves.
+        if grace_period is not None:
+            self._join_procs_with_timeout(grace_period)
+        # Then, terminate processes that are still alive. Try SIGTERM first.
+        for process in self.processes:
+            if process.is_alive():
+                log.warning("Terminating process %s via signal SIGTERM", process.pid)
+                process.terminate()
+    
+        # Try SIGKILL if the process isn't going down after another grace_period.
+        # The reason is related to python signal handling is limited
+        # to main thread and if that is in c/c++ land and stuck it won't
+        # to handle it. We have seen processes getting stuck not handling
+        # SIGTERM for the above reason.
+        self._join_procs_with_timeout(30 if grace_period is None else grace_period)
+        for process in self.processes:
+            if process.is_alive():
+                log.warning(
+                    "Unable to shutdown process %s via SIGTERM , forcefully exiting via SIGKILL",
+                    process.pid,
+                )
+                process.kill()
+            process.join()
+    
+        # The file will only be created if the process crashed.
+        failed_process = self.processes[error_index]
+        if not os.access(self.error_files[error_index], os.R_OK):
+            exitcode = self.processes[error_index].exitcode
+            if exitcode < 0:
+                try:
+                    name = signal.Signals(-exitcode).name
+                except ValueError:
+                    name = f"<Unknown signal {-exitcode}>"
+                raise ProcessExitedException(
+                    f"process {error_index:d} terminated with signal {name}",
+                    error_index=error_index,
+                    error_pid=failed_process.pid,
+                    exit_code=exitcode,
+                    signal_name=name,
+                )
+            else:
+                raise ProcessExitedException(
+                    f"process {error_index:d} terminated with exit code {exitcode:d}",
+                    error_index=error_index,
+                    error_pid=failed_process.pid,
+                    exit_code=exitcode,
+                )
+    
+        with open(self.error_files[error_index], "rb") as fh:
+            original_trace = pickle.load(fh)
+        msg = f"\n\n-- Process {error_index:d} terminated with the following error:\n"
+        msg += original_trace
+>       raise ProcessRaisedException(msg, error_index, failed_process.pid)
+E       torch.multiprocessing.spawn.ProcessRaisedException: 
+E       
+E       -- Process 0 terminated with the following error:
+E       Traceback (most recent call last):
+E         File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/multiprocessing/spawn.py", line 87, in _wrap
+E           fn(i, *args)
+E           ~~^^^^^^^^^^
+E         File "/planning-users/yangyeyuan/nemo-rl-4169/RL/tests/unit/conftest.py", line 528, in _distributed_test_wrapper
+E           test_fn(rank, world_size)
+E           ~~~~~~~^^^^^^^^^^^^^^^^^^
+E         File "/planning-users/yangyeyuan/nemo-rl-4169/RL/tests/unit/models/automodel/test_fused_logprobs.py", line 223, in _run_fsdp_matches_logits_path
+E           (_unfused_logprobs(model, input_ids, 0.7) * token_weights).sum().backward()
+E            ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+E         File "/planning-users/yangyeyuan/nemo-rl-4169/RL/tests/unit/models/automodel/test_fused_logprobs.py", line 67, in _unfused_logprobs
+E           logits = model(input_ids=input_ids, use_cache=False).logits.float()
+E                    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E         File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+E           return self._call_impl(*args, **kwargs)
+E                  ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E         File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1884, in _call_impl
+E           return inner()
+E         File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1832, in inner
+E           result = forward_call(*args, **kwargs)
+E         File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/transformers/utils/generic.py", line 907, in wrapper
+E           output = func(self, *args, **kwargs)
+E         File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/transformers/models/llama/modeling_llama.py", line 487, in forward
+E           logits = self.lm_head(hidden_states[:, slice_indices, :])
+E         File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+E           return self._call_impl(*args, **kwargs)
+E                  ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E         File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+E           return forward_call(*args, **kwargs)
+E         File "/planning-users/yangyeyuan/nemo-rl-4169/RL/nemo_rl/models/automodel/fused_logprobs.py", line 145, in _forward
+E           return self._original_forward(hidden_states)
+E                  ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+E         File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/nn/modules/linear.py", line 134, in forward
+E           return F.linear(input, self.weight, self.bias)
+E                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: expected mat1 and mat2 to have the same dtype, but got: float != c10::BFloat16
+
+venvs/automodel-test/lib/python3.13/site-packages/torch/multiprocessing/spawn.py:211: ProcessRaisedException
+------------------------------ Captured log call -------------------------------
+2026-11-19 17:10:44,926	WARNING spawn.py:165 -- Terminating process 4317 via signal SIGTERM
+=============================== warnings summary ===============================
+venvs/automodel-test/lib/python3.13/site-packages/torchao/quantization/quant_api.py:1745
+  /planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torchao/quantization/quant_api.py:1745: SyntaxWarning: invalid escape sequence '\.'
+    * regex for parameter names, must start with `re:`, e.g. `re:language\.layers\..+\.q_proj.weight`.
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+___________ test_capture_matches_logits_path[1.0-bf16_params-False] ____________
+------------------------------ Captured log setup ------------------------------
+2026-11-19 17:07:07,455	INFO worker.py:2015 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+2026-11-19 17:07:08,692	INFO virtual_cluster.py:544 -- Started local cluster with tag 'nrl_tag_ALL': {'nrl_tag_ALL': 1.0, 'GPU': 2.0, 'node:__internal_head__': 1.0, 'node:<ip>': 1.0, 'object_store_memory': 131327582208.0, 'accelerator_type:H20': 1.0, 'CPU': 40.0, 'memory': 306431025152.0}
+============================ slowest 100 durations =============================
+149.84s call     tests/unit/models/automodel/test_fused_logprobs.py::test_fsdp2_gradients_match_logits_path[lm_head_own_unit]
+65.04s setup    tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[1.0-bf16_params-False]
+23.56s call     tests/unit/models/automodel/test_fused_logprobs.py::test_fsdp2_gradients_match_logits_path[lm_head_in_root]
+8.41s call     tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[1.0-bf16_params-False]
+2.12s teardown tests/unit/models/automodel/test_fused_logprobs.py::test_fsdp2_gradients_match_logits_path[lm_head_in_root]
+0.19s call     tests/unit/models/automodel/test_fused_logprobs.py::test_head_runs_unchanged_outside_capture
+0.06s call     tests/unit/models/automodel/test_fused_logprobs.py::test_rejects_heads_it_would_compute_wrongly[bias]
+0.03s call     tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[1.0-bf16_params-True]
+0.02s call     tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[1.0-fp32_params_bf16_autocast-False]
+0.02s call     tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[0.7-fp32_params_bf16_autocast-False]
+0.02s call     tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[0.7-bf16_params-False]
+0.02s call     tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[0.7-fp32_params_bf16_autocast-True]
+0.02s call     tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[1.0-fp32_params_bf16_autocast-True]
+0.02s call     tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[0.7-bf16_params-True]
+0.02s call     tests/unit/models/automodel/test_fused_logprobs.py::test_capture_misuse_fails_loudly
+0.01s call     tests/unit/models/automodel/test_fused_logprobs.py::test_rejects_heads_it_would_compute_wrongly[custom_forward]
+
+(29 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[1.0-bf16_params-False]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[1.0-bf16_params-True]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[1.0-fp32_params_bf16_autocast-False]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[1.0-fp32_params_bf16_autocast-True]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[0.7-bf16_params-False]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[0.7-bf16_params-True]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[0.7-fp32_params_bf16_autocast-False]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_capture_matches_logits_path[0.7-fp32_params_bf16_autocast-True]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_head_runs_unchanged_outside_capture
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_rejects_heads_it_would_compute_wrongly[bias]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_rejects_heads_it_would_compute_wrongly[custom_forward]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_rejects_heads_it_would_compute_wrongly[softcapping]
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_capture_misuse_fails_loudly
+PASSED tests/unit/models/automodel/test_fused_logprobs.py::test_fsdp2_gradients_match_logits_path[lm_head_own_unit]
+FAILED tests/unit/models/automodel/test_fused_logprobs.py::test_fsdp2_gradients_match_logits_path[lm_head_in_root]
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed, 14 passed, 1 warning in 305.88s (0:05:05)
+
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+INFO:nemo_rl.transformers_compat:transformers_compat.py:179: Applied the Transformers 5.12.1 dynamic-module symlink-cache patch (https://github.com/huggingface/transformers/pull/46618)
+INFO:nemo_rl.transformers_compat:transformers_compat.py:179: Applied the Transformers 5.12.1 dynamic-module symlink-cache patch (https://github.com/huggingface/transformers/pull/46618)
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+W1119 17:11:11.448000 4653 venvs/automodel-test/lib/python3.13/site-packages/torch/utils/_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W1119 17:11:11.448000 4652 venvs/automodel-test/lib/python3.13/site-packages/torch/utils/_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W1119 17:11:11.503000 4653 venvs/automodel-test/lib/python3.13/site-packages/torch/utils/_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W1119 17:11:11.503000 4652 venvs/automodel-test/lib/python3.13/site-packages/torch/utils/_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLinear) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLinear) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLlamaForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_state.py:331: UserWarning: FSDP2-wrapped module (FSDPLlamaForCausalLM) returned a view tensor. An in-place op on this view (e.g., `x += y`) will silently drop the pre-backward hook and skip the all-gather, which can cause backward to fail or produce wrong gradients. Use out-of-place ops (`out = out + y`, not `out += y`) or `.clone()` the output before any in-place op.
+  output = self._register_pre_backward_hook(output)
+[fsdp] lm_head_own_unit: grads bitwise-equal 20/21 worst max|d|/max|g|=1.24e-06 (lm_head.weight norm 40.7152 vs 40.7152)
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/planning-users/yangyeyuan/nemo-rl-4169/logs/scratch/explore_fsdp.py", line 27, in <module>
+[rank1]:     (t._unfused_logprobs(model, ids, 0.7) * w).sum().backward()
+[rank1]:      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[rank1]:   File "/planning-users/yangyeyuan/nemo-rl-4169/RL/tests/unit/models/automodel/test_fused_logprobs.py", line 67, in _unfused_logprobs
+[rank1]:     logits = model(input_ids=input_ids, use_cache=False).logits.float()
+[rank1]:              ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[rank1]:   File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1884, in _call_impl
+[rank1]:     return inner()
+[rank1]:   File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1832, in inner
+[rank1]:     result = forward_call(*args, **kwargs)
+[rank1]:   File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/transformers/utils/generic.py", line 907, in wrapper
+[rank1]:     output = func(self, *args, **kwargs)
+[rank1]:   File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/transformers/models/llama/modeling_llama.py", line 487, in forward
+[rank1]:     logits = self.lm_head(hidden_states[:, slice_indices, :])
+[rank1]:   File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[rank1]:   File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:   File "/planning-users/yangyeyuan/nemo-rl-4169/RL/nemo_rl/models/automodel/fused_logprobs.py", line 145, in _forward
+[rank1]:     return self._original_forward(hidden_states)
+[rank1]:            ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+[rank1]:   File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/nn/modules/linear.py", line 134, in forward
+[rank1]:     return F.linear(input, self.weight, self.bias)
+[rank1]:            ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]: RuntimeError: expected mat1 and mat2 to have the same dtype, but got: float != c10::BFloat16
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/planning-users/yangyeyuan/nemo-rl-4169/logs/scratch/explore_fsdp.py", line 27, in <module>
+[rank0]:     (t._unfused_logprobs(model, ids, 0.7) * w).sum().backward()
+[rank0]:      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[rank0]:   File "/planning-users/yangyeyuan/nemo-rl-4169/RL/tests/unit/models/automodel/test_fused_logprobs.py", line 67, in _unfused_logprobs
+[rank0]:     logits = model(input_ids=input_ids, use_cache=False).logits.float()
+[rank0]:              ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[rank0]:   File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1884, in _call_impl
+[rank0]:     return inner()
+[rank0]:   File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1832, in inner
+[rank0]:     result = forward_call(*args, **kwargs)
+[rank0]:   File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/transformers/utils/generic.py", line 907, in wrapper
+[rank0]:     output = func(self, *args, **kwargs)
+[rank0]:   File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/transformers/models/llama/modeling_llama.py", line 487, in forward
+[rank0]:     logits = self.lm_head(hidden_states[:, slice_indices, :])
+[rank0]:   File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[rank0]:   File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/planning-users/yangyeyuan/nemo-rl-4169/RL/nemo_rl/models/automodel/fused_logprobs.py", line 145, in _forward
+[rank0]:     return self._original_forward(hidden_states)
+[rank0]:            ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+[rank0]:   File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/nn/modules/linear.py", line 134, in forward
+[rank0]:     return F.linear(input, self.weight, self.bias)
+[rank0]:            ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: RuntimeError: expected mat1 and mat2 to have the same dtype, but got: float != c10::BFloat16
+E1119 17:11:15.774000 4607 venvs/automodel-test/lib/python3.13/site-packages/torch/distributed/elastic/multiprocessing/api.py:1002] failed (exitcode: 1) local_rank: 0 (pid: 4652) of binary: /planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/bin/python
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/distributed/run.py", line 1032, in <module>
+    main()
+    ~~~~^^
+  File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 367, in wrapper
+    return f(*args, **kwargs)
+  File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/distributed/run.py", line 1028, in main
+    run(args)
+    ~~~^^^^^^
+  File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/distributed/run.py", line 1019, in run
+    elastic_launch(
+    ~~~~~~~~~~~~~~~
+        config=config,
+        ~~~~~~~~~~~~~~
+        entrypoint=cmd,
+        ~~~~~~~~~~~~~~~
+    )(*cmd_args)
+    ~^^^^^^^^^^^
+  File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/distributed/launcher/api.py", line 194, in __call__
+    return launch_agent(
+        self._config,
+    ...<2 lines>...
+        health_check_server=self._health_check_server,
+    )
+  File "/planning-users/yangyeyuan/nemo-rl-4169/RL/venvs/automodel-test/lib/python3.13/site-packages/torch/distributed/launcher/api.py", line 383, in launch_agent
+    raise ChildFailedError(
+    ...<2 lines>...
+    )
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/planning-users/yangyeyuan/nemo-rl-4169/logs/scratch/explore_fsdp.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-11-19_17:11:15
+  host      : <host>
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 4653) 
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-11-19_17:11:15
+  host      : <host>
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 4652) 
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+[dp2-entry] done status=1
