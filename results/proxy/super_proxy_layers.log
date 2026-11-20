@@ -1,0 +1,21 @@
+torch=2.13.0+cu130 seq=32768 n_experts=32 mode=layers dispatcher=deepep experts=gmm gpu=NVIDIA H20
+RESULT {"retained_gib": 14.203929901123047, "fwd_peak_gib": 17.40635919570923, "bwd_peak_gib": 18.58658266067505, "fwd_s": 0.27755227498710155, "bwd_s": 0.5950418040156364, "loss_finite": true, "tag": "warmup", "layers": "ME*", "variant": "no_ac", "wrapped": "ma mo at"}
+RESULT {"retained_gib": 2.8291120529174805, "fwd_peak_gib": 4.249151706695557, "bwd_peak_gib": 9.749297142028809, "fwd_s": 0.06273061409592628, "bwd_s": 0.12931595742702484, "loss_finite": true, "tag": "Mx1", "layers": "M", "variant": "no_ac", "wrapped": "ma"}
+RESULT {"retained_gib": 4.962903022766113, "fwd_peak_gib": 6.3829426765441895, "bwd_peak_gib": 11.883088111877441, "fwd_s": 0.12053089588880539, "bwd_s": 0.25122154876589775, "loss_finite": true, "tag": "Mx2", "layers": "MM", "variant": "no_ac", "wrapped": "ma ma"}
+PERLAYER mamba     no_ac  {"retained_gib": 2.1338, "fwd_peak_gib": 2.1338, "bwd_peak_gib": 2.1338, "fwd_s": 0.0578, "bwd_s": 0.1219}
+RESULT {"retained_gib": 0.9453210830688477, "fwd_peak_gib": 4.249151229858398, "bwd_peak_gib": 9.749298572540283, "fwd_s": 0.06303872354328632, "bwd_s": 0.18679216131567955, "loss_finite": true, "tag": "Mx1", "layers": "M", "variant": "new_ac", "wrapped": "*ma"}
+RESULT {"retained_gib": 1.1953210830688477, "fwd_peak_gib": 4.499151229858398, "bwd_peak_gib": 10.55055570602417, "fwd_s": 0.1209734920412302, "bwd_s": 0.3667104598134756, "loss_finite": true, "tag": "Mx2", "layers": "MM", "variant": "new_ac", "wrapped": "*ma *ma"}
+PERLAYER mamba     new_ac {"retained_gib": 0.25, "fwd_peak_gib": 0.25, "bwd_peak_gib": 0.8013, "fwd_s": 0.0579, "bwd_s": 0.1799}
+RESULT {"retained_gib": 11.034493923187256, "fwd_peak_gib": 15.272568225860596, "bwd_peak_gib": 16.20276117324829, "fwd_s": 0.10354037210345268, "bwd_s": 0.193071274086833, "loss_finite": true, "tag": "Ex1", "layers": "E", "variant": "no_ac", "wrapped": "mo"}
+RESULT {"retained_gib": 21.374399185180664, "fwd_peak_gib": 25.612473487854004, "bwd_peak_gib": 26.5426664352417, "fwd_s": 0.20230289362370968, "bwd_s": 0.3791418317705393, "loss_finite": true, "tag": "Ex2", "layers": "EE", "variant": "no_ac", "wrapped": "mo mo"}
+PERLAYER moe       no_ac  {"retained_gib": 10.3399, "fwd_peak_gib": 10.3399, "bwd_peak_gib": 10.3399, "fwd_s": 0.0988, "bwd_s": 0.1861}
+RESULT {"retained_gib": 0.9572839736938477, "fwd_peak_gib": 9.984665393829346, "bwd_peak_gib": 16.20324945449829, "fwd_s": 0.10373221896588802, "bwd_s": 0.29056242294609547, "loss_finite": true, "tag": "Ex1", "layers": "E", "variant": "new_ac", "wrapped": "*mo"}
+RESULT {"retained_gib": 1.2192468643188477, "fwd_peak_gib": 10.247116565704346, "bwd_peak_gib": 17.891756534576416, "fwd_s": 0.2031109593808651, "bwd_s": 0.573511153459549, "loss_finite": true, "tag": "Ex2", "layers": "EE", "variant": "new_ac", "wrapped": "*mo *mo"}
+PERLAYER moe       new_ac {"retained_gib": 0.262, "fwd_peak_gib": 0.2625, "bwd_peak_gib": 1.6885, "fwd_s": 0.0994, "bwd_s": 0.2829}
+RESULT {"retained_gib": 1.7304778099060059, "fwd_peak_gib": 2.285301685333252, "bwd_peak_gib": 3.0117430686950684, "fwd_s": 0.12138734571635723, "bwd_s": 0.28594737499952316, "loss_finite": true, "tag": "*x1", "layers": "*", "variant": "no_ac", "wrapped": "at"}
+RESULT {"retained_gib": 2.765634536743164, "fwd_peak_gib": 3.32045841217041, "bwd_peak_gib": 4.046899795532227, "fwd_s": 0.23739242367446423, "bwd_s": 0.5654596071690321, "loss_finite": true, "tag": "*x2", "layers": "**", "variant": "no_ac", "wrapped": "at at"}
+PERLAYER attention no_ac  {"retained_gib": 1.0352, "fwd_peak_gib": 1.0352, "bwd_peak_gib": 1.0352, "fwd_s": 0.116, "bwd_s": 0.2795}
+RESULT {"retained_gib": 0.9453210830688477, "fwd_peak_gib": 1.5001449584960938, "bwd_peak_gib": 3.0117430686950684, "fwd_s": 0.12177727743983269, "bwd_s": 0.40169080905616283, "loss_finite": true, "tag": "*x1", "layers": "*", "variant": "new_ac", "wrapped": "*at"}
+RESULT {"retained_gib": 1.1953210830688477, "fwd_peak_gib": 1.7501449584960938, "bwd_peak_gib": 3.2617735862731934, "fwd_s": 0.23801725916564465, "bwd_s": 0.7970791961997747, "loss_finite": true, "tag": "*x2", "layers": "**", "variant": "new_ac", "wrapped": "*at *at"}
+PERLAYER attention new_ac {"retained_gib": 0.25, "fwd_peak_gib": 0.25, "bwd_peak_gib": 0.25, "fwd_s": 0.1162, "bwd_s": 0.3954}
+CHECK DONE

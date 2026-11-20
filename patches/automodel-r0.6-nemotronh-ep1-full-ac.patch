@@ -1,0 +1,41 @@
+diff --git a/nemo_automodel/components/distributed/parallelizer.py b/nemo_automodel/components/distributed/parallelizer.py
+index ed89284ff..54be0f2f6 100644
+--- a/nemo_automodel/components/distributed/parallelizer.py
++++ b/nemo_automodel/components/distributed/parallelizer.py
+@@ -578,14 +578,28 @@ class NemotronHParallelizationStrategy(ParallelizationStrategy):
+                         )
+ 
+         if activation_checkpointing:
+-            # Write rewrapped blocks back into the real container (ModuleList -> int key,
+-            # ModuleDict -> str key) so the model, not just the local handle, is updated.
+-            block_items = (
+-                block_container.items() if isinstance(block_container, nn.ModuleDict) else enumerate(block_container)
+-            )
+-            for key, layer in list(block_items):
+-                if getattr(layer, "block_type", None) in ("mlp", "mamba"):
+-                    block_container[key] = checkpoint_wrapper(layer)
++            if hasattr(model, "backbone"):
++                # HF NemotronH layout: only mlp and mamba blocks are checkpointed.
++                # Write rewrapped blocks back into the real container (ModuleList -> int key)
++                # so the model, not just the local handle, is updated.
++                for key, layer in list(enumerate(block_container)):
++                    if getattr(layer, "block_type", None) in ("mlp", "mamba"):
++                        block_container[key] = checkpoint_wrapper(layer)
++            else:
++                # Native Nemotron-V3 layout: checkpoint every decoder block (mamba, attention,
++                # mlp and moe) and the MTP blocks with the wrapper the expert-parallel path uses
++                # (moe.parallelizer.apply_ac). Wrapping only mlp/mamba here left the attention
++                # and MoE activations resident whenever expert_parallel_size == 1. apply_ac
++                # saves the router projection and top-k outputs so recompute keeps the same
++                # expert assignment, keeps the gate's expert-load accounting from counting the
++                # recompute, and replays the forward-time attention backend selection.
++                from nemo_automodel.components.moe.parallelizer import apply_ac
++
++                apply_ac(
++                    model,
++                    selective=is_selective_activation_checkpointing(activation_checkpointing),
++                    activation_checkpointing_scope=kwargs.get("activation_checkpointing_scope", "all"),
++                )
+             # Refresh the local handle so the FSDP wrap below sees the wrapped blocks.
+             _, layers = _nemotronh_decoder_blocks(model)
+ 

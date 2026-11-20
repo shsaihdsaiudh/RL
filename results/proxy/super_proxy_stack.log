@@ -1,0 +1,6 @@
+torch=2.13.0+cu130 seq=32768 n_experts=32 mode=stack dispatcher=deepep experts=gmm gpu=NVIDIA H20
+RESULT {"retained_gib": 14.203929901123047, "fwd_peak_gib": 17.40635919570923, "bwd_peak_gib": 18.58658266067505, "fwd_s": 0.2775416523218155, "bwd_s": 0.5949264671653509, "loss_finite": true, "tag": "warmup", "layers": "ME*", "variant": "no_ac", "wrapped": "ma mo at"}
+RESULT {"retained_gib": 51.62404203414917, "fwd_peak_gib": 55.861629009246826, "bwd_peak_gib": 56.792309284210205, "fwd_s": 0.7482239548116922, "bwd_s": 1.5236307010054588, "loss_finite": true, "tag": "stack:MEMEMEM*E", "layers": "MEMEMEM*E", "variant": "no_ac", "wrapped": "ma mo ma mo ma mo ma at mo"}
+RESULT {"retained_gib": 44.08887815475464, "fwd_peak_gib": 48.326465129852295, "bwd_peak_gib": 49.257145404815674, "fwd_s": 0.7484396770596504, "bwd_s": 1.7529721166938543, "loss_finite": true, "tag": "stack:MEMEMEM*E", "layers": "MEMEMEM*E", "variant": "old_ac", "wrapped": "*ma mo *ma mo *ma mo *ma at mo"}
+RESULT {"retained_gib": 2.9936609268188477, "fwd_peak_gib": 12.021042346954346, "bwd_peak_gib": 20.760417461395264, "fwd_s": 0.7502991314977407, "bwd_s": 2.259441375732422, "loss_finite": true, "tag": "stack:MEMEMEM*E", "layers": "MEMEMEM*E", "variant": "new_ac", "wrapped": "*ma *mo *ma *mo *ma *mo *ma *at *mo"}
+CHECK DONE

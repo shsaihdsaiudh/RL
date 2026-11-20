@@ -1,0 +1,32 @@
+[INFO] waiting for master svc dns to be ready, about 30 seconds
+[mgc] part=parity_ep1 env=SAME_MODEL=1 RECORD=1 PRINT_AC=1 EP_SIZES=1 SEQ=8192 start=00:02:40
+[mgc] part=parity_ep1 exit=0 end=00:06:16
+AC_WRAPPED ['model.layers.0', 'model.layers.1', 'model.layers.2', 'model.layers.3', 'model.layers.4', 'model.layers.5', 'model.layers.6', 'model.layers.7', 'model.layers.8', 'model.layers.9']
+SAME ep=1 plain          loss=10.571431 rel_l2_vs_plain=0.00e+00 bitwise_all_ranks=True
+SAME ep=1 plain_again    loss=10.571431 rel_l2_vs_plain=0.00e+00 bitwise_all_ranks=True
+COPIES n=13 host_gib=0.2344 kinds={((1, 8192, 1024), 'bfloat16', 'RegisterPostBackwardFunctionBackward'): 10, ((1, 8192, 1024), 'float32', 'ToCopyBackward0'): 1, ((1, 8192, 1024), 'float32', 'MulBackward0'): 1, ((1, 8192, 1024), 'bfloat16', 'ToCopyBackward0'): 1}
+SAME ep=1 offload        loss=10.571431 rel_l2_vs_plain=0.00e+00 bitwise_all_ranks=True
+SAME ep=1 plain_again2   loss=10.571431 rel_l2_vs_plain=0.00e+00 bitwise_all_ranks=True
+SAME ep=1 offload_again  loss=10.571431 rel_l2_vs_plain=0.00e+00 bitwise_all_ranks=True
+[mgc] part=parity_ep8 env=SAME_MODEL=1 RECORD=1 PRINT_AC=1 EP_SIZES=8 SEQ=8192 start=00:06:16
+[mgc] part=parity_ep8 exit=0 end=00:07:18
+AC_WRAPPED ['model.layers.0', 'model.layers.1', 'model.layers.2', 'model.layers.3', 'model.layers.4', 'model.layers.5', 'model.layers.6', 'model.layers.7', 'model.layers.8', 'model.layers.9']
+SAME ep=8 plain          loss=10.571350 rel_l2_vs_plain=0.00e+00 bitwise_all_ranks=True
+SAME ep=8 plain_again    loss=10.571350 rel_l2_vs_plain=0.00e+00 bitwise_all_ranks=True
+COPIES n=13 host_gib=0.2344 kinds={((1, 8192, 1024), 'bfloat16', 'RegisterPostBackwardFunctionBackward'): 11, ((1, 8192, 1024), 'float32', 'ToCopyBackward0'): 1, ((1, 8192, 1024), 'float32', 'MulBackward0'): 1}
+SAME ep=8 offload        loss=10.571350 rel_l2_vs_plain=0.00e+00 bitwise_all_ranks=True
+SAME ep=8 plain_again2   loss=10.571350 rel_l2_vs_plain=0.00e+00 bitwise_all_ranks=True
+SAME ep=8 offload_again  loss=10.571350 rel_l2_vs_plain=0.00e+00 bitwise_all_ranks=True
+[mgc] part=memory_ep1 env=EP_SIZES=1 STEPS=3 SEQ=16384 start=00:07:18
+[mgc] part=memory_ep1 exit=0 end=00:08:21
+RESULT {"retained_gib": 2.564, "fwd_peak_gib": 4.5172, "peak_gib": 6.4703, "fwd_s": 0.2529, "bwd_s": 0.4206, "ep": 1, "tag": "warmup", "experts": ["GroupedExperts"], "losses": [10.578787, 9.905792, 9.356411], "grads_finite": true, "max_dgrad_vs_ac": 0.0, "host_pinned_peak_gib": 0.0}
+RESULT {"retained_gib": 2.564, "fwd_peak_gib": 4.5172, "peak_gib": 6.4703, "fwd_s": 0.1697, "bwd_s": 0.3229, "ep": 1, "tag": "ac", "experts": ["GroupedExperts"], "losses": [10.578787, 9.905792, 9.356411], "grads_finite": true, "max_dgrad_vs_ac": 0.0, "host_pinned_peak_gib": 0.0}
+RESULT {"retained_gib": 2.564, "fwd_peak_gib": 4.5172, "peak_gib": 6.4703, "fwd_s": 0.232, "bwd_s": 0.4021, "rel_l2_dgrad": 2.5951369480026187e-06, "ep": 1, "tag": "ac_again", "experts": ["GroupedExperts"], "losses": [10.578787, 9.905787, 9.356188], "grads_finite": true, "max_dgrad_vs_ac": 6.429036147892475e-08, "host_pinned_peak_gib": 0.0}
+RESULT {"retained_gib": 2.0953, "fwd_peak_gib": 4.0484, "peak_gib": 6.0015, "fwd_s": 0.2429, "bwd_s": 0.4055, "rel_l2_dgrad": 0.09171310067176819, "ep": 1, "tag": "ac_offload", "experts": ["GroupedExperts"], "losses": [10.578787, 10.079316, 9.481036], "grads_finite": true, "max_dgrad_vs_ac": 0.009373664855957031, "host_pinned_peak_gib": 0.469}
+[mgc] part=memory_ep8 env=EP_SIZES=8 STEPS=3 SEQ=16384 start=00:08:21
+[mgc] part=memory_ep8 exit=0 end=00:09:25
+RESULT {"retained_gib": 2.4223, "fwd_peak_gib": 4.379, "peak_gib": 6.3286, "fwd_s": 0.105, "bwd_s": 0.2387, "ep": 8, "tag": "warmup", "experts": ["GroupedExpertsDeepEP"], "losses": [10.5786, 9.904935, 9.354611], "grads_finite": true, "max_dgrad_vs_ac": 0.0, "host_pinned_peak_gib": 0.0}
+RESULT {"retained_gib": 2.422, "fwd_peak_gib": 5.6493, "peak_gib": 8.2209, "fwd_s": 0.1288, "bwd_s": 0.336, "ep": 8, "tag": "ac", "experts": ["GroupedExpertsDeepEP"], "losses": [NaN, NaN, NaN], "grads_finite": false, "max_dgrad_vs_ac": 0.0, "host_pinned_peak_gib": 0.0}
+RESULT {"retained_gib": 2.422, "fwd_peak_gib": 5.6493, "peak_gib": 8.2209, "fwd_s": 0.1288, "bwd_s": 0.3362, "rel_l2_dgrad": NaN, "ep": 8, "tag": "ac_again", "experts": ["GroupedExpertsDeepEP"], "losses": [NaN, NaN, NaN], "grads_finite": false, "max_dgrad_vs_ac": NaN, "host_pinned_peak_gib": 0.0}
+RESULT {"retained_gib": 1.9533, "fwd_peak_gib": 5.3681, "peak_gib": 7.9084, "fwd_s": 0.1598, "bwd_s": 0.3609, "rel_l2_dgrad": NaN, "ep": 8, "tag": "ac_offload", "experts": ["GroupedExpertsDeepEP"], "losses": [NaN, NaN, NaN], "grads_finite": false, "max_dgrad_vs_ac": NaN, "host_pinned_peak_gib": 0.469}
+[mgc] done

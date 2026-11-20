@@ -1,0 +1,49 @@
+jobName: 261119uc-nrl4166-actoffload-mgc-yangyeyuan
+description: 'NeMo-RL #4166 activation offload: FSDP8 Nemotron-H (MEM*EMEM*E, random init), same-model grad parity and memory/time, EP=1 and EP=8 DeepEP, 1x8 H20e (wlcb)'
+accessType: PRIVATE
+imageConfig:
+    imageUrl: <redacted-image>
+    imageCommand: bash /planning-users/yangyeyuan/nemo-rl-4166/scratch/cml/mgc_entry.sh
+modelUri: ""
+juiceFsMountConfigs:
+    - volume: <redacted>
+      juiceFsCluster: <redacted>
+      subPath: /planning-users
+      mountPath: /planning-users
+      readOnly: false
+envConfigs:
+    - key: UV_DEFAULT_INDEX
+      value: <redacted-url>
+    - key: RUN_NAME
+      value: "mgc-8g-1119"
+queueId: "<redacted>"
+priority: 5
+preemptible: false
+framework: pytorch
+resourceConfigs:
+    - nodeRole: worker
+      nodeNumber: 1
+      perNodeResourceSpec:
+        resourcePriority: GUARANTEED
+        resourceName: <redacted>
+        resourceNumber: 8
+      elastic: false
+      preemptible: false
+enableTensorboard: false
+enableMetrics: false
+retryConfig:
+    enableRetry: false
+    maxRetryTimes: 0
+    policySets: []
+rdma: false
+diagOptions:
+    - name: HangDetection
+      enable: false
+    - name: SanityCheck
+      enable: false
+      config:
+        preSanityCheck: false
+        postSanityCheck: false
+alertConfig:
+    enableAlert: false
+    alertItems: []

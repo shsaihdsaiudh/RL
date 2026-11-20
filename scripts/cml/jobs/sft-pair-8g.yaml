@@ -1,0 +1,55 @@
+jobName: 261119-nrl4166-actoffload-sft-yangyeyuan
+description: 'NeMo-RL #4166 activation offload: SFT Qwen2.5-1.5B automodel FSDP8, AC on, sequence packing 32K tokens/microbatch, offload off then on, 20 steps, 1x8 H20'
+accessType: PRIVATE
+imageConfig:
+    imageUrl: <redacted-image>
+    imageCommand: bash /planning-users/yangyeyuan/nemo-rl-4166/scratch/cml/sft_pair_entry.sh
+modelUri: ""
+juiceFsMountConfigs:
+    - volume: <redacted>
+      juiceFsCluster: <redacted>
+      subPath: /
+      mountPath: /planning-users
+      readOnly: false
+envConfigs:
+    - key: PAIR_NAME
+      value: "sft-8g-1119"
+    - key: MODEL
+      value: "Qwen/Qwen2.5-1.5B"
+    - key: STEPS
+      value: "20"
+    - key: MB_TOKENS
+      value: "32768"
+    - key: RAY_TMPDIR_BASE
+      value: "/tmp/nrl-ray-4166"
+queueId: "<redacted>"
+priority: 5
+preemptible: false
+framework: pytorch
+resourceConfigs:
+    - nodeRole: worker
+      nodeNumber: 1
+      perNodeResourceSpec:
+        resourcePriority: GUARANTEED
+        resourceName: <redacted>
+        resourceNumber: 8
+      elastic: false
+      preemptible: false
+enableTensorboard: false
+enableMetrics: false
+retryConfig:
+    enableRetry: false
+    maxRetryTimes: 0
+    policySets: []
+rdma: false
+diagOptions:
+    - name: HangDetection
+      enable: false
+    - name: SanityCheck
+      enable: false
+      config:
+        preSanityCheck: false
+        postSanityCheck: false
+alertConfig:
+    enableAlert: false
+    alertItems: []

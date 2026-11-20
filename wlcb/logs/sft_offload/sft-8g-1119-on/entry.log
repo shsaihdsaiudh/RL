@@ -1,0 +1,494 @@
+[sft-offload] host=<host> ngpu=8 model=Qwen/Qwen2.5-1.5B steps=20 offload=true mb_tokens=32768 run=sft-8g-1119-on
+INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+Loaded configuration from: examples/configs/sft.yaml
+Overrides: ['policy.model_name=Qwen/Qwen2.5-1.5B', 'cluster.gpus_per_node=8', 'sft.max_num_steps=20', 'sft.val_period=-1', 'sft.val_at_start=false', 'sft.val_at_end=false', 'checkpointing.enabled=false', 'policy.train_global_batch_size=128', 'policy.max_total_sequence_length=1024', 'policy.sequence_packing.enabled=true', 'policy.sequence_packing.train_mb_tokens=32768', 'policy.automodel_cfg.activation_checkpointing=true', 'policy.automodel_cfg.activation_offloading=true', 'logger.log_dir=/planning-users/yangyeyuan/nemo-rl-4166/logs/sft_offload/sft-8g-1119-on/train', 'logger.tensorboard_enabled=false', 'logger.wandb_enabled=false']
+Applied CLI overrides
+Final config:
+MasterConfig(policy={'model_name': 'Qwen/Qwen2.5-1.5B', 'tokenizer': {'name': 'Qwen/Qwen2.5-1.5B', 'chat_template': "{% for message in messages %}{%- if message['role'] == 'system'  %}{{'Context: ' + message['content'].strip()}}{%- elif message['role'] == 'user'  %}{{' Question: ' + message['content'].strip() + ' Answer:'}}{%- elif message['role'] == 'assistant'  %}{{' ' + message['content'].strip()}}{%- endif %}{% endfor %}", 'chat_template_kwargs': None}, 'train_global_batch_size': 128, 'train_micro_batch_size': 1, 'offload_optimizer_for_logprob': False, 'precision': 'bfloat16', 'automodel_cfg': {'enabled': True, 'env_vars': {}, 'tensor_parallel_size': 1, 'context_parallel_size': 1, 'dp_replicate_size': 1, 'sequence_parallel': False, 'activation_checkpointing': True, 'activation_offloading': True, 'cpu_offload': False, 'custom_parallel_plan': None, 'lora_cfg': {'enabled': False, 'target_modules': [], 'exclude_modules': [], 'match_all_linear': True, 'dim': 8, 'alpha': 32, 'dropout': 0.0, 'dropout_position': 'post', 'lora_A_init': 'xavier', 'use_triton': True, 'restore_from': None}, 'automodel_kwargs': {}, 'checkpoint': {'model_save_format': 'safetensors', 'save_consolidated': 'false', 'single_rank_consolidation': False, 'consolidation_timeout_minutes': 30}, 'deterministic': False}, 'megatron_cfg': {'enabled': False, 'checkpoint': {'async_save': False, 'ckpt_assume_constant_structure': False, 'parallel_read_threads': 4}, 'use_fused_linear_logprobs': False, 'fused_linear_logprobs_chunk_size': 256, 'force_reconvert_from_hf': False, 'env_vars': {}, 'empty_unused_memory_level': 1, 'manual_gc': False, 'manual_gc_interval': 10, 'activation_checkpointing': False, 'clear_memory_caches_before_refit': False, 'cuda_graph_impl': 'none', 'cuda_graph_modules': [], 'cuda_graph_warmup_steps': 3, 'fine_grained_activation_offloading': False, 'offload_modules': None, 'recompute_granularity': 'full', 'recompute_modules': None, 'tensor_model_parallel_size': 1, 'expert_tensor_parallel_size': 1, 'expert_model_parallel_size': 1, 'pipeline_model_parallel_size': 1, 'context_parallel_size': 1, 'pipeline_dtype': 'bfloat16', 'num_layers_in_first_pipeline_stage': None, 'num_layers_in_last_pipeline_stage': None, 'sequence_parallel': False, 'freeze_moe_router': False, 'moe_router_dtype': None, 'moe_router_load_balancing_type': 'aux_loss', 'moe_router_bias_update_rate': 0.001, 'moe_permute_fusion': True, 'apply_rope_fusion': True, 'flash_attention_version': 2, 'bias_activation_fusion': True, 'defer_fp32_logits': False, 'reuse_logits_storage': False, 'fp32_lm_head': False, 'moe_per_layer_logging': False, 'moe_enable_deepep': False, 'moe_token_dispatcher_type': 'alltoall', 'moe_shared_expert_overlap': False, 'use_gloo_process_groups': False, 'distributed_timeout_minutes': None, 'gradient_accumulation_fusion': False, 'use_fused_weighted_squared_relu': False, 'peft': {'enabled': False, 'target_modules': [], 'exclude_modules': [], 'dim': 8, 'alpha': 32, 'dropout': 0.0, 'dropout_position': 'post', 'lora_A_init_method': 'xavier', 'lora_B_init_method': 'zero', 'a2a_experimental': False, 'lora_dtype': 'None', 'restore_from': None}, 'optimizer': {'optimizer': 'adam', 'lr': 5e-06, 'min_lr': 4.9999e-06, 'weight_decay': 0.1, 'bf16': True, 'fp16': False, 'params_dtype': 'float32', 'adam_beta1': 0.9, 'adam_beta2': 0.98, 'adam_eps': 1e-05, 'sgd_momentum': 0.9, 'use_distributed_optimizer': True, 'use_precision_aware_optimizer': True, 'clip_grad': 1.0, 'optimizer_cpu_offload': False, 'optimizer_offload_fraction': 0.0, 'overlap_cpu_optimizer_d2h_h2d': False}, 'scheduler': {'start_weight_decay': 0.1, 'end_weight_decay': 0.1, 'weight_decay_incr_style': 'constant', 'lr_decay_style': 'constant', 'lr_decay_iters': 1000, 'lr_warmup_iters': 50, 'lr_warmup_init': 4.9999e-06}, 'distributed_data_parallel_config': {'grad_reduce_in_fp32': False, 'overlap_grad_reduce': True, 'overlap_param_gather': True, 'data_parallel_sharding_strategy': 'optim_grads_params', 'use_custom_fsdp': False}, 'fp8_cfg': {'enabled': False, 'fp8': 'e4m3', 'fp8_recipe': 'blockwise', 'fp8_param': False}}, 'dynamic_batching': {'enabled': False, 'train_mb_tokens': 1024, 'sequence_length_round': 64}, 'sequence_packing': {'enabled': True, 'train_mb_tokens': 32768, 'algorithm': 'modified_first_fit_decreasing', 'microbatch_order': 'packer', 'sequence_length_round': 64}, 'make_sequence_length_divisible_by': 1, 'max_total_sequence_length': 1024, 'max_grad_norm': 1.0, 'offload_policy_before_refit': False, 'offload_optimizer_for_refit': True, 'optimizer': {'name': 'torch.optim.AdamW', 'kwargs': {'lr': 5e-06, 'weight_decay': 0.1, 'betas': [0.9, 0.98], 'eps': 1e-05, 'foreach': False, 'fused': False}}}, data={'backend': 'hf', 'max_input_seq_length': 1024, 'add_bos': True, 'add_eos': True, 'add_generation_prompt': False, 'shuffle': True, 'num_workers': 1, 'train': {'dataset_name': 'squad', 'split': 'train'}, 'validation': {'dataset_name': 'squad', 'split': 'validation'}, 'default': {'chat_key': 'messages', 'prompt_file': None, 'system_prompt_file': None, 'processor': 'sft_processor'}}, sft=SFTConfig(max_num_steps=20, max_num_epochs=1, val_period=-1, val_batches=8, val_global_batch_size=32, val_micro_batch_size=1, val_at_start=False, val_at_end=False, seed=42, only_unmask_final=False, defer_async_checkpoint_finalize=False), logger=LoggerConfig(log_dir='/planning-users/yangyeyuan/nemo-rl-4166/logs/sft_offload/sft-8g-1119-on/train', wandb_enabled=False, swanlab_enabled=False, tensorboard_enabled=False, mlflow_enabled=False, wandb=WandbConfig(project='sft-dev', name='sft-dev-squad', entity=None, id=None, resume=None, log_nemo_gym_full_result_tables=False), tensorboard=TensorboardConfig(log_dir='tb_logs-sft-dev-squad'), swanlab=SwanlabConfig(project='sft-dev', name='sft-dev-squad'), mlflow=MLflowConfig(experiment_name='sft-dev', run_id=None, run_name='sft-dev-squad', tracking_uri='http://localhost:5000', artifact_location=None), monitor_gpus=True, gpu_monitoring=GPUMonitoringConfig(collection_interval=10.0, flush_interval=10.0), num_val_samples_to_print=0, extra_backends=[]), cluster=ClusterConfig(gpus_per_node=8, num_nodes=1, master_port_range_low=None, master_port_range_high=None, segment_size=None), checkpointing=CheckpointingConfig(enabled=False, checkpoint_dir='results/sft', metric_name='val:val_loss', higher_is_better=False, save_period=10, keep_top_k=3, ft_keep_latest_k=None, ft_save_period=None, checkpoint_must_save_by=None, pretrained_checkpoint=None, save_optimizer=True, save_data_plane=False, load_replay_buffer=True), telemetry=None)
+📊 Using log directory: /planning-users/yangyeyuan/nemo-rl-4166/logs/sft_offload/sft-8g-1119-on/train/exp_001
+2026-11-20 00:11:42,562	INFO worker.py:2015 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+INFO:nemo_rl.distributed.virtual_cluster:virtual_cluster.py:544: Started local cluster with tag 'nrl_tag_ALL': {'CPU': 168.0, 'node:__internal_head__': 1.0, 'object_store_memory': 200000000000.0, 'memory': 1567088857088.0, 'accelerator_type:H20': 1.0, 'GPU': 8.0, 'nrl_tag_ALL': 1.0, 'node:<ip>': 1.0}
+Using custom chat template
+
+▶ Setting up data...
+/planning-users/yangyeyuan/nemo-rl-4166/RL/examples/run_sft.py:66: UserWarning: Dataset config key chat_key='messages' is not supported by SquadDataset and will be ignored. Remove the key, or use a dataset class that supports it.
+  return load_response_dataset(dataset_config)
+Using the latest cached version of the dataset since rajpurkar/squad couldn't be found on the Hugging Face Hub (offline mode is enabled).
+WARNING:datasets.load:load.py:835: Using the latest cached version of the dataset since rajpurkar/squad couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /planning-users/yangyeyuan/nemo-rl-3976/hf/datasets/rajpurkar___squad/plain_text/0.0.0/9ec7074aa46eca688246beba0f5dd21edecfda31 (last modified on Thu Nov 19 10:21:16 2026).
+WARNING:datasets.packaged_modules.cache.cache:cache.py:95: Found the latest cached dataset configuration 'plain_text' at /planning-users/yangyeyuan/nemo-rl-3976/hf/datasets/rajpurkar___squad/plain_text/0.0.0/9ec7074aa46eca688246beba0f5dd21edecfda31 (last modified on Thu Nov 19 10:21:16 2026).
+  ✓ Training dataset loaded with 87599 samples.
+Using the latest cached version of the dataset since rajpurkar/squad couldn't be found on the Hugging Face Hub (offline mode is enabled).
+WARNING:datasets.load:load.py:835: Using the latest cached version of the dataset since rajpurkar/squad couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /planning-users/yangyeyuan/nemo-rl-3976/hf/datasets/rajpurkar___squad/plain_text/0.0.0/9ec7074aa46eca688246beba0f5dd21edecfda31 (last modified on Thu Nov 19 10:21:16 2026).
+WARNING:datasets.packaged_modules.cache.cache:cache.py:95: Found the latest cached dataset configuration 'plain_text' at /planning-users/yangyeyuan/nemo-rl-3976/hf/datasets/rajpurkar___squad/plain_text/0.0.0/9ec7074aa46eca688246beba0f5dd21edecfda31 (last modified on Thu Nov 19 10:21:16 2026).
+  ✓ Validation dataset loaded with 10570 samples.
+GPU monitoring started with collection interval=10.0s, flush interval=10.0s
+No loggers initialized
+/planning-users/yangyeyuan/nemo-rl-3976/env/uv-cache/environments-v2/nemo-rl-cp3.13.14-4e4bb225d23dacc6/lib/python3.13/site-packages/torchdata/stateful_dataloader/stateful_dataloader.py:379: UserWarning: 'set_vital' is deprecated, please do not call
+  torch.set_vital("Dataloader", "enabled", "True")  # type: ignore[attr-defined]
+
+▶ Setting up compute cluster...
+  ✓ Ray cluster initialized with 1 nodes
+
+▶ Setting up model...
+[36m(pid=30867)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+[36m(_env_builder pid=30867)[0m INFO:nemo_rl.utils.venvs:venvs.py:161: Using existing venv at /planning-users/yangyeyuan/nemo-rl-4166/RL/venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker
+[36m(pid=31810)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code[32m [repeated 2x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+Initializing lm_policy workers:   0%|          | 0/8 [00:00<?, ?worker/s][36m(pid=32835)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:179: Applied the Transformers 5.12.1 dynamic-module symlink-cache patch (https://github.com/huggingface/transformers/pull/46618)
+[36m(pid=32835)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code[32m [repeated 7x across cluster][0m
+[36m(IsolatedWorkerInitializer pid=32835)[0m W1120 00:12:33.033000 32835 venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/torch/utils/_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+[36m(IsolatedWorkerInitializer pid=32835)[0m W1120 00:12:33.083000 32835 venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/torch/utils/_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+[36m(IsolatedWorkerInitializer pid=32835)[0m [ERROR] `loss` is part of Qwen2_5_VLCausalLMOutputWithPast.__init__'s signature, but not documented. Make sure to add it to the docstring of the function in /planning-users/yangyeyuan/nemo-rl-4166/RL/venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py.
+[36m(IsolatedWorkerInitializer pid=32835)[0m [ERROR] `logits` is part of Qwen2_5_VLCausalLMOutputWithPast.__init__'s signature, but not documented. Make sure to add it to the docstring of the function in /planning-users/yangyeyuan/nemo-rl-4166/RL/venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py.
+[36m(IsolatedWorkerInitializer pid=32835)[0m [ERROR] `loss` is part of Qwen2VLCausalLMOutputWithPast.__init__'s signature, but not documented. Make sure to add it to the docstring of the function in /planning-users/yangyeyuan/nemo-rl-4166/RL/venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py.
+[36m(IsolatedWorkerInitializer pid=32835)[0m [ERROR] `logits` is part of Qwen2VLCausalLMOutputWithPast.__init__'s signature, but not documented. Make sure to add it to the docstring of the function in /planning-users/yangyeyuan/nemo-rl-4166/RL/venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py.
+Initializing lm_policy workers:  12%|█▎        | 1/8 [00:29<03:27, 29.65s/worker]Initializing lm_policy workers: 100%|██████████| 8/8 [00:29<00:00,  3.71s/worker]
+  ✓ 8 workers initialized in 29.69s
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[36m(pid=33472)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:179: Applied the Transformers 5.12.1 dynamic-module symlink-cache patch (https://github.com/huggingface/transformers/pull/46618)
+[36m(pid=33472)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code
+[36m(pid=33472)[0m W1120 00:13:01.592000 33472 venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/torch/utils/_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+[36m(pid=33472)[0m W1120 00:13:01.642000 33472 venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/torch/utils/_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+[36m(pid=33476)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:179: Applied the Transformers 5.12.1 dynamic-module symlink-cache patch (https://github.com/huggingface/transformers/pull/46618)[32m [repeated 7x across cluster][0m
+[36m(pid=33476)[0m INFO:nemo_rl.transformers_compat:transformers_compat.py:70: Installed the Transformers compatibility helper is_torch_fx_available for legacy remote model code[32m [repeated 7x across cluster][0m
+[36m(pid=33472)[0m [ERROR] `loss` is part of Qwen2_5_VLCausalLMOutputWithPast.__init__'s signature, but not documented. Make sure to add it to the docstring of the function in /planning-users/yangyeyuan/nemo-rl-4166/RL/venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py.
+[36m(pid=33472)[0m [ERROR] `logits` is part of Qwen2_5_VLCausalLMOutputWithPast.__init__'s signature, but not documented. Make sure to add it to the docstring of the function in /planning-users/yangyeyuan/nemo-rl-4166/RL/venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py.
+[36m(pid=33470)[0m [ERROR] `loss` is part of Qwen2_5_VLCausalLMOutputWithPast.__init__'s signature, but not documented. Make sure to add it to the docstring of the function in /planning-users/yangyeyuan/nemo-rl-4166/RL/venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py.
+[36m(pid=33470)[0m [ERROR] `logits` is part of Qwen2_5_VLCausalLMOutputWithPast.__init__'s signature, but not documented. Make sure to add it to the docstring of the function in /planning-users/yangyeyuan/nemo-rl-4166/RL/venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py.
+[36m(pid=33470)[0m [ERROR] `loss` is part of Qwen2VLCausalLMOutputWithPast.__init__'s signature, but not documented. Make sure to add it to the docstring of the function in /planning-users/yangyeyuan/nemo-rl-4166/RL/venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py.
+[36m(pid=33470)[0m [ERROR] `logits` is part of Qwen2VLCausalLMOutputWithPast.__init__'s signature, but not documented. Make sure to add it to the docstring of the function in /planning-users/yangyeyuan/nemo-rl-4166/RL/venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py.
+[36m(AutomodelPolicyWorker pid=33472)[0m Applying Triton fix to /planning-users/yangyeyuan/nemo-rl-4166/RL/venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/transformer_engine/pytorch/triton/permutation.py...
+[36m(AutomodelPolicyWorker pid=33472)[0m Using custom chat template
+[36m(AutomodelPolicyWorker pid=33472)[0m Initializing AutomodelPolicyWorker with is_vlm=False
+[36m(AutomodelPolicyWorker pid=33472)[0m [Rank 0] Sequence packing is enabled for model Qwen/Qwen2.5-1.5B
+[36m(AutomodelPolicyWorker pid=33472)[0m [Rank 0] Using FlashAttention2 for sequence packing
+[36m(AutomodelPolicyWorker pid=33472)[0m [transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[36m(AutomodelPolicyWorker pid=33472)[0m /planning-users/yangyeyuan/nemo-rl-4166/RL/venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/torch/distributed/device_mesh.py:760: UserWarning: Slicing a flattened dim from root mesh will be deprecated in PT 2.11. Users need to bookkeep the flattened mesh directly. 
+[36m(AutomodelPolicyWorker pid=33472)[0m   sliced_mesh_layout = self._get_slice_mesh_layout(mesh_dim_names)
+[36m(pid=33476)[0m W1120 00:13:01.592000 33476 venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/torch/utils/_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.[32m [repeated 7x across cluster][0m
+[36m(pid=33476)[0m W1120 00:13:01.642000 33476 venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/torch/utils/_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33472)[0m [Rank 3] Initializing model via from_pretrained...
+[36m(AutomodelPolicyWorker pid=33472)[0m WARNING: Custom model for Qwen2ForCausalLM uses an adapter that does not implement 'convert_single_tensor_to_hf' (required for weight syncing). Auto-setting force_hf=True. To silence this warning, explicitly set `policy.automodel_cfg.automodel_kwargs.force_hf=true` in your config.
+[36m(AutomodelPolicyWorker pid=33472)[0m [transformers] Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2ForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("meta-llama/Llama-3.2-1B", attn_implementation="flash_attention_2", dtype=torch.float16)`
+[36m(AutomodelPolicyWorker pid=33472)[0m [transformers] Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2Model is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("meta-llama/Llama-3.2-1B", attn_implementation="flash_attention_2", dtype=torch.float16)`
+[36m(AutomodelPolicyWorker pid=33472)[0m Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]
+[36m(AutomodelPolicyWorker pid=33472)[0m Loading weights:   0%|          | 1/338 [00:00<02:25,  2.31it/s]
+[36m(AutomodelPolicyWorker pid=33472)[0m Loading weights: 100%|██████████| 338/338 [00:01<00:00, 330.19it/s]
+[36m(AutomodelPolicyWorker pid=33469)[0m Loading weights:  44%|████▍     | 149/338 [00:01<00:00, 232.58it/s]Loading weights:  55%|█████▍    | 185/338 [00:01<00:00, 264.83it/s]
+[36m(AutomodelPolicyWorker pid=33472)[0m INFO:nemo_automodel.components.distributed.parallelizer:parallelizer.py:2084: Activation checkpointing scope ('all',) selected 28/28 trainable layers; groups={'language': 28} selected_groups={'language': 28} skipped_frozen=0
+[36m(AutomodelPolicyWorker pid=33476)[0m Loading weights:  97%|█████████▋| 328/338 [00:01<00:00, 509.07it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 272.63it/s]
+[36m(AutomodelPolicyWorker pid=33472)[0m [rank3]:W1120 00:13:13.091000 33472 venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/torch/distributed/tensor/_random.py:215] DTensor is synchronizing RNG states of every rank with the state from rank 0. This behavior is deprecated. Please call `torch.manual_seed()` on every rank that participates in SPMD DTensor Operations with the same seed. If using Pipeline Parallelism, each pipeline state would use a different seed, but all ranks belonging to one pipeline stage would use the same seed.
+[36m(AutomodelPolicyWorker pid=33476)[0m [transformers] `torch_dtype` is deprecated! Use `dtype` instead![32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m /planning-users/yangyeyuan/nemo-rl-4166/RL/venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/torch/distributed/device_mesh.py:760: UserWarning: Slicing a flattened dim from root mesh will be deprecated in PT 2.11. Users need to bookkeep the flattened mesh directly. [32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m   sliced_mesh_layout = self._get_slice_mesh_layout(mesh_dim_names)[32m [repeated 7x across cluster][0m
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                    Policy worker mapping to Nodes and GPUs                                                    |
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+
+|    Node_IP    |    GPU_ID=0   |    GPU_ID=1   |    GPU_ID=2   |    GPU_ID=3   |    GPU_ID=4   |    GPU_ID=5   |    GPU_ID=6   |    GPU_ID=7   |
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+
+| <ip> | ('worker-0',) | ('worker-1',) | ('worker-2',) | ('worker-3',) | ('worker-4',) | ('worker-5',) | ('worker-6',) | ('worker-7',) |
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+
+  ✓ Model initialized
+
+============================================================
+                  SETUP COMPLETE
+============================================================
+
+/planning-users/yangyeyuan/nemo-rl-4166/RL/nemo_rl/algorithms/sft.py:664: UserWarning: NRL_JOB_START_EPOCH is not set; timeout is measured from now
+  timeout = TimeoutChecker(
+[36m(AutomodelPolicyWorker pid=33472)[0m FSDPQwen2ForCausalLM(
+[36m(AutomodelPolicyWorker pid=33472)[0m   (model): Qwen2Model(
+[36m(AutomodelPolicyWorker pid=33472)[0m     (embed_tokens): Embedding(151936, 1536)
+[36m(AutomodelPolicyWorker pid=33472)[0m     (layers): ModuleList(
+[36m(AutomodelPolicyWorker pid=33472)[0m       (0-27): 28 x FSDPCheckpointWrapper(
+[36m(AutomodelPolicyWorker pid=33472)[0m         (_checkpoint_wrapped_module): Qwen2DecoderLayer(
+[36m(AutomodelPolicyWorker pid=33472)[0m           (self_attn): Qwen2Attention(
+[36m(AutomodelPolicyWorker pid=33472)[0m             (q_proj): Linear(in_features=1536, out_features=1536, bias=True)
+[36m(AutomodelPolicyWorker pid=33472)[0m             (k_proj): Linear(in_features=1536, out_features=256, bias=True)
+[36m(AutomodelPolicyWorker pid=33472)[0m             (v_proj): Linear(in_features=1536, out_features=256, bias=True)
+[36m(AutomodelPolicyWorker pid=33472)[0m             (o_proj): Linear(in_features=1536, out_features=1536, bias=False)
+[36m(AutomodelPolicyWorker pid=33472)[0m           )
+[36m(AutomodelPolicyWorker pid=33472)[0m           (mlp): Qwen2MLP(
+[36m(AutomodelPolicyWorker pid=33472)[0m             (gate_proj): Linear(in_features=1536, out_features=8960, bias=False)
+[36m(AutomodelPolicyWorker pid=33472)[0m             (up_proj): Linear(in_features=1536, out_features=8960, bias=False)
+[36m(AutomodelPolicyWorker pid=33472)[0m             (down_proj): Linear(in_features=8960, out_features=1536, bias=False)
+[36m(AutomodelPolicyWorker pid=33472)[0m             (act_fn): SiLUActivation()
+[36m(AutomodelPolicyWorker pid=33472)[0m           )
+[36m(AutomodelPolicyWorker pid=33472)[0m           (input_layernorm): Qwen2RMSNorm((1536,), eps=1e-06)
+[36m(AutomodelPolicyWorker pid=33472)[0m           (post_attention_layernorm): Qwen2RMSNorm((1536,), eps=1e-06)
+[36m(AutomodelPolicyWorker pid=33472)[0m         )
+[36m(AutomodelPolicyWorker pid=33472)[0m       )
+[36m(AutomodelPolicyWorker pid=33472)[0m     )
+[36m(AutomodelPolicyWorker pid=33472)[0m     (norm): Qwen2RMSNorm((1536,), eps=1e-06)
+[36m(AutomodelPolicyWorker pid=33472)[0m     (rotary_emb): Qwen2RotaryEmbedding()
+[36m(AutomodelPolicyWorker pid=33472)[0m   )
+[36m(AutomodelPolicyWorker pid=33472)[0m   (lm_head): Linear(in_features=1536, out_features=151936, bias=False)
+[36m(AutomodelPolicyWorker pid=33472)[0m )
+[36m(AutomodelPolicyWorker pid=33472)[0m No weights path provided. Loaded base HF weights via from_pretrained (default policy init)
+[36m(pid=33471)[0m [ERROR] `loss` is part of Qwen2VLCausalLMOutputWithPast.__init__'s signature, but not documented. Make sure to add it to the docstring of the function in /planning-users/yangyeyuan/nemo-rl-4166/RL/venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py.[32m [repeated 13x across cluster][0m
+[36m(pid=33471)[0m [ERROR] `logits` is part of Qwen2VLCausalLMOutputWithPast.__init__'s signature, but not documented. Make sure to add it to the docstring of the function in /planning-users/yangyeyuan/nemo-rl-4166/RL/venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py.[32m [repeated 13x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m Applying Triton fix to /planning-users/yangyeyuan/nemo-rl-4166/RL/venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/transformer_engine/pytorch/triton/permutation.py...[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m Using custom chat template[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m Initializing AutomodelPolicyWorker with is_vlm=False[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m [Rank 0] Sequence packing is enabled for model Qwen/Qwen2.5-1.5B[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m [Rank 0] Using FlashAttention2 for sequence packing[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m [Rank 7] Initializing model via from_pretrained...[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m WARNING: Custom model for Qwen2ForCausalLM uses an adapter that does not implement 'convert_single_tensor_to_hf' (required for weight syncing). Auto-setting force_hf=True. To silence this warning, explicitly set `policy.automodel_cfg.automodel_kwargs.force_hf=true` in your config.[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33470)[0m FSDPQwen2ForCausalLM(
+[36m(AutomodelPolicyWorker pid=33474)[0m FSDPQwen2ForCausalLM(
+[36m(AutomodelPolicyWorker pid=33471)[0m FSDPQwen2ForCausalLM(
+[36m(AutomodelPolicyWorker pid=33475)[0m FSDPQwen2ForCausalLM(
+[36m(AutomodelPolicyWorker pid=33469)[0m FSDPQwen2ForCausalLM(
+[36m(AutomodelPolicyWorker pid=33473)[0m FSDPQwen2ForCausalLM(
+[36m(AutomodelPolicyWorker pid=33476)[0m FSDPQwen2ForCausalLM(
+
+========================= Epoch 1/1 =========================
+/planning-users/yangyeyuan/nemo-rl-4166/RL/nemo_rl/data/llm_message_utils.py:678: UserWarning: add_bos_token is True but the tokenizer does not have a BOS token. Skipping BOS token addition.
+  warnings.warn(
+skip assert_start_single_bos since Tokenizer Qwen/Qwen2.5-1.5B has no BOS token
+
+========================= Step 1/20 =========================
+▶ Preparing batch...
+▶ Taking a training step...
+[36m(AutomodelPolicyWorker[rank=3] pid=33472)[0m /planning-users/yangyeyuan/nemo-rl-4166/RL/nemo_rl/models/policy/workers/automodel_policy_worker.py:850: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+[36m(AutomodelPolicyWorker[rank=3] pid=33472)[0m   grad_norm = torch.tensor(
+[36m(AutomodelPolicyWorker pid=33476)[0m [transformers] Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2Model is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("meta-llama/Llama-3.2-1B", attn_implementation="flash_attention_2", dtype=torch.float16)`[32m [repeated 14x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m Loading weights:   0%|          | 0/338 [00:00<?, ?it/s][32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m Loading weights:  76%|███████▌  | 257/338 [00:01<00:00, 439.14it/s][32m [repeated 52x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33469)[0m Loading weights: 100%|██████████| 338/338 [00:01<00:00, 256.35it/s][32m [repeated 6x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33469)[0m INFO:nemo_automodel.components.distributed.parallelizer:parallelizer.py:2084: Activation checkpointing scope ('all',) selected 28/28 trainable layers; groups={'language': 28} selected_groups={'language': 28} skipped_frozen=0[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m [rank7]:W1120 00:13:13.090000 33476 venvs/nemo_rl.models.policy.workers.automodel_policy_worker.AutomodelPolicyWorker/lib/python3.13/site-packages/torch/distributed/tensor/_random.py:215] DTensor is synchronizing RNG states of every rank with the state from rank 0. This behavior is deprecated. Please call `torch.manual_seed()` on every rank that participates in SPMD DTensor Operations with the same seed. If using Pipeline Parallelism, each pipeline state would use a different seed, but all ranks belonging to one pipeline stage would use the same seed.[32m [repeated 6x across cluster][0m
+/planning-users/yangyeyuan/nemo-rl-4166/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/3rdparty/Megatron-LM/megatron/core/optimizer/__init__.py:25: UserWarning: Transformer Engine and Apex are not installed. Falling back to Torch optimizers.
+  warnings.warn(
+/planning-users/yangyeyuan/nemo-rl-4166/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/3rdparty/Megatron-LM/megatron/core/distributed/fsdp/src/megatron_fsdp/mixed_precision.py:115: UserWarning: Transformer Engine and Apex are not installed. Falling back to local implementations of multi_tensor_applier and multi_tensor_scale
+  warnings.warn(
+/planning-users/yangyeyuan/nemo-rl-4166/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/3rdparty/Megatron-LM/megatron/core/optimizer/optimizer.py:29: UserWarning: Transformer Engine and Apex are not installed. Falling back to local implementations of multi_tensor_applier and multi_tensor_scale
+  warnings.warn(
+/planning-users/yangyeyuan/nemo-rl-4166/RL/3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/3rdparty/Megatron-LM/megatron/core/optimizer/clip_grads.py:32: UserWarning: Transformer Engine and Apex are not installed. Falling back to local implementations of multi_tensor_applier, multi_tensor_l2norm, and multi_tensor_scale
+  warnings.warn(
+/planning-users/yangyeyuan/nemo-rl-4166/RL/nemo_rl/models/policy/lm_policy.py:1079: UserWarning: Error getting theoretical flops: Unknown device name: NVIDIA H20-3e and dtype name: torch.bfloat16
+  warnings.warn(f"Error getting theoretical flops: {e}")
+
+📊 Training Results:
+  • Loss: 0.7572
+  • Training FLOPS: 15.29 TFLOPS (1.91 TFLOPS per rank)
+
+⏱️  Timing:
+  • Total step time: 17.15s
+  • policy_training: 17.14s (99.9%)
+  • policy_training/submit_training_futures: 0.01s (0.1%)
+  • data_processing: 0.01s (0.1%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+
+========================= Step 2/20 =========================
+▶ Preparing batch...
+▶ Taking a training step...
+
+📊 Training Results:
+  • Loss: 0.5163
+  • Training FLOPS: 22.46 TFLOPS (2.81 TFLOPS per rank)
+
+⏱️  Timing:
+  • Total step time: 10.96s
+  • policy_training: 10.95s (99.9%)
+  • policy_training/submit_training_futures: 0.01s (0.1%)
+  • data_processing: 0.01s (0.0%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+
+========================= Step 3/20 =========================
+▶ Preparing batch...
+▶ Taking a training step...
+
+📊 Training Results:
+  • Loss: 0.4072
+  • Training FLOPS: 22.78 TFLOPS (2.85 TFLOPS per rank)
+
+⏱️  Timing:
+  • Total step time: 10.97s
+  • policy_training: 10.96s (99.9%)
+  • policy_training/submit_training_futures: 0.01s (0.1%)
+  • data_processing: 0.01s (0.1%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+
+========================= Step 4/20 =========================
+▶ Preparing batch...
+▶ Taking a training step...
+
+📊 Training Results:
+  • Loss: 0.3685
+  • Training FLOPS: 21.82 TFLOPS (2.73 TFLOPS per rank)
+
+⏱️  Timing:
+  • Total step time: 10.96s
+  • policy_training: 10.95s (99.9%)
+  • data_processing: 0.01s (0.0%)
+  • policy_training/submit_training_futures: 0.00s (0.0%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+
+========================= Step 5/20 =========================
+▶ Preparing batch...
+▶ Taking a training step...
+
+📊 Training Results:
+  • Loss: 0.2608
+  • Training FLOPS: 20.47 TFLOPS (2.56 TFLOPS per rank)
+
+⏱️  Timing:
+  • Total step time: 11.06s
+  • policy_training: 11.05s (99.9%)
+  • data_processing: 0.01s (0.0%)
+  • policy_training/submit_training_futures: 0.00s (0.0%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+
+========================= Step 6/20 =========================
+▶ Preparing batch...
+▶ Taking a training step...
+
+📊 Training Results:
+  • Loss: 0.2769
+  • Training FLOPS: 23.71 TFLOPS (2.96 TFLOPS per rank)
+
+⏱️  Timing:
+  • Total step time: 11.10s
+  • policy_training: 11.09s (99.9%)
+  • data_processing: 0.01s (0.0%)
+  • policy_training/submit_training_futures: 0.01s (0.0%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+
+========================= Step 7/20 =========================
+▶ Preparing batch...
+▶ Taking a training step...
+
+📊 Training Results:
+  • Loss: 0.3512
+  • Training FLOPS: 19.94 TFLOPS (2.49 TFLOPS per rank)
+
+⏱️  Timing:
+  • Total step time: 11.35s
+  • policy_training: 11.34s (99.9%)
+  • data_processing: 0.01s (0.1%)
+  • policy_training/submit_training_futures: 0.01s (0.0%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+
+========================= Step 8/20 =========================
+▶ Preparing batch...
+▶ Taking a training step...
+
+📊 Training Results:
+  • Loss: 0.3131
+  • Training FLOPS: 22.70 TFLOPS (2.84 TFLOPS per rank)
+
+⏱️  Timing:
+  • Total step time: 11.13s
+  • policy_training: 11.12s (99.9%)
+  • policy_training/submit_training_futures: 0.01s (0.0%)
+  • data_processing: 0.01s (0.0%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+
+========================= Step 9/20 =========================
+▶ Preparing batch...
+▶ Taking a training step...
+
+📊 Training Results:
+  • Loss: 0.3399
+  • Training FLOPS: 22.55 TFLOPS (2.82 TFLOPS per rank)
+
+⏱️  Timing:
+  • Total step time: 10.96s
+  • policy_training: 10.96s (99.9%)
+  • data_processing: 0.01s (0.0%)
+  • policy_training/submit_training_futures: 0.01s (0.0%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+
+========================= Step 10/20 =========================
+▶ Preparing batch...
+▶ Taking a training step...
+
+📊 Training Results:
+  • Loss: 0.2937
+  • Training FLOPS: 23.15 TFLOPS (2.89 TFLOPS per rank)
+
+⏱️  Timing:
+  • Total step time: 10.95s
+  • policy_training: 10.94s (99.9%)
+  • data_processing: 0.01s (0.0%)
+  • policy_training/submit_training_futures: 0.01s (0.0%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+
+========================= Step 11/20 =========================
+▶ Preparing batch...
+▶ Taking a training step...
+
+📊 Training Results:
+  • Loss: 0.3134
+  • Training FLOPS: 21.84 TFLOPS (2.73 TFLOPS per rank)
+
+⏱️  Timing:
+  • Total step time: 10.95s
+  • policy_training: 10.94s (99.9%)
+  • policy_training/submit_training_futures: 0.01s (0.0%)
+  • data_processing: 0.01s (0.0%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+
+========================= Step 12/20 =========================
+▶ Preparing batch...
+▶ Taking a training step...
+
+📊 Training Results:
+  • Loss: 0.3399
+  • Training FLOPS: 21.72 TFLOPS (2.71 TFLOPS per rank)
+
+⏱️  Timing:
+  • Total step time: 10.93s
+  • policy_training: 10.92s (100.0%)
+  • policy_training/submit_training_futures: 0.01s (0.0%)
+  • data_processing: 0.00s (0.0%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+
+========================= Step 13/20 =========================
+▶ Preparing batch...
+▶ Taking a training step...
+
+📊 Training Results:
+  • Loss: 0.2987
+  • Training FLOPS: 22.32 TFLOPS (2.79 TFLOPS per rank)
+
+⏱️  Timing:
+  • Total step time: 10.78s
+  • policy_training: 10.77s (99.9%)
+  • policy_training/submit_training_futures: 0.01s (0.1%)
+  • data_processing: 0.01s (0.0%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+
+========================= Step 14/20 =========================
+▶ Preparing batch...
+▶ Taking a training step...
+
+📊 Training Results:
+  • Loss: 0.2826
+  • Training FLOPS: 21.51 TFLOPS (2.69 TFLOPS per rank)
+
+⏱️  Timing:
+  • Total step time: 11.10s
+  • policy_training: 11.10s (99.9%)
+  • policy_training/submit_training_futures: 0.01s (0.1%)
+  • data_processing: 0.01s (0.0%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+
+========================= Step 15/20 =========================
+▶ Preparing batch...
+▶ Taking a training step...
+
+📊 Training Results:
+  • Loss: 0.3388
+  • Training FLOPS: 21.45 TFLOPS (2.68 TFLOPS per rank)
+
+⏱️  Timing:
+  • Total step time: 11.04s
+  • policy_training: 11.04s (99.9%)
+  • data_processing: 0.01s (0.0%)
+  • policy_training/submit_training_futures: 0.00s (0.0%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+
+========================= Step 16/20 =========================
+▶ Preparing batch...
+▶ Taking a training step...
+
+📊 Training Results:
+  • Loss: 0.2770
+  • Training FLOPS: 22.34 TFLOPS (2.79 TFLOPS per rank)
+
+⏱️  Timing:
+  • Total step time: 11.02s
+  • policy_training: 11.02s (99.9%)
+  • data_processing: 0.01s (0.0%)
+  • policy_training/submit_training_futures: 0.00s (0.0%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+
+========================= Step 17/20 =========================
+▶ Preparing batch...
+▶ Taking a training step...
+
+📊 Training Results:
+  • Loss: 0.2623
+  • Training FLOPS: 21.50 TFLOPS (2.69 TFLOPS per rank)
+
+⏱️  Timing:
+  • Total step time: 10.93s
+  • policy_training: 10.93s (99.9%)
+  • policy_training/submit_training_futures: 0.01s (0.1%)
+  • data_processing: 0.01s (0.0%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+
+========================= Step 18/20 =========================
+▶ Preparing batch...
+▶ Taking a training step...
+
+📊 Training Results:
+  • Loss: 0.3748
+  • Training FLOPS: 22.32 TFLOPS (2.79 TFLOPS per rank)
+
+⏱️  Timing:
+  • Total step time: 10.95s
+  • policy_training: 10.95s (100.0%)
+  • policy_training/submit_training_futures: 0.01s (0.0%)
+  • data_processing: 0.00s (0.0%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+
+========================= Step 19/20 =========================
+▶ Preparing batch...
+▶ Taking a training step...
+
+📊 Training Results:
+  • Loss: 0.2785
+  • Training FLOPS: 21.76 TFLOPS (2.72 TFLOPS per rank)
+
+⏱️  Timing:
+  • Total step time: 10.98s
+  • policy_training: 10.98s (99.9%)
+  • data_processing: 0.01s (0.0%)
+  • policy_training/submit_training_futures: 0.00s (0.0%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+
+========================= Step 20/20 =========================
+▶ Preparing batch...
+▶ Taking a training step...
+
+📊 Training Results:
+  • Loss: 0.2943
+  • Training FLOPS: 22.29 TFLOPS (2.79 TFLOPS per rank)
+
+⏱️  Timing:
+  • Total step time: 11.06s
+  • policy_training: 11.05s (99.9%)
+  • data_processing: 0.01s (0.0%)
+  • policy_training/submit_training_futures: 0.01s (0.0%)
+  • policy_training/sharding_data: 0.00s (0.0%)
+Max number of steps has been reached, stopping training early
+[36m(AutomodelPolicyWorker pid=33476)[0m   (model): Qwen2Model([32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m     (embed_tokens): Embedding(151936, 1536)[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m     (layers): ModuleList([32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m       (0-27): 28 x FSDPCheckpointWrapper([32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m         (_checkpoint_wrapped_module): Qwen2DecoderLayer([32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m           (self_attn): Qwen2Attention([32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m             (q_proj): Linear(in_features=1536, out_features=1536, bias=True)[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m             (k_proj): Linear(in_features=1536, out_features=256, bias=True)[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m             (v_proj): Linear(in_features=1536, out_features=256, bias=True)[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m             (o_proj): Linear(in_features=1536, out_features=1536, bias=False)[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m )[32m [repeated 49x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m           (mlp): Qwen2MLP([32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m             (gate_proj): Linear(in_features=1536, out_features=8960, bias=False)[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m             (up_proj): Linear(in_features=1536, out_features=8960, bias=False)[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m             (down_proj): Linear(in_features=8960, out_features=1536, bias=False)[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m             (act_fn): SiLUActivation()[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m           (input_layernorm): Qwen2RMSNorm((1536,), eps=1e-06)[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m           (post_attention_layernorm): Qwen2RMSNorm((1536,), eps=1e-06)[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m     (norm): Qwen2RMSNorm((1536,), eps=1e-06)[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m     (rotary_emb): Qwen2RotaryEmbedding()[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m   (lm_head): Linear(in_features=1536, out_features=151936, bias=False)[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker pid=33476)[0m No weights path provided. Loaded base HF weights via from_pretrained (default policy init)[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker[rank=7] pid=33476)[0m /planning-users/yangyeyuan/nemo-rl-4166/RL/nemo_rl/models/policy/workers/automodel_policy_worker.py:850: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).[32m [repeated 7x across cluster][0m
+[36m(AutomodelPolicyWorker[rank=7] pid=33476)[0m   grad_norm = torch.tensor([32m [repeated 7x across cluster][0m
+Error during policy shutdown: sys.meta_path is None, Python is likely shutting down
+[sft-offload] done

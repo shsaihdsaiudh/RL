@@ -1,0 +1,5 @@
+torch=2.13.0+cu130 seq=32768 n_experts=32 mode=head dispatcher=deepep experts=gmm gpu=NVIDIA H20
+RESULT {"tag": "head", "chunk": null, "retained_gib": 24.000122547149658, "fwd_peak_gib": 40.0, "bwd_peak_gib": 56.000123023986816}
+RESULT {"tag": "head", "chunk": 2048, "retained_gib": 23.500122547149658, "fwd_peak_gib": 25.00011444091797, "bwd_peak_gib": 38.000245094299316}
+RESULT {"tag": "head", "chunk": "nemo_rl:2048", "retained_gib": 8.000397205352783, "fwd_peak_gib": 10.00042724609375, "bwd_peak_gib": 17.250123023986816}
+CHECK DONE
